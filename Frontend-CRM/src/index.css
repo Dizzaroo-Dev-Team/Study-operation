@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dizzaroo Brand Global Styles */
+@layer base {
+  :root {
+    /* Force the light theme regardless of OS dark mode. `only` also opts out of
+     * the browser's forced auto-darkening (Chrome/Edge auto dark mode), which can
+     * re-darken a page even when no dark CSS exists. Mirrors the meta tag in
+     * index.html — both are needed (meta covers first paint, CSS covers SPA life). */
+    color-scheme: only light;
+
+    /* Brand Colors as CSS Variables */
+    --dizzaroo-deep-blue: #1E73BE;
+    --dizzaroo-deep-blue-light: #4A9FE8;
+    --dizzaroo-deep-blue-dark: #155A94;
+    --dizzaroo-soft-green: #76C893;
+    --dizzaroo-soft-green-light: #A4D9B5;
+    --dizzaroo-soft-green-dark: #5BA374;
+    --dizzaroo-blue-green: #168AAD;
+    --dizzaroo-blue-green-light: #4BA8C5;
+    --dizzaroo-blue-green-dark: #116B87;
+    
+    /* DNA Gradient */
+    --dizzaroo-gradient: linear-gradient(135deg, #168AAD, #76C893);
+  }
+  
+  * {
+    font-family: 'Urbanist', sans-serif;
+  }
+  
+  body {
+    font-family: 'Urbanist', sans-serif;
+    @apply antialiased;
+    font-feature-settings: "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Typography with Urbanist adjustments */
+  /* Note: Use text-title, text-heading, text-subheading, text-body, text-medium-body utilities directly in components */
+  /* These are defined in tailwind.config.js and can be used as classes */
+}
+
+@layer components {
+  /* Brand-specific utility classes */
+  .dizzaroo-gradient {
+    background: linear-gradient(135deg, #168AAD, #76C893);
+  }
+  
+  .dizzaroo-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #168AAD, #76C893);
+  }
+  
+  .dizzaroo-shadow {
+    box-shadow: 0 4px 14px 0 rgba(30, 115, 190, 0.15);
+  }
+  
+  .dizzaroo-shadow-lg {
+    box-shadow: 0 10px 25px -5px rgba(30, 115, 190, 0.2);
+  }
+}
+
+/* Ensure scrolling works properly */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Smooth scrolling */
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply text-slate-900;
+    /* Soft three-stop background so the app reads less white-clinical and
+     * more lived-in. Stops follow the brand palette so cards/UI on top still
+     * feel coherent. */
+    background:
+      radial-gradient(at 0% 0%, rgba(22, 138, 173, 0.06) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(118, 200, 147, 0.05) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(30, 115, 190, 0.04) 0px, transparent 60%),
+      #f8fafc;
+    background-attachment: fixed;
+  }
+}
+
+/* Onboarding animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Phase-2 microinteractions — used by new components. Respect reduced-motion. */
+@keyframes crm-shimmer {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+@keyframes crm-pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(22, 138, 173, 0.45); }
+  70% { box-shadow: 0 0 0 8px rgba(22, 138, 173, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(22, 138, 173, 0); }
+}
+.crm-shimmer { animation: crm-shimmer 1.2s ease-in-out infinite; }
+.crm-pulse { animation: crm-pulse-ring 1.4s ease-out 1; }
+
+/* Card hover elevation. New components use shadow-card by default and pick
+ * this class up when they want a hover lift. */
+.crm-card-hover {
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+.crm-card-hover:hover {
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 0.06), 0 4px 12px 0 rgb(0 0 0 / 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crm-shimmer, .crm-pulse, .crm-card-hover { animation: none !important; transition: none !important; }
+}

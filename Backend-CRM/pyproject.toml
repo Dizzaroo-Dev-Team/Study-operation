@@ -1,0 +1,61 @@
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+extend-exclude = ["alembic/", "tests/"]
+
+[tool.ruff.lint]
+# Conservative, explicit allowlist: enforce ONLY the SonarQube "safe-bulk"
+# categories so `ruff check` doesn't surface thousands of unrelated findings.
+#   F541   f-string without any placeholders        (safe autofix)
+#   DTZ003 datetime.utcnow() used                    (no autofix)
+#   DTZ004 datetime.utcfromtimestamp() used          (no autofix)
+#   TRY400 use logging.exception in except handlers  (no safe autofix)
+#
+# Bug-family rules added June 2026 after a live UnboundLocalError shipped
+# (an inner `import asyncio` shadowed the module-level one). These two are kept
+# OUT of the broad pyflakes `F` family on purpose — `F401` (unused import) alone
+# floods 950+ pre-existing hits. The two below are surgical and near-clean:
+#   F821   undefined name                             (caught 2 real latent bugs)
+#   F823   local variable referenced before assignment (the asyncio-shadow rule; 0 pre-existing)
+select = ["F541", "F821", "F823", "DTZ003", "DTZ004", "TRY400"]
+# Guardrail: even an accidental `ruff check --fix` can only ever touch F541.
+unfixable = ["DTZ003", "DTZ004", "TRY400", "F821", "F823"]
+
+# ERA001 (commented-out code) is intentionally NOT enforced. It was triaged once
+# manually (June 2026): two genuinely dead blocks were removed (app/config.py
+# legacy Settings, app/workers/celery_app.py old Celery setups); the remaining
+# ~41 hits are legitimate documentation comments (endpoint banner headers,
+# seed-tuple/enum/state-machine docs, ops runbook hints) and are false positives
+# here. Re-enable ad hoc with `ruff check --select ERA001` for a future review.
+
+# ---------------------------------------------------------------------------
+# mypy — type checking, tuned to THIS codebase's reality (June 2026)
+# ---------------------------------------------------------------------------
+# Goal: catch the *crash-class* bug family that bit us in live testing — the
+# dict-vs-object footgun (Mongo crud/repository helpers return normalized
+# dicts; accessing `.attribute` on them raises `'dict' object has no attribute`).
+# This is NOT a "type the whole codebase" effort — almost nothing here is
+# annotated, so strict mode would flood. The config below is deliberately
+# lenient on missing annotations but checks the bodies of untyped functions so
+# the dict-attr bug is still caught.
+#
+# Run:  python -m mypy app/modules/communications/
+#
+# Disabled error codes (proven noise on this untyped, defensively-written code):
+#   union-attr    fires on every `x.value if isinstance(x, str) else x.value`
+#                 defensive ternary — mypy can't see the guard narrows it.
+#                 All current hits were false positives.
+#   arg-type / return-value / assignment
+#                 strictness findings on untyped helpers — net noise, not crashes.
+# With these off, mypy on the communications module returns ONLY real crash bugs
+# (currently the 2 `attr-defined` dict-vs-object hits in the thread-attachment
+# reload paths). Remove a disable to ratchet strictness up later.
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+follow_imports = "silent"
+check_untyped_defs = true
+disallow_untyped_defs = false
+warn_return_any = false
+warn_unused_ignores = false
+disable_error_code = ["union-attr", "arg-type", "return-value", "assignment"]

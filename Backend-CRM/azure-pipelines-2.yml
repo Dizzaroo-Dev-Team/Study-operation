@@ -1,0 +1,81 @@
+trigger:
+- main
+
+variables:
+  imageRepository: 'backend-crm'
+  dockerRegistryServiceConnection: 'CRM-Connection-registry'
+  vmImageName: 'ubuntu-latest'
+  imageTag: 'latest'
+
+stages:
+# Agent-eval toolkit self-tests: deterministic graders over fixture traces.
+# No DB, no LLM, no secrets — must stay green on every push. See
+# agent_evals/README.md.
+- stage: AgentEvalSelfTests
+  displayName: Agent-eval toolkit self-tests
+  jobs:
+  - job: SelfTest
+    displayName: Deterministic eval self-tests
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.11'
+    - script: |
+        pip install -r agent_evals/requirements.txt
+        deepeval test run agent_evals/test_toolkit_selftest.py
+        python -m pytest agent_evals/test_live_scorer_selftest.py -q
+      displayName: deepeval test run (self-tests) + live-scorer self-tests
+      env:
+        DEEPEVAL_TELEMETRY_OPT_OUT: 'YES'
+
+# Live Orbit agent evals — OPT-IN (set pipeline variable RUN_ORBIT_LIVE_EVALS
+# to 'true'). Needs an environment with the seeded dev DB/Mongo/Redis plus
+# GEMINI_API_KEY (map them as secret pipeline variables below). Hosted agents
+# have neither by default, hence the gate.
+- stage: OrbitLiveEvals
+  displayName: Orbit live agent evals (opt-in)
+  dependsOn: AgentEvalSelfTests
+  condition: and(succeeded(), eq(variables['RUN_ORBIT_LIVE_EVALS'], 'true'))
+  jobs:
+  - job: LiveEvals
+    displayName: deepeval test run (live Orbit goldens)
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.11'
+    - script: |
+        pip install -r requirements.txt -r agent_evals/requirements.txt
+        deepeval test run agent_evals/test_orbit_evals.py
+      displayName: Run Orbit eval suite
+      env:
+        DEEPEVAL_TELEMETRY_OPT_OUT: 'YES'
+        PYTHONPATH: '.'
+        # Map these from secret pipeline variables / variable groups:
+        GEMINI_API_KEY: $(GEMINI_API_KEY)
+        DATABASE_URL: $(EVAL_DATABASE_URL)
+        MONGODB_URI: $(EVAL_MONGODB_URI)
+        REDIS_URL: $(EVAL_REDIS_URL)
+
+- stage: BuildAndPush
+  displayName: Build and Push Docker Image
+  dependsOn: AgentEvalSelfTests
+  condition: succeeded('AgentEvalSelfTests')
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: Build and push image to ACR
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: Dockerfile
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(imageTag)

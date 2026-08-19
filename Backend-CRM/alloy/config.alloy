@@ -1,0 +1,51 @@
+// Grafana Alloy config — scrapes the CRM backend's /metrics endpoint and
+// pushes the samples to Grafana Cloud Prometheus.
+//
+// Lives at /etc/alloy/config.alloy inside the `alloy` container; the host
+// path Backend-CRM/alloy/config.alloy is mounted in via docker-compose.
+//
+// Secrets are read from env vars (defined in docker-compose `environment`)
+// so this file is safe to commit. Never inline the Grafana Cloud token here.
+
+// -----------------------------------------------------------------------------
+// 1. Scrape the CRM backend /metrics endpoint
+// -----------------------------------------------------------------------------
+// Target is the PUBLIC Azure App Service URL because Alloy may run on a
+// different machine than the backend (your laptop vs prod). If you later
+// run Alloy inside the same docker-compose network as the backend, swap
+// the target to `backend:8000` and drop the Bearer auth (or keep it — the
+// METRICS_TOKEN gate works either way).
+prometheus.scrape "crm_backend" {
+  targets = [
+    {
+      __address__ = "api-study-operation.dizzaroo.com",
+      job         = "crm-backend",
+      env         = "prod",
+    },
+  ]
+  scheme          = "https"
+  metrics_path    = "/metrics"
+  scrape_interval = "30s"
+  scrape_timeout  = "10s"
+
+  // Bearer token gate — matches the METRICS_TOKEN check in
+  // app/middleware/timing.py::mount_metrics_endpoint.
+  bearer_token = sys.env("METRICS_TOKEN")
+
+  forward_to = [prometheus.remote_write.metrics_hosted_prometheus.receiver]
+}
+
+// -----------------------------------------------------------------------------
+// 2. Push scraped samples to Grafana Cloud (your account)
+// -----------------------------------------------------------------------------
+prometheus.remote_write "metrics_hosted_prometheus" {
+  endpoint {
+    name = "hosted-prometheus"
+    url  = "https://prometheus-prod-43-prod-ap-south-1.grafana.net/api/prom/push"
+
+    basic_auth {
+      username = sys.env("GRAFANA_CLOUD_USERNAME")
+      password = sys.env("GRAFANA_CLOUD_TOKEN")
+    }
+  }
+}

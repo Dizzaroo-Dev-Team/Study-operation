@@ -1,0 +1,34 @@
+# Secrets — never bake into the image. Local runs get env from
+# docker-compose `env_file: .env`; prod gets it from App Service settings.
+.env
+.env.*
+
+# VCS + tool caches
+.git
+.gitignore
+.mypy_cache
+.pytest_cache
+.ruff_cache
+__pycache__
+**/__pycache__
+*.pyc
+
+# Virtualenvs
+.venv
+venv
+env
+
+# Local runtime data / artifacts — provided by bind mounts or created at
+# runtime, must not be frozen into the image
+uploads
+signed_artifacts
+temp
+alloy
+
+# Local-only files
+docker-compose.yml
+azure-pipelines-2.yml
+package-lock.json
+local_schema.sql
+=2.3
+=2.7

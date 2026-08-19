@@ -1,0 +1,369 @@
+/*
+ * CTRLM CTMS Dashboards mockup — verbatim port from ctrlm_ctms_dashboards_mockup.html
+ * (kept under d:/CRM_Final/ as the design reference).
+ *
+ * Every selector is descendant-scoped under `.ctms-root` so the mockup's very
+ * generic class names (`.ab`, `.sec`, `.kpi`, `.cell.ok`, etc.) don't collide
+ * with Tailwind utilities or anything else in the app. CSS variables are
+ * defined on `.ctms-root` so they inherit only inside the dashboard.
+ *
+ * If you change a colour token, change it here (do NOT add a second source of
+ * truth). When wiring a new section to live data, keep the original mockup
+ * class names — that's how the look is preserved 1:1.
+ */
+
+.ctms-root {
+  /* Light-mode tokens */
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f4ee;
+  --color-background-tertiary: #ebe9e0;
+  --color-background-info: #E6F1FB;
+  --color-background-success: #E1F5EE;
+  --color-background-warning: #FAEEDA;
+  --color-background-danger: #FCEBEB;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #5f5e5a;
+  --color-text-tertiary: #888780;
+  --color-text-info: #185FA5;
+  --color-text-success: #0F6E56;
+  --color-text-warning: #854F0B;
+  --color-text-danger: #A32D2D;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --color-border-secondary: rgba(0,0,0,0.2);
+  --color-border-primary: rgba(0,0,0,0.3);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --page-bg: #faf9f5;
+
+  background: var(--page-bg);
+  color: var(--color-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 24px 20px;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+/* Dark-mode tokens still scoped to the dashboard so they don't leak. */
+@media (prefers-color-scheme: dark) {
+  .ctms-root {
+    --color-background-primary: #1f1f1d;
+    --color-background-secondary: #2a2a27;
+    --color-background-tertiary: #363632;
+    --color-background-info: #0C447C;
+    --color-background-success: #085041;
+    --color-background-warning: #633806;
+    --color-background-danger: #791F1F;
+    --color-text-primary: #ebebe8;
+    --color-text-secondary: #aaa9a3;
+    --color-text-tertiary: #82817b;
+    --color-text-info: #B5D4F4;
+    --color-text-success: #9FE1CB;
+    --color-text-warning: #FAC775;
+    --color-text-danger: #F7C1C1;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+    --color-border-secondary: rgba(255,255,255,0.22);
+    --color-border-primary: rgba(255,255,255,0.32);
+    --page-bg: #18181a;
+  }
+}
+
+.ctms-root * { box-sizing: border-box; }
+
+.ctms-root .page {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.ctms-root .page-header {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.ctms-root .page-header h1 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.ctms-root .page-header p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.ctms-root .page-footer {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 0.5px solid var(--color-border-tertiary);
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  text-align: center;
+}
+
+/* Action bar */
+.ctms-root .ab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 10px;
+  font-size: 13px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ctms-root .ab .l { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.ctms-root .ab .study { font-weight: 500; font-size: 14px; }
+.ctms-root .ab .meta { color: var(--color-text-secondary); font-size: 12px; }
+.ctms-root .ab .pt { display: flex; gap: 3px; background: var(--color-background-primary); padding: 3px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); }
+.ctms-root .ab .pt button {
+  font-family: inherit;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+}
+.ctms-root .ab .pt button.on { background: var(--color-background-secondary); color: var(--color-text-primary); font-weight: 500; }
+
+/* Dashboard nav */
+.ctms-root .dn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 20px;
+  padding: 8px;
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+}
+.ctms-root .dn a {
+  font-size: 11px;
+  padding: 4px 9px;
+  border-radius: 6px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  cursor: pointer;
+}
+.ctms-root .dn a:hover { color: var(--color-text-primary); border-color: var(--color-border-secondary); }
+
+/* Section card */
+.ctms-root .sec {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 16px;
+  margin-bottom: 14px;
+  scroll-margin-top: 10px;
+}
+.ctms-root .sec h3 { margin: 0; font-size: 15px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+.ctms-root .sec h3 .num { font-size: 11px; color: var(--color-text-secondary); background: var(--color-background-secondary); padding: 2px 7px; border-radius: 6px; font-weight: 500; }
+.ctms-root .sec .sub { font-size: 12px; color: var(--color-text-secondary); margin: 3px 0 14px; }
+
+/* KPI tiles */
+.ctms-root .kg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.ctms-root .kpi {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 12px;
+}
+.ctms-root .kl { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; }
+.ctms-root .kv { font-size: 20px; font-weight: 500; line-height: 1.1; }
+.ctms-root .kd { font-size: 11px; color: var(--color-text-secondary); margin-top: 3px; }
+.ctms-root .kd.up { color: var(--color-text-success); }
+.ctms-root .kd.dn { color: var(--color-text-danger); }
+
+/* Column layouts */
+.ctms-root .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ctms-root .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+@media (max-width: 640px) {
+  .ctms-root .row2, .ctms-root .row3 { grid-template-columns: 1fr; }
+}
+
+/* Card content */
+.ctms-root .cc {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 12px;
+}
+.ctms-root .ct {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Tables */
+.ctms-root table.d { width: 100%; font-size: 12px; border-collapse: collapse; }
+.ctms-root table.d th { text-align: left; font-weight: 500; color: var(--color-text-secondary); padding: 6px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 11px; }
+.ctms-root table.d td { padding: 7px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.ctms-root table.d tr:last-child td { border-bottom: 0; }
+.ctms-root table.d th.r, .ctms-root table.d td.r { text-align: right; }
+
+/* Status pills */
+.ctms-root .p {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.ctms-root .pg { background: var(--color-background-success); color: var(--color-text-success); }
+.ctms-root .pa { background: var(--color-background-warning); color: var(--color-text-warning); }
+.ctms-root .pr { background: var(--color-background-danger); color: var(--color-text-danger); }
+.ctms-root .pi { background: var(--color-background-info); color: var(--color-text-info); }
+.ctms-root .px { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+
+/* Legend */
+.ctms-root .lg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+.ctms-root .lg span { display: flex; align-items: center; gap: 5px; }
+.ctms-root .lg .sw { width: 10px; height: 10px; border-radius: 2px; }
+
+.ctms-root .fz11 { font-size: 11px; }
+.ctms-root .muted { color: var(--color-text-secondary); }
+.ctms-root .svgwrap { width: 100%; display: block; }
+
+/* Status bar (used in disposition) */
+.ctms-root .bar-hb {
+  display: flex;
+  height: 32px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--color-background-tertiary);
+  margin-bottom: 6px;
+}
+.ctms-root .bar-hb .seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.ctms-root .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: 0;
+}
+
+/* Patient visit matrix specific */
+.ctms-root .pvm-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.ctms-root .pvm-toolbar .ctrls { display: flex; gap: 6px; align-items: center; font-size: 12px; color: var(--color-text-secondary); flex-wrap: wrap; }
+.ctms-root .pvm-toolbar select {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 5px;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+}
+.ctms-root .mt {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-size: 11px;
+  table-layout: fixed;
+}
+.ctms-root .mt th {
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: var(--color-background-secondary);
+  border-radius: 4px;
+}
+.ctms-root .mt th.sub { text-align: left; padding-left: 8px; width: 14%; }
+.ctms-root .mt td { padding: 0; height: 36px; text-align: center; border-radius: 4px; }
+.ctms-root .mt td.sub { text-align: left; padding-left: 8px; font-weight: 500; font-size: 12px; background: transparent; }
+.ctms-root .mt td .cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  border-radius: 4px;
+  line-height: 1.15;
+  padding: 2px;
+}
+.ctms-root .mt td .cell .d { font-size: 11px; font-weight: 500; }
+.ctms-root .mt td .cell .s { font-size: 9px; opacity: 0.85; }
+.ctms-root .ok { background: var(--color-background-success); color: var(--color-text-success); }
+.ctms-root .warn { background: var(--color-background-warning); color: var(--color-text-warning); }
+.ctms-root .bad { background: var(--color-background-danger); color: var(--color-text-danger); }
+.ctms-root .due { background: var(--color-background-info); color: var(--color-text-info); }
+.ctms-root .up { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+.ctms-root .na { background: transparent; color: var(--color-text-tertiary); }
+.ctms-root .dot-act { background: #185FA5; }
+.ctms-root .dot-com { background: #0F6E56; }
+.ctms-root .dot-dis { background: #A32D2D; }
+.ctms-root .dot-scf { background: #854F0B; }
+.ctms-root .foot {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 0.5px solid var(--color-border-tertiary);
+}
+
+/* "Demo data" badge for sections not yet wired to live API */
+.ctms-root .demo-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-text-warning);
+  background: var(--color-background-warning);
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+.ctms-root .live-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-text-success);
+  background: var(--color-background-success);
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}

@@ -1,0 +1,49 @@
+# trigger:
+#   - main
+
+# pool:
+#   vmImage: ubuntu-latest
+
+# steps:
+# - task: NodeTool@0
+#   inputs:
+#     versionSpec: '20.x'
+#   displayName: "Install Node.js"
+
+# - script: |
+#     npm install
+#     npm run build
+#   displayName: "Install and Build Vite App"
+
+# - task: AzureStaticWebApp@0
+#   displayName: "Deploy to Azure Static Web App"
+#   inputs:
+#     app_location: "/"          # root folder
+#     output_location: "dist"    # Vite output folder
+#     azure_static_web_apps_api_token: "$(deployment_token)"
+
+
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+
+- script: |
+    npm install
+    npm run build
+  env:
+    VITE_API_BASE: https://api-study-operation.dizzaroo.com/api
+                          
+
+- task: AzureStaticWebApp@0
+  inputs:
+    app_location: "dist"
+    output_location: ""
+    skip_app_build: true
+    azure_static_web_apps_api_token: "$(deployment_token)"

@@ -1,0 +1,132 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# CRM + ISF Integrated Backend — Python 3.11
+# Installed inside Docker: RUN pip install --no-cache-dir -r requirements.txt
+#
+# VERSION NOTES (upgraded to satisfy ISF module requirements):
+#   fastapi:          0.104.1 → >=0.111.0  (anyio 4.x required by google-genai)
+#   uvicorn:          0.24.0  → >=0.30.0   (compatible with anyio 4.x)
+#   pydantic:         2.5.0   → >=2.7.0    (required by pydantic-settings>=2.3)
+#   pydantic-settings: 2.1.0  → >=2.3.0   (required by ISF core/config.py)
+#   httpx:            0.25.2  → >=0.27.0   (compatible with anyio 4.x)
+#   motor:            3.3.2   → >=3.4.0    (required by ISF async MongoDB)
+#   pymongo:          4.6.1   → >=4.8.0    (required by ISF BSON handling)
+#   python-multipart: 0.0.6   → >=0.0.9   (required by ISF file upload)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Web framework ─────────────────────────────────────────────────────────────
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+gunicorn==21.2.0
+
+# ── Database — PostgreSQL ─────────────────────────────────────────────────────
+# 2.0.36: lowest 2.0.x that fixes the Python 3.13 `TypingOnly` import failure
+# (new __firstlineno__/__static_attributes__ class dunders) AND ships prebuilt
+# cp313 wheels so no C-extension compile is needed on the host. Intra-2.0 patch
+# bump — no API/model changes vs 2.0.23.
+sqlalchemy[asyncio]==2.0.36
+# asyncpg 0.29 only publishes prebuilt wheels for Python 3.8-3.12. On Python
+# 3.13 pip falls back to compiling the C extension, which requires MSVC Build
+# Tools. 0.30+ ships 3.13 wheels and is otherwise drop-in compatible.
+asyncpg>=0.30.0
+alembic==1.12.1
+
+# ── Validation / settings ─────────────────────────────────────────────────────
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+email-validator>=2.1
+
+# ── Task queue ────────────────────────────────────────────────────────────────
+celery[redis]==5.3.4
+redis==4.6.0
+
+# ── HTTP / multipart ──────────────────────────────────────────────────────────
+python-multipart>=0.0.9
+websockets>=12.0
+httpx>=0.27.0
+
+# ── Async SMTP ────────────────────────────────────────────────────────────────
+# Used by `smtp_service.send_email_async` for OTP + signing-invite routes
+# where the user is waiting in-flow. The sync `smtplib`-based send_email
+# remains the path used by the Celery worker (fire-and-forget) — sync is
+# fine inside a worker because the SMTP handshake doesn't block any
+# event loop there.
+aiosmtplib>=3.0
+
+# ── Auth / security ───────────────────────────────────────────────────────────
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+PyJWT==2.8.0
+# Starlette SessionMiddleware signs the session cookie with itsdangerous.
+itsdangerous>=2.2.0
+
+# ── Database — MongoDB ────────────────────────────────────────────────────────
+motor>=3.4.0
+pymongo>=4.8.0
+
+# ── Kafka (IAM ABAC sync, replaces Node kafka-src) ───────────────────────────
+aiokafka>=0.11.0
+
+# ── Document processing (CRM) ─────────────────────────────────────────────────
+weasyprint==60.2
+# pydyf is WeasyPrint's PDF writer (a transitive dep). It MUST be pinned: pydyf
+# 0.10.0 changed PDF() to a no-arg constructor, but WeasyPrint 60.2 still calls
+# pydyf.PDF(version, identifier) — leaving it unpinned lets pip pull 0.10+ and every
+# render dies with "PDF.__init__() takes 1 positional argument but 3 were given"
+# (breaks budget rendering AND generate_document). 0.8.0 is the version WeasyPrint
+# 60.2 declares/was built against (its floor) and the last line before the break.
+# If WeasyPrint is ever upgraded to >=61, bump pydyf to a matching >=0.10 pair.
+pydyf==0.8.0
+reportlab==4.0.4
+mammoth==1.6.0
+pypandoc==1.13
+shortuuid==1.0.11
+nest-asyncio==1.5.8
+
+# ── AI / ML (CRM — older generativeai SDK) ───────────────────────────────────
+google-generativeai>=0.8.0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ISF Module dependencies
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── PDF / DOCX processing ─────────────────────────────────────────────────────
+python-docx>=1.1.0
+pdfplumber>=0.10.3
+PyPDF2>=3.0
+pypdf>=4
+
+# ── Image / XML ───────────────────────────────────────────────────────────────
+pillow>=10.4
+lxml>=4.9
+
+# ── Date / time utilities ─────────────────────────────────────────────────────
+python-dateutil>=2.8.2
+
+# ── Async file I/O ────────────────────────────────────────────────────────────
+aiofiles>=24.1
+
+# ── Azure Blob Storage ────────────────────────────────────────────────────────
+azure-storage-blob>=12.21
+
+# ── Google Gemini AI — newer SDK (ISF AI upload / QC validation) ─────────────
+google-genai>=1.66
+
+# ── Data processing ───────────────────────────────────────────────────────────
+pandas>=2.2
+openpyxl>=3.1
+numpy>=1.26
+
+# ── Async HTTP client ─────────────────────────────────────────────────────────
+aiohttp>=3.9
+
+# ── Observability ─────────────────────────────────────────────────────────────
+# Per-request timing histogram exposed at /metrics. Soft-imported by
+# app/middleware/timing.py, so absence here only disables Prometheus output —
+# X-Response-Time-ms header and slow-request logs still work.
+prometheus-client>=0.20
+
+# ── Tests (site budgeting & future modules) ───────────────────────────────────
+pytest>=8.0
+pytest-asyncio>=0.24
+aiosqlite>=0.19

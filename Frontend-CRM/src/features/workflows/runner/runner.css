@@ -1,0 +1,89 @@
+/* runner/runner.css
+ * VISUAL ONLY — interaction states (hover / active / focus / disabled) for the
+ * unified workflow runner, which inline styles can't express. Scoped under
+ * `.wf-runner` so nothing outside the runner is affected. Enhancements are
+ * non-destructive (no layout/size changes): they only add transitions, a gentle
+ * hover, a focus ring, and a consistent disabled treatment. No behavior changes.
+ */
+
+.wf-runner button {
+  transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.04s ease,
+    background-color 0.15s ease, border-color 0.15s ease;
+}
+.wf-runner button:hover:not(:disabled) {
+  filter: brightness(0.96);
+}
+.wf-runner button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.wf-runner button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Inputs / textareas / selects: smooth focus ring in the runner's indigo accent. */
+.wf-runner input,
+.wf-runner textarea,
+.wf-runner select {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.wf-runner input:focus,
+.wf-runner textarea:focus,
+.wf-runner select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Tidy, unobtrusive scrollbars inside scrollable runner panels. */
+.wf-runner *::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.wf-runner *::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+  border: 2px solid #fff;
+}
+.wf-runner *::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ── Layout: vertical timeline | wide main | collapsible history ──────────── */
+.wf-grid {
+  display: grid;
+  grid-template-columns: 244px minmax(0, 1fr) var(--wf-hist, 324px);
+  grid-template-areas: "timeline main history";
+  gap: 20px;
+  align-items: start;
+}
+.wf-grid.wf-history-collapsed {
+  --wf-hist: 44px;
+}
+.wf-grid > .wf-timeline { grid-area: timeline; min-width: 0; }
+.wf-grid > .wf-main { grid-area: main; min-width: 0; }
+.wf-grid > .wf-history-col { grid-area: history; min-width: 0; }
+
+/* Tablet / smaller desktop: history drops to a full-width row under the content,
+   timeline stays beside the main column. */
+@media (max-width: 1280px) {
+  .wf-grid,
+  .wf-grid.wf-history-collapsed {
+    grid-template-columns: 216px minmax(0, 1fr);
+    grid-template-areas:
+      "timeline main"
+      "history  history";
+  }
+}
+
+/* Narrow: single column, ordered timeline → main → history. */
+@media (max-width: 860px) {
+  .wf-grid,
+  .wf-grid.wf-history-collapsed {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "timeline"
+      "main"
+      "history";
+  }
+}

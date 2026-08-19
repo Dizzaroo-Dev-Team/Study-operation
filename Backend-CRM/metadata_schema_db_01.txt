@@ -1,0 +1,3486 @@
+================================================================================
+Table Name: AE
+Label : Adverse Events
+Description : This domain is typically used to recorddetails of adverse events experienced by subjects during a study, including type, severity, and relationship to study dru
+================================================================================
+Total Columns: 37
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: The Study ID is missing
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: AE
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: The Domain ID is missing
+
+Column Name: AESEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: AELLT
+  Data Type: TEXT
+  Sample Data: Peripheral oedema, Vomiting, Nose bleeds, ...
+  Description:  Lowest Level Term - Dictionary-derived text description of the lowest level term. Null Value here means: The Value is Not Recorded.
+
+Column Name: AELLTCD
+  Data Type: NUMERIC
+  Sample Data: 10034611.0, 10047700.0, 10029793.0, ...
+  Description: Dictionary-derived code for the lowest level term.
+
+Column Name: AEDECOD
+  Data Type: TEXT
+  Sample Data: Oedema peripheral, Vomiting, Epistaxis, ...
+  Description: Dictionary-Derived Term. Equivalent to the Preferred Term (PT in MedDRA). The sponsor is expected to provide the dictionary name and version used to map the terms utilizing the external codelist element in the Define-XML document. Null Value here means: The Value is Not Recorded.
+
+Column Name: AEPTCD
+  Data Type: NUMERIC
+  Sample Data: 10030124.0, 10047700.0, 10015090.0, ...
+  Description: Dictionary-derived code for the preferred term.
+
+Column Name: AEHLT
+  Data Type: TEXT
+  Sample Data: Oedema NEC, Nausea and vomiting symptoms, Nasal disorders NEC, ...
+  Description: High Level Term - Dictionary-derived text description of the high level term for the primary system organ class (SOC). Null Value here means: The Value is Not Recorded.
+
+Column Name: AEHLTCD
+  Data Type: NUMERIC
+  Sample Data: 10030113.0, 10028817.0, 10028731.0, ...
+  Description: Dictionary-derived code for the high level term for the primary SOC.
+
+Column Name: AEHLGT
+  Data Type: TEXT
+  Sample Data: General system disorders NEC, Gastrointestinal signs and symptoms, Upper respiratory tract disorders (excl infections), ...
+  Description: High Level Group Term - Dictionary-derived text description of the high level group term for the primary SOC. Null Value here means: The Value is Not Recorded.
+
+Column Name: AEHLGTCD
+  Data Type: NUMERIC
+  Sample Data: 10018073.0, 10018012.0, 10046304.0, ...
+  Description: Dictionary-derived code for the high level group term for the primary SOC.
+
+Column Name: AEBODSYS
+  Data Type: TEXT
+  Unique Values: 23
+  Sample Data: General disorders and administration site conditions, Gastrointestinal disorders, Respiratory, thoracic and mediastinal disorders, ...
+  Description: Body System or Organ Class - Dictionary derived. Body system or organ class used by the sponsor from the coding dictionary (e.g., MedDRA). When using a multi-axial dictionary such as MedDRA, this should contain the SOC used for the sponsor's analyses and summary tables, which may not necessarily be the primary SOC. Null Value here means: The Value is Not Recorded.
+
+Column Name: AEBDSYCD
+  Data Type: NUMERIC
+  Sample Data: 10018065.0, 10017947.0, 10038738.0, ...
+  Description: Dictionary derived. Code for the body system or organ class used by the sponsor. When using a multi-axial dictionary such as MedDRA, this should contain the SOC used for the sponsor's analyses and summary tables, which may not necessarily be the primary SOC.
+
+Column Name: AESOC
+  Data Type: TEXT
+  Sample Data: General disorders and administration site conditions, Gastrointestinal disorders, Respiratory, thoracic and mediastinal disorders, ...
+  Description: Primary System Organ Class - Dictionary-derived text description of the primary SOC. Will be the same as AEBODSYS if the primary SOC was used for analysis. Null Value here means: The Value is Not Recorded.
+
+Column Name: AESOCCD
+  Data Type: NUMERIC
+  Sample Data: 10018065.0, 10017947.0, 10038738.0, ...
+  Description: Dictionary-derived code for the primary SOC. Will be the same as AEBDSYCD if the primary SOC was used for analysis.
+
+Column Name: AESER
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: N, Y
+  Description: Serious Event - Is this a serious event? . Null Value here means: No
+
+Column Name: AEACN
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: DOSE NOT CHANGED, DRUG WITHDRAWN, DRUG INTERRUPTED, ...
+  Description: Action Taken with Study Treatment - Describes changes to the study treatment as a result of the event. AEACN is specifically for the relationship to study treatment. AEACNOTH is for actions unrelated to dose adjustments of study treatment. Examples of AEACN values include ICH E2B values: "DRUG WITHDRAWN", "DOSE REDUCED", "DOSE INCREASED", "DOSE NOT CHANGED", "UNKNOWN" and "NOT APPLICABLE". Null Value here means: The Value is Not Recorded.
+
+Column Name: AEACNOTH
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: NONE, MEDICATION REQUIRED, OTHER
+  Description: Other Action Taken - Describes other actions taken as a result of the event that are unrelated to dose adjustments of study treatment. Usually reported as free text. Example: "TREATMENT UNBLINDED. PRIMARY CARE PHYSICIAN NOTIFIED". Null Value here means: The Value is Not Recorded.
+
+Column Name: AEREL
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: UNRELATED, RELATED
+  Description: Causality - Records the investigator's opinion as to the causality of the event to the treatment. ICH does not establish any required or recommended terms for non-device relatedness. ICH E2A and E2B examples include (up-cased here for alignment to SDTM conventions) terms such as "NOT RELATED", "UNLIKELY RELATED", "POSSIBLY RELATED", "RELATED", but these example terms do not establish any conventions or expectations. Controlled terminology may be defined in the future. Check with regulatory authority for population of this variable. Null Value here means: The Value is Not Recorded. 
+
+Column Name: AEOUT
+  Data Type: TEXT
+  Unique Values: 6
+  Sample Data: RECOVERED/RESOLVED, RECOVERING/RESOLVING, FATAL, ...
+  Description:  Outcome of Adverse Event - Description of the outcome of an event. Null Value here means: The Value is Not Recorded.
+
+Column Name: AESCONG
+  Data Type: TEXT
+  Sample Data: N
+  Description:  Congenital Anomaly or Birth Defect - Was the serious event associated with congenital anomaly or birth defect? 
+
+Column Name: AESDISAB
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: N, Y
+  Description: Persist or Signif Disability/Incapacity - Did the serious event result in persistent or significant disability/incapacity? Null Value here means: The Value is Not Recorded. 
+
+Column Name: AESDTH
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: N, Y
+  Description: Results in Death - Did the serious event result in death? Null Value here means: The Value is Not Recorded.
+
+Column Name: AESHOSP
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: N, Y
+  Description: Requires or Prolongs Hospitalization - Did the serious event require or prolong hospitalization?  Null Value here means: The Value is Not Recorded.
+
+Column Name: AESLIFE
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: N, Y
+  Description: Is Life Threatening - Was the serious event life-threatening?  Null Value here means: The Value is Not Recorded. 
+
+Column Name: AESMIE
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: N, Y
+  Description: Other Medically Important Serious Event - Did the serious event occur with an overdose? This is a legacy seriousness criterion. It is not included in ICH E2A or E2B. Null Value here means: The Value is Not Recorded. 
+
+Column Name: AECONTRT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: N, Y
+  Description: Concomitant or Additional Trtmnt Given - Was another treatment given because of the occurrence of the event? Null Value here means: The Value is Not Recorded.
+
+Column Name: AETOXGR
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 5.0, ...
+  Description: Standard Toxicity Grade - Toxicity grade according to a standard toxicity scale (e.g., Common Terminology Criteria for Adverse Events, CTCAE). Sponsors should specify the name of the scale and version used in the metadata (see assumption 7d). Null Value here means: The Value is Not Recorded.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: SCREENING, TREATMENT, FOLLOW-UP, ...
+  Description: Epoch - Epoch associated with the start date/time of the adverse event. Null Value here means: The Value is Not Recorded.
+
+Column Name: AESTDTC
+  Data Type: DATE
+  Sample Data: 2018-08-11, 2018-09-29, 2018-10-08, ...
+  Description: Start Date/Time of Adverse Event - Start date/time of the adverse event represented in ISO 8601
+
+Column Name: AEENDTC
+  Data Type: DATE
+  Sample Data: 2018-08-28, 2018-10-04, 2018-09-28, ...
+  Description: End Date/Time of Adverse Event - End date/time of the adverse event represented in ISO 8601 character 
+
+Column Name: AESTDY
+  Data Type: NUMERIC
+  Sample Data: -1.0, 47.0, 67.0, ...
+  Description: Study day of start of adverse event relative to the sponsor-defined RFSTDTC.
+
+Column Name: AEENDY
+  Data Type: NUMERIC
+  Sample Data: 22.0, 54.0, 3.0, ...
+  Description: Study day of end of event relative to the sponsor-defined RFSTDTC.
+
+Column Name: AEENRF
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: BEFORE, ONGOING, COINCIDENT, ...
+  Description: End Relative to Reference Period - Describes the end of the event relative to the sponsor-defined reference period. The sponsor-defined reference period is a continuous period of time defined by a discrete starting point (RFSTDTC) and a discrete ending point (RFENDTC) of the trial. Null Value here means: The Value is Not Recorded. 
+
+Column Name: AEREFID
+  Data Type: TEXT
+  Sample Data: 291C4FB000, 291C507003, 291C507000, ...
+  Description: Reference ID - Reference identifier for the adverse event. Null Value here means: The Value is Not Recorded.
+
+Column Name: AESPID
+  Data Type: TEXT
+  Sample Data: 291C4FB000, 291C507003, 291C507000, ...
+  Description: Sponsor-defined identifier. It may be preprinted on the CRF as an explicit line identifier or defined in the sponsor's operational database. Example: Line number on an Adverse Events CRF page.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22157087, NP5039-B-G420-22190080, NP5039-B-G420-22250003, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: The Subject ID is missing
+
+Column Name: STATUS_CHANGE
+  Data Type: TEXT
+  Sample Data: NEW, CHANGED, UNCHANGED
+  Description: Indicates how each AE record differs from the previous month: NEW (only in current), CHANGED (exists in both but fields differ), or UNCHANGED (exists in both with identical fields).
+
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: CM
+Label : Concomitant/Prior Medications
+Description : This domain is typically used to recordmedications taken by subjects either before or during the clinical trial, including drug name, dose, and timing.
+================================================================================
+Total Columns: 21
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description:  Study Identifier - Unique identifier for a study. Null Value here means: The Value is Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: CM
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: The Value is Not Recorded. 
+
+Column Name: CMSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: CMGRPID
+  Data Type: INTEGER
+  Sample Data: 1, 2, 10, ...
+  Description: Group ID - Used to tie together a block of related records in a single domain for a subject. Null Value here means: The Value is Not Recorded. 
+
+Column Name: CMDECOD
+  Data Type: TEXT
+  Sample Data: BENZYDAMINE HYDROCHLORIDE, DOMPERIDONE, CAPECITABINE, ...
+  Description: Standardized Medication Name. Equivalent to the generic drug name in WHO Drug. The sponsor is expected to provide the dictionary name and version used to map the terms utilizing the external codelist element in the Define-XML document. If an intervention term does not have a decode value in the dictionary, then CMDECOD will be left blank. Null Value here means: The Value is Not Recorded. 
+
+Column Name: CMCAT
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: CONCOMITANT MEDICATIONS, PRIOR CANCER SYSTEMIC THERAPY, NON-DRUG TREATMENTS
+  Description: Category for Medication - Used to define a category of medications/treatment. Null Value here means: The Value is Not Recorded.
+
+Column Name: CMSCAT
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: OTHER, SYSTEMIC, MEDICAL HISTORY, ...
+  Description: Subcategory for Medication - A further categorization of medications/treatment. Null Value here means: The Value is Not Recorded. 
+
+Column Name: CMINDC
+  Data Type: TEXT
+  Sample Data: PROPHYLAXIS, HYPOCALCEMIA, NAUSEA PREMEDICATION, ...
+  Description: Indication - Denotes why a medication was taken or administered. Null Value here means: The Value is Not Recorded.
+
+Column Name: CMDOSE
+  Data Type: NUMERIC
+  Sample Data: 15.0, 10.0, 2150.0, ...
+  Description: Amount of CMTRT given. Not populated when CMDOSTXT is populated.
+
+Column Name: CMDOSTXT
+  Data Type: TEXT
+  Sample Data: 15-30, 15,960, 15,951, ...
+  Description: Class code corresponding to CMCLAS. Drug class. May be obtained from coding. When coding to a single class, populate with class code. If using a dictionary and coding to multiple classes, then follow Section 4.2.8.3, Multiple Values for a Non-result Qualifier Variable, or omit CMCLASCD.
+
+Column Name: CMDOSU
+  Data Type: TEXT
+  Unique Values: 31
+  Sample Data: ml, mg, other, ...
+  Description:  Dose Units - Units for CMDOSE, CMDOSTOT, or CMDOSTXT. Null Value here means: The Value is Not Recorded.
+
+Column Name: CMDOSFRQ
+  Data Type: TEXT
+  Unique Values: 12
+  Sample Data: PRN, BID, ONCE, ...
+  Description: Dosing Frequency per Interval - Usually expressed as the number of repeated administrations of CMDOSE within a specific time period. Null Value here means: The Value is Not Recorded if CMDOSE is populated or there is no dose as per administration.
+
+Column Name: CMROUTE
+  Data Type: TEXT
+  Unique Values: 11
+  Sample Data: ORAL, INTRAVENOUS, RESPIRATORY (INHALATION), ...
+  Description: Route of Administration - Route of administration for the intervention. Null Value here means: The Value is Not Recorded if CMDOSFRQ is populated or there is no dose as per administration.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: TREATMENT, PRE-SCREENING, SCREENING, ...
+  Description: Epoch associated with the start date/time of the medication administration. Null for medications that started before study participation.
+
+Column Name: CMSTDTC
+  Data Type: DATE
+  Sample Data: 2018-12-13, 2018-12-10, 2017-07-13, ...
+  Description: Start Date/Time of Medication - Start date/time of the medication administration represented in ISO 8601 character format. Null Value here means: The Value is Not Recorded.
+
+Column Name: CMENDTC
+  Data Type: DATE
+  Sample Data: 2017-12-17, 2009-05-13, 2009-07-01, ...
+  Description:  End Date/Time of Medication - End date/time of the medication administration represented in ISO 8601 character format. Null Value here means: The Value is Not Recorded.
+
+Column Name: CMSTDY
+  Data Type: NUMERIC
+  Sample Data: 59.0, 66.0, -462.0, ...
+  Description: Study day of start of medication relative to the sponsor-defined RFSTDTC.
+
+Column Name: CMENDY
+  Data Type: NUMERIC
+  Sample Data: -307.0, -3392.0, -47.0, ...
+  Description: Study day of end of medication relative to the sponsor-defined RFSTDTC.
+
+Column Name: CMENRTPT
+  Data Type: TEXT
+  Sample Data: ONGOING
+  Description: End Relative to Reference Time Point - Identifies the end of the medication as being before or after the sponsor-defined reference time point defined by variable CMENTPT. \n Not all values of the codelist are allowable for this variable.  Use of Relative Timing Variables. Null Value here means: End Of Medication. 
+
+Column Name: CMENTPT
+  Data Type: TEXT
+  Sample Data: 2018-12-10, 2018-12-17, 2017, ...
+  Description:  End Reference Time Point - Description or date/time in ISO 8601 character format of the sponsor-defined reference point referred to by CMENRTPT. Examples: "2003-12-25", "VISIT 2". Null Value here means: The Value is Not Recorded when CMENRTPT is populated. 
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: The Value is Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: CV
+Label : Cardiovascular System Findings
+Description : One record per finding or result per time point per visit per subject
+================================================================================
+Total Columns: 20
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: The Value is Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: CV
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: The Value is Not Recorded.
+
+Column Name: CVSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number to ensure uniqueness of records within a dataset for a subject. May be any valid number (including decimals) and does not have to start at 1.
+
+Column Name: CVTESTCD
+  Data Type: TEXT
+  Sample Data: INTP, LVEF, CVALL
+  Description: Cardiovascular Test Short Name — a concise coded identifier for the cardiovascular measurement, test, or examination described in CVTEST. This variable is used to uniquely represent each test and can serve as a column name when transforming the dataset into a horizontal format.CVTESTCD values are restricted to letters, numbers, and underscores. A null value indicates that the short test code was not recorded.
+  For Example: 
+  INTP: Interpretation of overall cardiovascular assessment.
+  LVEF: Left Ventricular Ejection Fraction measurement.
+  CVALL: Overall cardiovascular evaluation or conclusion.
+
+Column Name: CVTEST
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: Interpretation, Left Ventricular Ejection Fraction, ECHO or MUGA Scan
+  Description: Cardiovascular Test Name — the full, descriptive name corresponding to the short code in CVTESTCD. It specifies the exact cardiovascular measurement, test, or examination performed to assess cardiac function or structure.A null value indicates that the test name was not recorded.
+  For Example: 
+  Interpretation: Overall assessment or qualitative summary of cardiac findings.
+  Left Ventricular Ejection Fraction: Quantitative measurement of heart pumping efficiency.
+  ECHO or MUGA Scan: Imaging methods (Echocardiogram or Multigated Acquisition Scan) used to evaluate cardiac function.
+
+Column Name: CVCAT
+  Data Type: TEXT
+  Sample Data: ECHO/MUGA(LVEF)
+  Description: Category for Cardiovascular Test - Used to define a category of topic-variable values. Null Value here means: The Value is Not Recorded.
+
+Column Name: CVPOS
+  Data Type: TEXT
+  Sample Data: SUPINE
+  Description: Position of Subject During Observation - Position of the subject during a measurement or examination. Examples: "SUPINE", "STANDING", "SITTING". Null Value here means: The Value is Not Recorded.
+
+Column Name: CVSTRESC
+  Data Type: TEXT
+  Unique Values: 45
+  Sample Data: Normal, 52, 50, ...
+  Description: Character Result/Finding in Std Format - Contains the result value for Ejection fraction. Contains all findings, copied or derived, from CVORRES in a standard format or in standard units. CVSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in CVSTRESN. For example, if various tests have results "NONE", "NEG", and "NEGATIVE" in CVORRES and these results effectively have the same meaning, they could be represented in standard format in CVSTRESC as "NEGATIVE".
+
+Column Name: CVSTRESN
+  Data Type: NUMERIC
+  Sample Data: 52.0, 50.0, 58.0, ...
+  Description: Used for continuous or numeric results or findings in standard format; copied in numeric format from CVSTRESC. CVSTRESN should store all numeric test results or findings. Null Value here means: The CVSTRESC value is Normal or it is Abnormal Not Clinically Significant.
+
+Column Name: CVSTRESU
+  Data Type: TEXT
+  Sample Data: %
+  Description: Standard Units - Standardized units used for CVSTRESC and CVSTRESN. Null Value here means: The CVSTRESC value is Normal or it is Abnormal Not Clinically Significant.
+
+Column Name: CVSTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Completion Status - Used to indicate that a question was not asked or a test was not done, or a test was attempted but did not generate a result. Should be null or have a value of "NOT DONE". Null Value here means: All Test and Questions were done.
+
+Column Name: CVMETHOD
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: MUGA, ECHOCARDIOGRAPHY
+  Description: Method of Test or Examination - Method used to create the result. Null Value here means: Value Not Recorded.
+
+Column Name: CVBLFL
+  Data Type: TEXT
+  Sample Data: Y
+  Description: Baseline Flag - Indicator used to identify a baseline value. Should be "Y" or null. Note that CVBLFL is retained for backward compatibility. The authoritative baseline for statistical analysis is in an ADaM dataset. Null Value here means: No.
+
+Column Name: CVEVAL
+  Data Type: TEXT
+  Sample Data: INVESTIGATOR
+  Description: Evaluator - Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). Null Value here means: Value Not Recorded.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 0.0, 501.0, 901.0, ...
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 19
+  Sample Data: SCREENING, CYCLE 5 DAY 1, CYCLE 9 DAY 1, ...
+  Description: Visit Name - Protocol-defined description of clinical encounter. May be used in addition to VISITNUM and/or VISITDY. Null Value here means: Value Not Recorded.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: SCREENING, TREATMENT, PRE-SCREENING, ...
+  Description:  Epoch - Epoch associated with the date/time at which the assessment was made. Null Value here means: Value Not Recorded.
+
+Column Name: CVDTC
+  Data Type: DATE
+  Sample Data: 2018-10-12, 2019-01-08, 2019-03-20, ...
+  Description: Date/Time of Test - Collection date and time of an observation. Null Value here means: Value Not Recorded.
+
+Column Name: CVDY
+  Data Type: NUMERIC
+  Sample Data: -5.0, 82.0, 166.0, ...
+  Description: Actual study day of visit/collection/exam expressed in integer days relative to the sponsor-defined RFSTDTC in Demographics.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Unique Values: 253
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: The Value is Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: DD
+Label : Death Details
+Description : One record per finding per subject
+================================================================================
+Total Rows: 34
+Total Columns: 9
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: DD
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: Value Not Recorded
+
+Column Name: DDSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number. 
+
+Column Name: DDTESTCD
+  Data Type: TEXT
+  Sample Data: PRCDTH
+  Description: Death Detail Assessment Short Name - Short name of the measurement, test, or examination described in DDTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format.
+
+Column Name: DDTEST
+  Data Type: TEXT
+  Sample Data: Primary Cause of Death
+  Description: Death Detail Assessment Name - Long name for DDTESTCD. Examples: "Primary Cause of Death", "Secondary Cause of Death". Null Value here means: Value Not Recorded.
+
+Column Name: DDSTRESC
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: ADVERSE EVENT, DISEASE PROGRESSION, OTHER, ...
+  Description: Character Result/Finding in Std Format - Contains the result or finding copied or derived from DDORRES in a standard format. Null Value here means: Value Not Recorded.
+
+Column Name: DDDTC
+  Data Type: DATE
+  Unique Values: 34
+  Sample Data: 2019-01-27, 2019-03-21, 2018-10-02, ...
+  Description: Date/Time of Collection - Date/time of collection of the diagnosis or other death assessment data in ISO 8601 format. This is not necessarily the date of death. Null Value here means: Value Not Recorded.
+
+Column Name: DDDY
+  Data Type: NUMERIC
+  Sample Data: 180.0, 190.0, 109.0, ...
+  Description: Study day of the collection, in integer days. The algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in the Demographics (DM) domain.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Unique Values: 34
+  Sample Data: NP5039-B-G420-22157087, NP5039-B-G420-22566049, NP5039-B-G420-51566049, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: Value Not Recorded.
+
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: DM
+Label : Demographics
+Description : This domain is typically used to recorddemographic information about the study subjects such as age, sex, race, and subject identifiers.
+================================================================================
+Total Columns: 20
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: DM
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: Value Not Recorded.
+
+Column Name: RFSTDTC
+  Data Type: DATE
+  Sample Data: 2018-10-13T11:23, 2018-08-08T10:40, 2018-10-02T10:20, ...
+  Description:  Subject Reference Start Date/Time - Reference start date/time for the subject in ISO 8601 character format. Usually equivalent to date/time when subject was first exposed to study treatment. See assumption 9 for additional detail on when RFSTDTC may be null. Null Value here means: Value Not Recorded.
+
+Column Name: RFENDTC
+  Data Type: DATE
+  Sample Data: 2019-04-01T12:22, 2019-01-10T11:15, 2019-04-06T12:10, ...
+  Description: Subject Reference End Date/Time - Reference end date/time for the subject in ISO 8601 character format. Usually equivalent to the date/time when subject was determined to have ended the trial, and often equivalent to date/time of last exposure to study treatment. Required for all randomized subjects; null for screen failures or unassigned subjects. Null Value here means: Value Not Recorded.
+
+Column Name: RFXSTDTC
+  Data Type: DATE
+  Sample Data: 2018-10-13T11:23, 2018-08-08T10:40, 2018-10-02T10:20, ...
+  Description:  Date/Time of First Study Treatment - First date/time of exposure to any protocol-specified treatment or therapy, equal to the earliest value of EXSTDTC. Null Value here means: Value Not Recorded
+
+Column Name: RFXENDTC
+  Data Type: DATE
+  Sample Data: 2019-04-01T12:22, 2019-01-10T11:15, 2019-04-06T12:10, ...
+  Description: Date/Time of Last Study Treatment - Last date/time of exposure to any protocol-specified treatment or therapy, equal to the latest value of EXENDTC (or the latest value of EXSTDTC if EXENDTC was not collected or is missing). Null Value here means: Value Not Recorded.
+
+Column Name: RFICDTC
+  Data Type: DATE
+  Sample Data: 2018-09-17, 2018-07-21, 2018-09-03, ...
+  Description:  Date : Date/Time of Informed Consent - Date/time of informed consent in ISO 8601 character format. This will be the same as the date of informed consent in the Disposition domain, if that protocol milestone is documented. Would be null only in studies not collecting the date of informed consent. Null Value here means: Value Not Recorded.
+
+Column Name: RFPENDTC
+  Data Type: TEXT
+  Sample Data: 2019-04-01T12:22, 2019-02-09, 2019-04-06T12:10, ...
+  Description: Date : Date/Time of End of Participation - Date/time when subject ended participation or follow-up in a trial, as defined in the protocol, in ISO 8601 character format. Should correspond to the last known date of contact. Examples include completion date, withdrawal date, last follow-up, date recorded for lost to follow up, and death date. Null Value here means: Value Not Recorded.
+
+Column Name: DTHDTC
+  Data Type: DATE
+  Sample Data: 2019-01-31, 2019-04-03, 2018-10-08, ...
+  Description: Date : Date/Time of Death - Date/time of death for any subject who died, in ISO 8601 format. Should represent the date/time that is captured in the clinical-trial database. Null Value here means: Value Not Recorded.
+
+Column Name: DTHFL
+  Data Type: TEXT
+  Sample Data: Y
+  Description:  Subject Death Flag - Indicates the subject died. Should be "Y" or null. Should be populated even when the death date is unknown. Null Value here means: No
+
+Column Name: AGEU
+  Data Type: TEXT
+  Sample Data: YEARS
+  Description: Age Units - Units associated with AGE. Null Value here means: Value Not Recorded.
+
+Column Name: SEX
+  Data Type: TEXT
+  Sample Data: F
+  Description: Sex of the subject. Null Value here means: Value Not Recorded.
+
+Column Name: ARMCD
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: TRT1, SCRNFAIL, TRT2, ...
+  Description: Planned Arm Code - ARMCD is limited to 20 characters. It is not subject to the character restrictions that apply to TESTCD. The maximum length of ARMCD is longer than for other "short" variables to accommodate the kind of values that are likely to be needed for crossover trials. For example, if ARMCD values for a 7-period crossover were constructed using 2-character abbreviations for each treatment and separating hyphens, the length of ARMCD values would be 20. If the subject was not assigned to a trial arm, ARMCD is null and ARMNRS is populated. \n With the exception of studies which use multistage arm assignments, must be a value of ARMCD in the Trial Arms dataset. Null Value here means: Value Not Recorded.
+
+Column Name: ARM
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: 5.4 mg/kg, Screen Failure, 6.4 mg/kg, ...
+  Description: Description of Planned Arm - Name of the arm to which the subject was assigned. If the subject was not assigned to an arm, ARM is null and ARMNRS is populated. \n With the exception of studies which use multistage arm assignments, must be a value of ARM in the Trial Arms dataset. Null Value here means: Value Not Recorded.
+
+Column Name: ACTARMCD
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: TRT1, SCRNFAIL, TRT2, ...
+  Description: Actual Arm Code - Code of actual arm. ACTARMCD is limited to 20 characters. It is not subject to the character restrictions that apply to TESTCD. The maximum length of ACTARMCD is longer than for other short variables to accommodate the kind of values that are likely to be needed for crossover trials. \n With the exception of studies which use multistage arm assignments, must be a value of ARMCD in the Trial Arms dataset. \n If the subject was not assigned to an arm or followed a course not described by any planned arm, ACTARMCD is null and ARMNRS is populated. Null Value here means: Value Not Recorded.
+
+Column Name: ACTARM
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: 5.4 mg/kg, Screen Failure, 6.4 mg/kg, ...
+  Description: Description of Actual Arm - Description of actual arm. \n With the exception of studies which use multistage arm assignments, must be a value of ARM in the Trial Arms dataset. \n If the subject was not assigned to an arm or followed a course not described by any planned arm, ACTARM is null and ARMNRS is populated. Null Value here means: Value Not Recorded.
+
+Column Name: AGE
+  Data Type: INTEGER
+  Unique Values: 5
+  Sample Data: 65, 55, 65, ...
+  Description: Age expressed in AGEU. May be derived from RFSTDTC and BRTHDTC, but BRTHDTC may not be available in all cases (due to subject privacy concerns). Null Value here means: Value Not Recorded.
+
+Column Name: USUBJID
+  Data Type: [PK] TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. This must be a unique value, and could be a compound identifier formed by concatenating STUDYID-SITEID-SUBJID. Null Value here means: Value Not Recorded.
+
+Column Name: SUBJID
+  Data Type: INTEGER
+  Sample Data: 22872178, 22675540, 22996542, ...
+  Description: Subject identifier, which must be unique within the study. Often the ID of the subject as recorded on a CRF.
+
+Column Name: SITEID
+  Data Type: INTEGER
+  Sample Data: 8072, 1485, 913, ...
+  Description: Unique identifier for a site within a study.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: DS
+Label : Disposition
+Description : One record per disposition status or protocol milestone per subject
+================================================================================
+Total Rows: 1694
+Total Columns: 10
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: DS
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: Value Not Recorded.
+
+Column Name: DSSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: DSDECOD
+  Data Type: TEXT
+  Unique Values: 14
+  Sample Data: TUMOR TISSUE CONSENT OBTAINED, INFORMED CONSENT OBTAINED, PHARMACOGENOMIC INFORMED CONSENT OBTAINED, REGISTERED,LAST DOSE OF TREATMENT DS8201A, DEATH, PROGRESSIVE DISEASE, ADVERSE EVENT, ALIVE, SCREEN FAILURE, RANDOMIZED, WITHDRAWAL BY SUBJECT, OTHER, PHYSICIAN DECISION
+  Description: Standardized Disposition Term - Controlled terminology for the name of disposition event or protocol milestone. There are separate codelists used for DSDECOD where the choice depends on the value of DSCAT. Codelist "NCOMPLT" is used for disposition events, codelist "PROTMLST" is used for protocol milestones, and codelist "OTHEVENT" is used for other events. Null Value here means: Value Not Recorded.
+
+Column Name: DSCAT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: PROTOCOL MILESTONE, DISPOSITION EVENT
+  Description: Category for Disposition Event - Used to define a category of related records. Null Value here means: Value Not Recorded.
+
+Column Name: DSSCAT
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: SUBJECT CONTINUATION, STUDY DRUG COMPLETION, FOLLOW-UP SUBJECT OUTCOME, ...
+  Description: Subcategory for Disposition Event - A further categorization of DSCAT. The variable may be subject to controlled terminology for other categories of disposition event records. Null Value here means: Value Not Recorded.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: TREATMENT, FOLLOW-UP, SCREENING, ...
+  Description: Epoch - Epoch associated with the start date/time of the event. Null Value here means: Value Not Recorded.
+
+Column Name: DSSTDTC
+  Data Type: DATE
+  Unique Values: 473
+  Sample Data: 2018-08-01, 2018-09-18, 2018-09-20, ...
+  Description: Start Date/Time of Disposition Event - Start date/time of the disposition event in ISO 8601 character format. Null Value here means: Value Not Recorded.
+
+Column Name: DSSTDY
+  Data Type: NUMERIC
+  Sample Data: -68.0, -24.0, -4.0, ...
+  Description: Study day of start of event relative to the sponsor-defined RFSTDTC.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Unique Values: 353
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: Value Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: DV
+Label : Protocol Deviations
+Description : One record per protocol deviation per subject
+================================================================================
+Total Columns: 9
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description:  Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: DV
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: Value Not Recorded.
+
+Column Name: DVSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: DVDECOD
+  Data Type: TEXT
+  Unique Values: 9
+  Sample Data: Study Procedures Criteria, Informed Consent, Laboratory Assessment Criteria, ...
+  Description:  Protocol Deviation Coded Term - Controlled terminology for the name of the protocol deviation. Null Value here means: Value Not Recorded.
+
+Column Name: DVCAT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: Minor, Major
+  Description: Category for Protocol Deviation - Category of the protocol deviation criterion. Null Value here means: Value Not Recorded.
+
+Column Name: DVSTDTC
+  Data Type: DATE
+  Unique Values: 424
+  Sample Data: 2019-02-02, 2018-08-04, 2019-04-02, ...
+  Description: Start Date/Time of Deviation - Start date/time of deviation represented in ISO 8601 character format. Null Value here means: Value Not Recorded.
+
+Column Name: DVSTDY
+  Data Type: NUMERIC
+  Sample Data: 106.0, -68.0, 170.0, ...
+  Description: Study day of start of event relative to the sponsor-defined RFSTDTC.
+
+Column Name: DVREFID
+  Data Type: TEXT
+  Sample Data: 291B2BD05C, 291B2BD05D, 291B2BD05E, ...
+  Description: Reference ID - Internal or external identifier. Null Value here means: Value Not Recorded.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Unique Values: 233
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: Value Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: EG
+Label : ECG Test Results
+Description : One record per ECG observation per replicate per time point or one record per ECG observation per beat per visit per subject
+================================================================================
+Total Columns: 21
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: EG
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: Value Not Recorded.
+
+Column Name: EGSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: EGTESTCD
+  Data Type: TEXT
+  Unique Values: 8
+  Sample Data: EGHRSI, INTP, PRSB, QRSSB, QTCFSB, QTSB, RRSM, EGALL
+  Description: EGTESTCD is the short test code used in the Electrocardiogram (ECG) Test Results (EG) domain to identify the specific ECG measurement or interpretation being recorded for a subject. Each code corresponds to a unique ECG parameter or assessment, serving as a concise identifier that links to its descriptive name in EGTEST.
+  For example:
+  EGHRSI -  Heart Rate derived from ECG signal
+  INTP - Investigator’s Interpretation of the ECG (e.g., Normal, Abnormal)
+  PRSB - PR Interval measured at baseline
+  QRSSB - QRS Interval measured at baseline
+  QTCFSB - QTcF Interval (QT interval corrected using Fridericia’s formula) at baseline
+  QTSB-QT Interval measured at baseline
+  RRSM - RR Interval Summary (average time between heartbeats)
+  EGALL - Overall ECG Assessment or Summary
+
+Column Name: EGTEST
+  Data Type: TEXT
+  Unique Values: 8
+  Sample Data: Single RR Heart Rate, Interpretation, PR Interval/Single Beat, QRS Duration/Single Beat, QTcF Interval/Single Beat, QT Interval/Single Beat, RR Interval/Single Measurement, Electrocardiogram Data
+  Description: EGTEST represents the verbatim name or full description of the ECG (Electrocardiogram) test or examination corresponding to the short code in EGTESTCD. It describes, in readable form, what specific ECG measurement or interpretation was performed for a subject.
+  
+Column Name: EGCAT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: MEASUREMENT, INTERPRETATION
+  Description: Category for ECG - Used to categorize ECG observations across subjects. Null Value here means: Value Not Recorded.
+
+Column Name: EGPOS
+  Data Type: TEXT
+  Sample Data: SUPINE
+  Description: ECG Position of Subject - Position of the subject during a measurement or examination.
+
+Column Name: EGSTRESC
+  Data Type: TEXT
+  Sample Data: 62, 69, 72, ...
+  Description: Contains the result value for all findings copied or derived from EGORRES, in a standard format or standard units. EGSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in EGSTRESN. For example, if a test has results of 62 beats/min, then EGORRES = "62", EGORRESU = "beats/min", EGSTRESC = "62", EGSTRESN = 62, and EGSTRESU = "beats/min" . For other examples, see Original and Standardized Results. Additional examples of result data: "SINUS BRADYCARDIA", "ATRIAL FLUTTER", "ATRIAL FIBRILLATION". \n Test results are in 3 separate codelists: EGSTRESC for abnormal test results based on regular 10-second ECGs; HESTRESC for abnormal test results based on Holter monitoring, and NORMABNM for generic test results and/or responses to EGTEST = "Interpretation".
+
+Column Name: EGSTRESN
+  Data Type: NUMERIC
+  Sample Data: 62.0, 69.0, 72.0, ...
+  Description: Used for continuous or numeric results or findings in standard format; copied in numeric format from EGSTRESC. EGSTRESN should store all numeric test results or findings.
+
+Column Name: EGSTRESU
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: beats/min, msec
+  Description: Standard Units - Standardized units used for EGSTRESC and EGSTRESN. Null Value here means: Value Not Recorded.
+
+Column Name: EGSTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Completion Status - Used to indicate an ECG was not done, or an ECG measurement was not taken. Should be null if a result exists in EGORRES. Null Value here means: DONE.
+
+Column Name: EGMETHOD
+  Data Type: TEXT
+  Sample Data: 12 LEAD STANDARD
+  Description: Method of Test or Examination - Method of the ECG test. Example: "12-LEAD STANDARD". Null Value here means: Value Not Recorded.
+
+Column Name: EGBLFL
+  Data Type: TEXT
+  Sample Data: Y
+  Description: Baseline Flag - Indicator used to identify a baseline value. Should be "Y" or null. Note that EGBLFL is retained for backward compatibility. The authoritative baseline for statistical analysis is in an ADaM dataset. Null Value here means: No
+
+Column Name: EGEVAL
+  Data Type: TEXT
+  Sample Data: INVESTIGATOR
+  Description: Evaluator - Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). Should be null for records that contain collected or derived data.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 0.0, 101.0, 201.0, ...
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 69
+  Sample Data: SCREENING, CYCLE 1 DAY 1, CYCLE 2 DAY 1, ...
+  Description: Visit Name - Protocol-defined description of clinical encounter. May be used in addition to VISITNUM and/or VISITDY. Null Value here means: Value Not Recorded.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: SCREENING, TREATMENT, FOLLOW-UP, ...
+  Description: Epoch associated with the date/time at which the assessment was made.
+
+Column Name: EGDTC
+  Data Type: DATE
+  Sample Data: 2018-10-08T13:03, 2018-10-08T13:06, 2018-10-08T13:09, ...
+  Description: Date/Time of ECG - Date/Time of ECG. Null Value here means: Value Not Recorded.
+
+Column Name: EGDY
+  Data Type: NUMERIC
+  Sample Data: -5.0, -3.0, 19.0, ...
+  Description: Study day of the ECG, measured as integer days. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.
+
+Column Name: EGSPID
+  Data Type: TEXT
+  Unique Values: 7
+  Sample Data: 291B3B1000, 291B3CF000, 291B3CF001, ...
+  Description: Sponsor-defined reference number. May be printed on the CRF as an explicit line identifier or defined in the sponsor's operational database.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description:  Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: Value Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: EX
+Label : Exposure
+Description : One record per protocol-specified study treatment, constant-dosing interval, per subject.
+================================================================================
+Total Columns: 17
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: EX
+  Description: Domain Abbreviation - Two-character abbreviation for the domain.
+
+Column Name: EXSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: EXDOSE
+  Data Type: NUMERIC
+  Sample Data: 5.4, 4.4, 6.4, ...
+  Description: Amount of EXTRT when numeric. Not populated when EXDOSTXT is populated.
+
+Column Name: EXDOSU
+  Data Type: TEXT
+  Sample Data: mg/kg
+  Description: Dose Units - Units for EXDOSE, EXDOSTOT, or EXDOSTXT representing protocol-specified values.
+
+Column Name: EXDOSFRM
+  Data Type: TEXT
+  Sample Data: INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION
+  Description: Dose Form - Dose form for EXTRT.
+
+Column Name: EXDOSFRQ
+  Data Type: TEXT
+  Sample Data: EVERY 3 WEEKS
+  Description: Dosing Frequency per Interval - Usually expressed as the number of repeated administrations of EXDOSE within a specific time period.
+
+Column Name: EXROUTE
+  Data Type: TEXT
+  Sample Data: INTRAVENOUS
+  Description: Route of Administration - Route of administration for the intervention.
+
+Column Name: EXADJ
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: Adverse event - complete Adverse Event form, Other, specify
+  Description: Reason for Dose Adjustment - Describes reason or explanation of why a dose is adjusted.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 101.0, 201.0, 301.0, ...
+  Description: 
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 22
+  Sample Data: CYCLE 1 DAY 1, CYCLE 2 DAY 1, CYCLE 3 DAY 1, ...
+  Description: Visit Name - Protocol-defined description of clinical encounter. May be used in addition to VISITNUM and/or VISITDY.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: TREATMENT, LONG-TERM FOLLOW-UP
+  Description: Epoch - Trial epoch of the exposure record.
+
+Column Name: EXSTDTC
+  Data Type: DATE
+  Unique Values: 2605
+  Sample Data: 2018-10-13T11:23, 2018-11-03T12:25, 2018-11-26T09:51, ...
+  Description: Start Date/Time of Treatment - The date/time when administration of the treatment indicated by EXTRT and EXDOSE began.
+
+Column Name: EXENDTC
+  Data Type: DATE
+  Unique Values: 2606
+  Sample Data: 2018-10-13T13:02, 2018-11-03T13:00, 2018-11-26T10:25, ...
+  Description: End Date/Time of Treatment - The date/time when administration of the treatment indicated by EXTRT and EXDOSE ended. For administrations considered given at a point in time (e.g., oral tablet, pre-filled syringe injection), where only an administration date/time is collected, EXSTDTC should be copied to EXENDTC as the standard representation.
+
+Column Name: EXSTDY
+  Data Type: NUMERIC
+  Sample Data: 1.0, 22.0, 45.0, ...
+  Description: Study day of EXSTDTC relative to DM.RFSTDTC.
+
+Column Name: EXENDY
+  Data Type: NUMERIC
+  Sample Data: 1.0, 22.0, 45.0, ...
+  Description: Study day of EXENDTC relative to DM.RFSTDTC.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Unique Values: 253
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: FA
+Label : Findings About Events or Interventions
+Description : One record per finding, per object, per time point, per visit per subject
+================================================================================
+Total Columns: 23
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: FA
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: Value Not Recorded.
+
+Column Name: FASEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: FAGRPID
+  Data Type: INTEGER
+  Unique Values: 40
+  Sample Data: 0, 3, 5, ...
+  Description: Group ID - Used to tie together a block of related records in a single domain for a subject. Null Value here means: Value Not Recorded.
+
+Column Name: FATESTCD
+  Data Type: TEXT
+  Unique Values: 84
+  Sample Data: PCLAB, PCLC, PCLCOR, ...
+  Description: Findings About Test Short Name - Short name of the measurement, test, or examination described in FATEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format.Null Value here means: Value Not Recorded.
+
+Column Name: FATEST
+  Data Type: TEXT
+  Unique Values: 84
+  Sample Data: Received antibiotics treatment, Cough, Corticosteroid treatment received, ...
+  Description: Findings About Test Name - Verbatim name of the test or examination used to obtain the measurement or finding. The value in FATEST cannot be longer than 40 characters. Examples: "Severity/Intensity", "Occurrence". Note that controlled terminology is in a FATEST general codelist and in several therapeutic area-specific codelists. Null Value here means: Value Not Recorded. More Details of data in FATEST: here each record represents a specific finding, assessment, or evaluation related to a clinical event, medical condition, or intervention for a subject at a given time point. The variable FATEST identifies the name of the assessment or test performed, such as Cough, Fever, High Resolution CT, ALT/SGPT, or Pulmonary Specialist Consultation. These findings may encompass a wide range of clinical observations — including symptoms (e.g., Dyspnea, Cough Productive), diagnostic evaluations (e.g., Chest X-Ray, Ultrasound, Bronchoscopy), laboratory parameters (e.g., Basophils, Serum Calcium, LDH), therapeutic interventions (e.g., Antibiotics Treatment Received, Corticosteroid Treatment), and drug-related details (e.g., DOCETAXEL, TRASTUZUMAB, TDM1). Each finding captured in FATEST is accompanied by additional variables that further define its context and result. The character result of the finding is stored in FAORRES (for example, Yes, No, Positive, or a numeric value), while the standardized or controlled terminology version is recorded in FASTRESC. When applicable, a numeric result is stored in FASTRESN, and corresponding units are defined in FASTRESU. The category and subcategory variables — FACAT and FASCAT — classify findings into broader groups such as Respiratory Findings, Cardiac Evaluations, Liver Function Tests, or Oncologic Assessments, providing hierarchical organization. Together, these variables in the FA domain allow for a structured representation of diverse clinical evaluations ranging from physical symptoms and imaging findings to laboratory results and therapeutic responses. This structure supports the consistent recording, analysis, and review of findings that help characterize the clinical profile of subjects within the study, particularly in cases involving disease progression, treatment response, or adverse event investigations such as interstitial lung disease (ILD) or cardiac toxicity.
+
+Column Name: FAOBJ
+  Data Type: TEXT
+  Sample Data: Adverse Event of Special Interest (AESI)
+  Description: Object of the Observation - Used to describe the object or focal point of the findings observation that is represented by --TEST. Examples: the term (e.g., "Acne") describing a clinical sign or symptom that is being measured by a severity test; an event (e.g., "VOMIT, where the volume of vomit is being measured by a VOLUME test). Null Value here means: Value Not Recorded.
+
+Column Name: FACAT
+  Data Type: TEXT
+  Unique Values: 18
+  Sample Data: PULMONARY TOXICITY CHECK LIST, PULMONARY TOXICITY LABORATORY TEST RESULTS, PULMONARY TOXICITY PULMONARY FUNCTION TESTS, ...
+  Description: Category for Findings About - Used to define a category of related records. Null Value here means: Value Not Recorded.
+
+Column Name: FASCAT
+  Data Type: TEXT
+  Unique Values: 10
+  Sample Data: INTERSTITIAL LUNG DISEASE/PNEUMONITIS, LIVER INJURY, CONSULTATION, ...
+  Description: Subcategory for Findings About - A further categorization of FACAT. Null Value here means: Value Not Recorded.
+
+Column Name: FASTRESC
+  Data Type: TEXT
+  Sample Data: No, Yes, 0.03, ...
+  Description: Character Result/Finding in Std Format - Contains the result value for all findings, copied or derived from FAORRES in a standard format or standard units. FASTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in FASTRESN. Null Value here means: Value Not Recorded.
+
+Column Name: FASTRESN
+  Data Type: NUMERIC
+  Sample Data: 0.03, 0.23, 1.09, ...
+  Description: Contains the result value for all findings, copied or derived from FAORRES in a standard format or standard units. FASTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in FASTRESN. 
+
+Column Name: FASTRESU
+  Data Type: TEXT
+  Unique Values: 9
+  Sample Data: 10^9/L, IU/L, MG/DL, ...
+  Description: Standard Units - Standardized unit used for FASTRESC and FASTRESN. Should be null if there's a null value in FASTRESN.
+
+Column Name: FABLFL
+  Data Type: TEXT
+  Sample Data: Y
+  Description:  Baseline Flag - Indicator used to identify a baseline value. The value should be "Y" or null. Note that FABLFL is retained for backward compatibility. The authoritative baseline flag for statistical analysis is in an ADaM dataset. Null Value here means: suggesting this is not a baseline measurement or it's not applicable.
+
+Column Name: FAEVAL
+  Data Type: TEXT
+  Sample Data: INVESTIGATOR
+  Description: Evaluator - Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). Should be null for records that contain collected or derived data.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 301.0, 901.0, 9800.0, ...
+  Description: 1. Clinical encounter number. \n 2. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 30
+  Sample Data: CYCLE 3 DAY 1, CYCLE 9 DAY 1, END OF TREATMENT, ...
+  Description: Visit Name - 1. Protocol-defined description of clinical encounter. \n 2. May be used in addition to VISITNUM and/or VISITDY. Null Value here means: Value Not Recorded.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: TREATMENT, FOLLOW-UP, LONG-TERM FOLLOW-UP, ...
+  Description: Epoch - Epoch associated with the date/time of the observation. Examples: "SCREENING", "TREATMENT", "FOLLOW-UP". Null Value here means:Value Not Recorded.
+
+Column Name: FADTC
+  Data Type: DATE
+  Sample Data: 2018-10-08, 2018-10-14, 2018-10-18, ...
+  Description: Date/Time of Collection - Collection date and time of findings assessment represented in ISO 8601 character format. Null Value here means: Value Not Recorded.
+
+Column Name: FADY
+  Data Type: NUMERIC
+  Sample Data: 42.0, 51.0, 43.0, ...
+  Description: 1. Study day of collection, measured as integer days. \n 2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics. This formula should be consistent across the submission.
+
+Column Name: FATPT
+  Data Type: TEXT
+  Unique Values: 7
+  Sample Data: At Event Onset, ECG during event, At time of event or close to event as possible, ...
+  Description: 
+
+Column Name: FATPTREF
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: During dosing, After last dose, Prior to first dose
+  Description: 
+
+Column Name: FASPID
+  Data Type: TEXT
+  Sample Data: 291D6E0004, 291D6E0003, 291D6DF006, ...
+  Description: Sponsor-defined reference number. May be preprinted on the CRF as an explicit line identifier or defined in the sponsor's operational database.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22566049, NP5039-B-G420-22745479, NP5039-B-G420-51021176, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: Value Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: IE
+Label : Inclusion/Exclusion Criteria Not Met
+Description : One record per inclusion/exclusion criterion not met per subject
+================================================================================
+Total Columns: 11
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: IE
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. 
+
+Column Name: IESEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0
+  Description: A sequential number used to uniquely identify each inclusion/exclusion criterion record for a subject. Ensures one record per criterion per subject.
+
+Column Name: IETESTCD
+  Data Type: TEXT
+  Unique Values: 20
+  Sample Data:EX01, EX01A, EX02, EX03A, EX04, EX08, EX09, EX13, EX14, EX15, EX16A, IN01A, IN02, IN04, IN05, IN06, IN07, IN08, IN10, IN10B
+  Description: Inclusion/Exclusion Criterion Short Name - Short name of the criterion described in IETEST.
+
+Column Name: IETEST
+  Data Type: TEXT
+  Unique Values: 20
+  Sample Data: Brain metastases that are untreated, symptomatic or require therapy to control symptoms, any history of radiation, surgery, including steroids within 2 months of randomization/registration., Has a corrected QT interval (QTc) prolongation to > 470 msec (females) or >450 msec (males) based on average of the screening triplicate12-lead ECG, Social, familial, or geographical factors that would interfere with study participation or follow-up, ...
+  Description: Inclusion/Exclusion Criterion - Verbatim description of the inclusion or exclusion criterion that was the exception for the subject within the study.
+
+Column Name: IECAT
+  Data Type: TEXT
+  Sample Data: EXCLUSION, INCLUSION
+  Description: Indicates whether the criterion belongs to the Inclusion or Exclusion section of the protocol. Groups the related criteria.
+
+Column Name: IESTRESC
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: Y, N
+  Description: Represents the subject’s response or outcome for the specific inclusion or exclusion criterion. This indicates whether the subject met or did not meet the criterion at the time of screening. Blank means Data not available or not assessed.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 0.0
+  Description: Numeric value identifying the clinical visit when the inclusion/exclusion criterion was assessed, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Sample Data: SCREENING
+  Description: Name of the visit during which the data were collected. Typically “Screening” for IE domain.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Sample Data: SCREENING
+  Description: Epoch associated with the observation date/time of the inclusion/exclusion finding. Name of the study phase or period associated with the record. Usually “Screening” for inclusion/exclusion data.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22606591, NP5039-B-G420-22611727, NP5039-B-G420-51021176, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: Value Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: ISS
+Label : Immunogenicity Specimen Assessments
+Description : One record per test per visit per subject
+================================================================================
+Total Columns: 22
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: IS
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: Value Not Recorded.
+
+Column Name: ISSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number to ensure uniqueness of records within a dataset for a subject. May be any valid number (including decimals) and does not have to start at 1.
+
+Column Name: ISTESTCD
+  Data Type: TEXT
+  Sample Data: ADA_8201, HIVAB
+  Description: Immunogenicity Test Short Name — a short, coded identifier for the specific immunogenicity test or assay performed. It corresponds to the test described in ISTEST and is typically used in datasets to identify or pivot test results into a wide format.A null value indicates that the immunogenicity test code was not recorded.
+  For Example: 
+  ADA_8201: Anti-Drug Antibody (ADA) test specific to study drug DS-8201.
+  HIVAB: Human Immunodeficiency Virus Antibody test.
+
+Column Name: ISTEST
+  Data Type: TEXT
+  Sample Data: Anti-DS-8201 Antibodies, HIV Antibody
+  Description: Immunogenicity Test or Examination Name — the full, descriptive name of the immunogenicity test or assay performed to detect antibodies or immune response related to the study drug or other antigens. It provides the readable form corresponding to ISTESTCD (the short code).A null value indicates that the name of the immunogenicity test was not recorded.
+
+Column Name: ISCAT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: ADA BLOOD SAMPLE, HIV ANTIBODY TEST
+  Description: Category for Immunogenicity Test - Used to define a category of topic-variable values across subjects. Example: "SEROLOGY". Null Value here means: Value Not Recorded.
+
+Column Name: ISSCAT
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: CONFIRMATORY, FINAL, SCREENING, TITRATION
+  Description: Immunogenicity Test Subcategory — provides a more detailed classification of the immunogenicity test, expanding on the broader category defined in ISCAT. This variable helps distinguish different stages or purposes of immunogenicity testing within a study, such as screening, confirmatory analysis, or final evaluation.A null value indicates that no subcategory was assigned to the immunogenicity test.
+  For Example: 
+  SCREENING: Initial test to detect potential antibody presence.
+  CONFIRMATORY: Follow-up test to confirm screening results.
+  TITRATION: Quantitative assessment of antibody levels.
+  FINAL: Test conducted at study completion or last visit.
+
+
+Column Name: ISSTRESC
+  Data Type: TEXT
+  Unique Values: 11
+  Sample Data: NEGATIVE, POTENTIAL POSITIVE, NRR, ...
+  Description: Character Result/Finding in Std Format - Contains the result value for all findings copied or derived from ISORRES, in a standard format or in standard units. Null Value here is in conjunction with ISSTAT, indicates the test might not have been performed or the result is pending or not applicable for this specific entry.
+ 
+Column Name: ISSTRESN
+  Data Type: NUMERIC
+  Sample Data: 8.0, 2.0, 4.0, ...
+  Description: Used for continuous or numeric results or findings in standard format; copied in numeric format from ISSTRESC. ISSTRESN should store all numeric test results or findings.
+
+Column Name: ISSTRESU
+  Data Type: TEXT
+  Sample Data: TITER
+  Description: Standard Units - Standardized units used for ISSTRESC and ISSTRESN. Null Value here means: Value Not Recorded.
+
+Column Name: ISSTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Completion Status - Used to indicate a test was not done. Should be null if a result exists in ISORRES.
+
+Column Name: ISSPEC
+  Data Type: TEXT
+  Sample Data: SERUM
+  Description: Specimen Type - Defines the types of specimen used for a measurement. Example: "SERUM". Null Value here aligns with the value of ISSTAT, if there is a value of ISSTAT, then there will be a null value for ISSTAT.
+
+Column Name: ISMETHOD
+  Data Type: TEXT
+  Sample Data: Electrochemiluminescence
+  Description: Method of Test or Examination - Method of the test or examination. Null Value here means: Value Not Recorded.
+
+Column Name: ISBLFL
+  Data Type: TEXT
+  Sample Data: Y
+  Description: Baseline Flag - Indicator used to identify a baseline value. Should be "Y" or null. Note that ISBLFL is retained for backward compatibility. The authoritative baseline for statistical analysis is in an ADaM dataset. Null Value here means: No.
+
+Column Name: ISLLOQ
+  Data Type: NUMERIC
+  Sample Data: No data
+  Description: Indicates the lower limit of quantitation for an assay. Units will be those used for ISSTRESU.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 101.0, 201.0, 401.0, ...
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 32
+  Sample Data: CYCLE 1 DAY 1, CYCLE 2 DAY 1, CYCLE 4 DAY 1, ...
+  Description: Visit Name - Protocol-defined description of a clinical encounter. May be used in addition to VISITNUM and/or VISITDY. Null Value here means: Value Not Recorded.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: SCREENING, TREATMENT, FOLLOW-UP, ...
+  Description: Epoch - Epoch associated with the start date/time of the observation, or the date/time of collection if start date/time is not collected. Null Value here means: Value Not Recorded.
+
+Column Name: ISDTC
+  Data Type: DATE
+  Sample Data: 2018-10-13T09:40, 2018-11-03T10:25, 2018-12-17T10:25, ...
+  Description: Date/Time of Collection - Collection date and time of an observation. Null Value here means: Value Not Recorded.
+
+Column Name: ISDY
+  Data Type: NUMERIC
+  Sample Data: 1.0, 22.0, 66.0, ...
+  Description: Actual study day of visit/collection/exam expressed in integer days relative to sponsor-defined RFSTDTC in Demographics.
+
+Column Name: ISREFID
+  Data Type: TEXT
+  Sample Data: 291CF72000, 291CF72001, 291CF72002, ...
+  Description: Reference ID - Internal or external specimen identifier. Example: "458975-01". Null Value here means: Value Not Recorded.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: Value Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: LB
+Label : Laboratory Test Results
+Description : In the SDTM Laboratory Test (LB) dataset, each record represents the result of a specific laboratory test performed for a subject at a particular time point. The variable LBTEST identifies the name of the test performed, such as Hemoglobin, ALT, or Glucose, while LBCAT and LBSCAT organize the test into hierarchical categories — with LBCAT representing the broad category (for example, Chemistry, Hematology, or Urinalysis) and LBSCAT providing a finer subcategory within it (such as Electrolytes under Chemistry). The actual test result is captured in two forms: LBSTRESC stores the standardized result as a character value, which can be either numeric or textual (for example, “Positive” or “120”), and LBSTRESN provides the same result in numeric format when applicable, allowing for quantitative analysis. The units corresponding to the numeric result are defined in LBSTRESU, ensuring that results are interpretable and comparable across datasets (for example, mg/dL or mmol/L). The normal reference range for each test result is defined by LBSTNRLO (lower limit of normal) and LBSTNRHI (upper limit of normal), both expressed in the same units as LBSTRESU. Finally, LBNRIND provides a categorical interpretation of the result in relation to these reference limits — typically indicating whether the value is Low, Normal, or High. Together, these variables define the nature of the laboratory test, classify it by category, capture the measured result in both character and numeric formats, describe its units and reference range, and interpret its clinical significance within that range.
+================================================================================
+Total Columns: 27
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: LB
+  Description: Domain Abbreviation - Two-character abbreviation for the domain.
+
+Column Name: LBSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: LBTESTCD
+  Data Type: TEXT
+  Unique Values: 60
+  Sample Data: CFDNA,HER2ECD,HER2IHC,ALB,ALP,ALT,AST,BILI,CA,CL,CREAT,CREATCLR,ESTRDIOL,FSH,K,LDH,MG,PROT,SODIUM,TROPONT,UREAN,APTT,INR,PT,BASO,BASOLE,EOS,EOSLE,HCT,HGB,LYM,LYMLE,MONO,MONOLE,NEUT,NEUTLE,PLAT,RBC,WBC,GLUC,OCCBLD,SEDEXAM,SPGRAV,HER2ISH,BACT,EPISQCE,MUCTHR,EPITUCE,CYCAOXA,CSHYAL,CYURIAC,WBCCLMP,YEASTBUD,HER2IHCT,TROPONIN,CYAMORPH,CSCELL,CSWBC,CSWAX,EPITCE
+  Description: Lab Test or Examination Short Name - Short name of the measurement, test, or examination described in LBTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. Null Value here means: Value Not Recorded.
+
+Column Name: LBTEST
+  Data Type: TEXT
+  Unique Values: 60
+  Sample Data: StreckDNA-CL, Sher-2/Neu-(-70)-CL, HER2 IHC Score-CL (N), Albumin, Alkaline Phosphatase, Alanine Aminotransferase, Aspartate Aminotransferase, Bilirubin, Calcium, Chloride, Creatinine, Creatinine Clearance, Estradiol, Follicle Stimulating Hormone, Potassium, Lactate Dehydrogenase, Magnesium, Protein, Sodium, Troponin T, Urea Nitrogen, Activated Partial Thromboplastin Time, Prothrombin Intl. Normalized Ratio, Prothrombin Time, Basophils, Basophils/Leukocytes, Eosinophils, Eosinophils/Leukocytes, Hematocrit, Hemoglobin, Lymphocytes, Lymphocytes/Leukocytes, Monocytes, Monocytes/Leukocytes, Neutrophils, Neutrophils/Leukocytes, Platelets, Erythrocytes, Leukocytes, Glucose, Occult Blood, Sediment Examination, Specific Gravity, HER2 gene amplification (ISH), Bacteria, Squamous Epithelial Cells, Mucous Threads, Tubular Epithelial Cells, Calcium Oxalate Crystals, Hyaline Casts, Uric Acid Crystals, Leukocyte Cell Clumps, Yeast Budding, HER2 IHC Score-CL (T), Troponin, Amorphous Crystals, Cellular Casts, WBC Casts, Waxy Casts, Transitional Epithelial Cells
+  Description: Name of the laboratory test performed (e.g., Hemoglobin, ALT, Glucose). Represents the specific analyte or test.
+
+Column Name: LBCAT
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: BIOMARKER, CHEMISTRY, COAGULATION, HEMATOLOGY, URINALYSIS, ...
+  Description: High-level category of the laboratory test (e.g., CHEMISTRY, HEMATOLOGY, URINALYSIS). Used for organizing tests into broad groups.
+
+Column Name: LBSCAT
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: BIOMARKER BLOOD SAMPLE-CFDNA, BLOOD SAMPLE FOR HER2ECD, TUMOR TISSUE SAMPLE - HER2
+  Description: Subcategory within the main laboratory category, providing finer classification (e.g., ELECTROLYTES under Chemistry).
+
+Column Name: LBSTRESC
+  Data Type: TEXT
+  Sample Data: TCI specimens sent to SM, 198.6, 38.0, ...
+  Description: Result of the laboratory test as a character (text) value, typically as reported or standardized (e.g., Positive, Negative, 120).
+
+Column Name: LBSTRESN
+  Data Type: NUMERIC
+  Sample Data: 198.6, 38.0, 18.6, ...
+  Description: Result of the laboratory test as a numeric value, allowing quantitative analysis (e.g., 120.0). Corresponds to LBSTRESC when the result is numeric.
+
+Column Name: LBSTRESU
+  Data Type: TEXT
+  Unique Values: 17
+  Sample Data: ng/mL, POINT, g/L, ...
+  Description: Units of measurement associated with the standardized numeric result (e.g., mg/dL, mmol/L, U/L).
+
+Column Name: LBSTNRLO
+  Data Type: NUMERIC
+  Sample Data: 0.0, 33.0, 35.0, ...
+  Description: Lower limit of the normal reference range for the test result, expressed in the same units as LBSTRESU.
+
+Column Name: LBSTNRHI
+  Data Type: NUMERIC
+  Sample Data: 15.2, 49.0, 123.0, ...
+  Description: Upper limit of the normal reference range for the test result, expressed in the same units as LBSTRESU.
+
+Column Name: LBNRIND
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: HIGH, NORMAL, LOW
+  Description: Normality indicator — comparison of the test result to the reference range (e.g., LOW, NORMAL, HIGH). Derived from LBSTRESN vs. LBSTNRLO/LBSTNRHI.
+
+Column Name: LBSTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Completion Status - Used to indicate exam not done. Should be null if a result exists in LBORRES. Null Value here means: Test results are done.
+
+Column Name: LBSPEC
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: SERUM, PLASMA, WHOLE BLOOD, ...
+  Description:  Specimen Type - Defines the type of specimen used for a measurement. Null Value here means: Value Not Recorded.
+
+Column Name: LBSPCCND
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: FRESH, ARCHIVED
+  Description: Specimen Condition - Describes the condition of the specimen. Null Value here means: Value Not Recorded.
+
+Column Name: LBBLFL
+  Data Type: TEXT
+  Sample Data: Y
+  Description: Baseline Flag - Indicator used to identify a baseline value. Should be "Y" or null. Note that LBBLFL is retained for backward compatibility. The authoritative baseline for statistical analysis is in an ADaM dataset. Null Value here means: it's either not baseline or not flagged. 
+
+Column Name: LBTOXGR
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Standard Toxicity Grade - Records toxicity grade value using a standard toxicity scale (e.g., the NCI CTCAE). If value is from a numeric scale, represent only the number (e.g., "2" not "Grade 2"). The sponsor is expected to provide the name of the scale and version used to map the terms, utilizing the external codelist element in the Define-XML document. Null Value here means: Value Not Recorded or not applicable.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 101.0, 401.0, 701.0, ...
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Sample Data: CYCLE 1 DAY 1, CYCLE 4 DAY 1, CYCLE 7 DAY 1, ...
+  Description: Visit Name - Protocol-defined description of clinical encounter. May be used in addition to VISITNUM and/or VISITDY. Null Value here means: Value Not Recorded.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: SCREENING, TREATMENT, PRE-SCREENING, ...
+  Description: Epoch associated with the start date/time of the observation, or the date/time of collection if start date/time is not collected. Null Value here means: Value Not Recorded.
+
+Column Name: LBDTC
+  Data Type: DATE
+  Sample Data: 2018-10-10T09:20, 2018-12-15T10:25, 2019-02-16T10:55, ...
+  Description: Date/Time of Specimen Collection - Date/time of specimen collection represented in ISO 8601 character format. Null Value here means: Value Not Recorded.
+
+Column Name: LBDY
+  Data Type: NUMERIC
+  Sample Data: -3.0, 64.0, 127.0, ...
+  Description: Study day of specimen collection, measured as integer days. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics. This formula should be consistent across the submission.
+
+Column Name: LBTPT
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: End of Infusion, 3 Hours Post-Infusion, 6 Hours Post-Infusion, ...
+  Description: Planned Time Point Name - Text description of time when specimen should be taken. This may be represented as an elapsed time relative to a fixed reference point, such as time of last dose. See LBTPTNUM and LBTPTREF. Null Value here means: Value Not Recorded.
+
+Column Name: LBTPTNUM
+  Data Type: NUMERIC
+  Sample Data: 1.0, 180.0, 360.0, ...
+  Description: Text description of time when specimen should be taken. This may be represented as an elapsed time relative to a fixed reference point, such as time of last dose. See LBTPTNUM and LBTPTREF.
+
+Column Name: LBREFID
+  Data Type: TEXT
+  Sample Data: 291C775000, 291C775001, 291C775002, ...
+  Description: Specimen ID - Internal or external specimen identifier. Example: specimen ID. Null Value here means: Value Not Recorded. 
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description:  Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: Value Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: MH
+Label : Medical History
+Description : One record per medical history event per subject
+================================================================================
+Total Columns: 12
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: MH
+  Description:  Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: Value Not Recorded.
+
+Column Name: MHSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: MHDECOD
+  Data Type: TEXT
+  Sample Data: Breast cancer, Deep vein thrombosis, Pulmonary embolism, ...
+  Description: Dictionary-Derived Term - Dictionary-derived text description of MHTERM or MHMODIFY. Equivalent to the Preferred Term (PT in MedDRA). The sponsor is expected to provide the dictionary name and version used to map the terms utilizing the external codelist element in the Define-XML document. Null Value here means: Value Not Recorded.
+
+Column Name: MHPTCD
+  Data Type: NUMERIC
+  Sample Data: 10051055.0, 10037377.0, 10020772.0, ...
+  Description: Sponsor-defined reference number. May be preprinted on the CRF as an explicit line identifier or defined in the sponsor's operational database.
+
+Column Name: MHCAT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: PRIMARY BREAST CANCER HISTORY, MEDICAL/SURGICAL HISTORY
+  Description: Category for Medical History - Used to define a category of related records.
+
+Column Name: MHBODSYS
+  Data Type: TEXT
+  Unique Values: 26
+  Sample Data: Neoplasms benign, malignant and unspecified (incl cysts and polyps), Vascular disorders, Respiratory, thoracic and mediastinal disorders, ...
+  Description: Body System or Organ Class - Dictionary-derived. Body system or organ class that is involved in an event or measurement from a standard hierarchy (e.g., MedDRA). When using a multi-axial dictionary such as MedDRA, this should contain the SOC used for the sponsor's analyses and summary tables which may not necessarily be the primary SOC. Null Value here means: Value Not Recorded.
+
+Column Name: MHSTDTC
+  Data Type: DATE
+  Sample Data: 2009-03-31, 2015-03-09, 2016-06-28, ...
+  Description: Start date/time of the medical history event represented in ISO 8601 character format.
+
+Column Name: MHENRTPT
+  Data Type: TEXT
+  Sample Data: ONGOING
+  Description: End Relative to Reference Time Point - Identifies the end of the event as being before or after the reference time point defined by variable MHENTPT. \n Not all values of the codelist are allowable for this variable. See Section 4.4.7, Use of Relative Timing Variables. Null Value here means: Value Not Recorded.
+
+Column Name: MHENTPT
+  Data Type: TEXT
+  Sample Data: 2015-03, 2010-01, 2008-05, ...
+  Description: Identifies the end of the event as being before or after the reference time point defined by variable MHENTPT. \n Not all values of the codelist are allowable for this variable. See Section 4.4.7, Use of Relative Timing Variables.
+
+Column Name: MHSPID
+  Data Type: TEXT
+  Sample Data: 291C5ED000, 291C5FA000, 291C5FA001, ...
+  Description: Sponsor-Defined Identifier - Sponsor-defined reference number. May be preprinted on the CRF as an explicit line identifier or defined in the sponsor's operational database. Example: Line number on a Medical History CRF page. Null Value here means: Value Not Recorded.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: Value Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: MI
+Label : Microscopic Findings
+Description : One record per finding per specimen per subject
+================================================================================
+Total Columns: 19
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study.Null Value here means: Value Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: MI
+  Description:  Domain Abbreviation - Two-character abbreviation for the domain.Null Value here means: Value Not Recorded.
+
+Column Name: MISEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: MITESTCD
+  Data Type: TEXT
+  Unique Values: 8
+  Sample Data: BRCA1, BRCA2, ESTRCPT, HER2, HER2GAM, HSBRNME, HSOTME, PROGESTR
+  Description: MITESTCD represents the short name or code for a microscopic examination, biomarker, or molecular test performed on a tissue or specimen sample. Each code identifies a specific microscopic or immunohistochemical test that evaluates molecular or receptor status. This short name can be used as a column identifier when converting data from a vertical to horizontal format. A null value indicates that the test name was not recorded.
+  Examples:
+  BRCA1 - BRCA1 gene mutation test.
+  BRCA2 - BRCA2 gene mutation test.
+  ESTRCPT - Estrogen receptor test.
+  HER2 - HER2 receptor test.
+  HER2GAM - HER2 gamma chain assessment.
+  HSBRNME - Histopathological examination of breast tissue (name).
+  HSOTME - Histopathological examination of other tissue (microscopic evaluation).
+  PROGESTR - Progesterone receptor test.
+  
+
+Column Name: MITEST
+  Data Type: TEXT
+  Sample Data: Breast Cancer Type 1 Susceptibility Prot, Breast Cancer Type 2 Susceptibility Prot, Estrogen Receptor, ...
+  Description: MITEST represents the verbatim or full descriptive name of the microscopic or molecular examination performed on a tissue or specimen. It provides a clear, human-readable label corresponding to the short test code in MITESTCD. A null value indicates that the test name was not recorded.
+ 
+
+Column Name: MICAT
+  Data Type: TEXT
+  Sample Data: PRIMARY BREAST CANCER HISTORY
+  Description: Category for Microscopic Finding - Used to define a category of related records.
+
+Column Name: MISTRESC
+  Data Type: TEXT
+  Unique Values: 13
+  Sample Data: Not Available/Not Done or Unknown, Positive, 3+, No, Yes, 2+, Negative, Negative (Wild type), Examined but NE, 1+, Positive (Mutated), Equivocal, Ambiguous/Uncertain/Mutation of Unknown Significance
+  Description: Character Result or Finding in Standard Format — represents the standardized textual result of a test or assessment, copied or derived from MIORRES. It contains the categorical or descriptive form of the result (e.g., Positive, Negative, 3+). If a numeric version exists, it should be stored in MISTRESN. A null value indicates that the result or finding for the test was not recorded or is unknown.
+
+Column Name: MISTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Completion Status - Used to indicate examination not done or result is missing. Should be null if a result exists in MIORRES or have a value of "NOT DONE" when MIORRES = "NULL". 
+
+Column Name: MISPEC
+  Data Type: TEXT
+  Sample Data: TISSUE
+  Description: Specimen Material Type - Subject of the observation. Defines the type of specimen used for a measurement. Examples: "TISSUE", "BLOOD", "BONE MARROW".Null Value here means: Value Not Recorded.
+
+Column Name: MISPCCND
+  Data Type: TEXT
+  Sample Data: ARCHIVED
+  Description: Specimen Condition - Free or standardized text describing the condition of the specimen. Example: "AUTOLYZED".Null Value here means: Value Not Recorded.
+
+Column Name: MILOC
+  Data Type: TEXT
+  Unique Values: 42
+  Sample Data: LUNG, LIVER, LYMPH NODE: AXILLARY, ...
+  Description: Specimen Collection Location - Location relevant to the collection of the specimen. Null Value here means: Value Not Recorded.
+
+Column Name: MIMETHOD
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: IHC, FISH, DISH
+  Description: Method of Test or Examination - Method of the test or examination. This could include the technique or type of staining used for the slides. Examples: "IHC", "Crystal violet", "Safranin", "Trypan blue", or "Propidium iodide".Null Value here means: Value Not Recorded.
+
+Column Name: MIBLFL
+  Data Type: TEXT
+  Sample Data: Y
+  Description: Baseline Flag - Indicator used to identify a baseline value. The value should be "Y" or null. Note that MIBLFL is retained for backward compatibility. The authoritative baseline flag for statistical analysis is in an ADaM dataset.Null Value here means: No
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 0.0
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Sample Data: SCREENING
+  Description: Visit Name - Protocol-defined description of clinical encounter. May be used in addition to VISITNUM and/or VISITDY.Null Value here means: Value Not Recorded.
+
+Column Name: MIDTC
+  Data Type: DATE
+  Sample Data: 2009-03-24, 2009-04-01, 2009-03-21, ...
+  Description: Date/time of specimen collection, in ISO 8601 format.
+
+Column Name: MIDY
+  Data Type: NUMERIC
+  Sample Data: -3487.0, -1072.0, -1514.0, ...
+  Description: Study day of specimen collection, in integer days. The algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in the Demographics (DM) domain.
+
+Column Name: MISPID
+  Data Type: TEXT
+  Unique Values: 9
+  Sample Data: 291B477000, 291B477001, 291B477002, ...
+  Description: Sponsor-Defined Identifier - Sponsor-defined reference number. May be printed on the CRF as an explicit line identifier or defined in the sponsor's operational database. Example: line number from the MI Findings page.Null Value here means: Value Not Recorded.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.Null Value here means: Value Not Recorded.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: OE
+Label :
+Description :One record per ophthalmic finding per method per location, per time point per visit per subject
+================================================================================
+Total Columns: 21
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: OE
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: Value Not Recorded.
+
+Column Name: OESEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: OETESTCD
+  Data Type: TEXT
+  Unique Values: 6
+  Sample Data: FUNDSCPY, SLITLAMP, LANDEQUI, OEALL, SNELEQUI, TOTSCORE
+  Description: Ophthalmic Examination Test Short Name — a concise coded value representing the specific ophthalmic test or assessment described in OETEST. It is used to uniquely identify each type of ophthalmologic evaluation and can serve as a column name when transforming the dataset from a vertical to a horizontal format.
+  For Example:
+  FUNDSCPY: Fundoscopy (examination of the interior of the eye).
+  SLITLAMP: Slit Lamp Examination.
+  LANDEQUI: Landolt C Visual Acuity Equivalent Test.
+  OEALL: Overall Ophthalmic Examination Result or Summary.
+  SNELEQUI: Snellen Visual Acuity Equivalent Test.
+  TOTSCORE: Total Ophthalmic Assessment Score.
+  
+  Column Name: OETEST
+  Data Type: TEXT
+  Unique Values: 6
+  Sample Data: Fundoscopy, Slit Lamp, Landolt Equivalent, Visual Acuity Test, Snellens Equivalent, Total Score
+  Description: Ophthalmic Examination Test Name — the full, descriptive name of the eye examination or assessment corresponding to OETESTCD. It identifies the specific ophthalmologic test performed to evaluate visual function or ocular health.
+  
+
+Column Name: OECAT
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: FUNDOSCOPY, SLIT LAMP EXAMINATION, VISUAL ACUITY TEST
+  Description: Used to define a category of topic-variable values. 
+
+Column Name: OESTRESC
+  Data Type: TEXT
+  Sample Data: NORMAL, ABNORMAL, NOT CLINICALLY SIGNIFICANT, 20/12.5, ...
+  Description: Contains the result value for all findings copied or derived from OEORRES, in a standard format or in standard units. OESTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in OESTRESN.
+
+Column Name: OESTRESN
+  Data Type: NUMERIC
+  Sample Data: 10.0, 16.0, 13.0, ...
+  Description: Standardized units used for OESTRESC and OESTRESN.
+
+Column Name: OESTRESU
+  Data Type: TEXT
+  Sample Data: POINT
+  Description: Standard Units - Standardized units used for OESTRESC and OESTRESN. Examples: "mm", "um". Null Value here means: Value Not Recorded.
+
+Column Name: OESTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Completion Status - Used to indicate that a question was not asked or a test was not done, or a test was attempted but did not generate a result. Should be null or have a value of "NOT DONE". Null Value here means: The Test is Done. 
+
+Column Name: OELOC
+  Data Type: TEXT
+  Sample Data: EYE
+  Description: Location Used for the Measurement - Anatomical location of the subject relevant to the collection of the measurement. Examples: "EYE" for a finding record relative to the complete eye, "RETINA" for a measurement or assessment of only the retina. Null Value here means: Value Not Recorded.
+
+Column Name: OELAT
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: BILATERAL, LEFT, RIGHT
+  Description: Laterality - Qualifier for anatomical location or specimen further detailing laterality. Examples: "RIGHT", "LEFT", "BILATERAL". Null Value here means: Value Not Recorded. 
+
+Column Name: OEMETHOD
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: OPHTHALMOSCOPY, SLIT LAMP, LANDOLT RING, ...
+  Description: Method of Test or Examination - Method of the test or examination. Example: "ETDRS EYE CHART" for OETESTCD = "NUMLCOR". The different methods may offer different functionality or granularity, affecting the set of results and associated meaning. Null Value here means: Value Not Recorded. 
+
+Column Name: OEBLFL
+  Data Type: TEXT
+  Sample Data: Y
+  Description: Baseline Flag - Indicator used to identify a baseline value. Should be "Y" or null. Note that OEBLFL is retained for backward compatibility. The authoritative baseline for statistical analysis is in an ADaM dataset. Null Value here means: this examination was either not at baseline or not flagged as such.
+
+Column Name: OEEVAL
+  Data Type: TEXT
+  Sample Data: INVESTIGATOR
+  Description: Evaluator - Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). 
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 601.0, 0.0, 201.0, ...
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 14
+  Sample Data: CYCLE 6 DAY 1, SCREENING, CYCLE 2 DAY 1, ...
+  Description: Visit Name - Protocol-defined description of a clinical encounter. Null Value here means: Value Not Recorded.  (column_values : CYCLE 10 DAY 1, CYCLE 14 DAY 1, CYCLE 2 DAY 1, CYCLE 6 DAY 1, END OF TREATMENT, SCREENING, UNSCHEDULED CYCLE 10 DAY 1 01, UNSCHEDULED CYCLE 3 DAY 1 01, UNSCHEDULED CYCLE 5 DAY 1 01)
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: SCREENING, TREATMENT, FOLLOW-UP, ...
+  Description: Epoch associated with the date/time at which the assessment was made. Null Value here means: Value Not Recorded
+
+Column Name: OEDTC
+  Data Type: DATE
+  Sample Data: 2018-10-07, 2018-11-01, 2018-10-08, ...
+  Description: Date/Time of Collection - Collection date/time of the observation. Null Value here means: Value Not Recorded 
+
+Column Name: OEDY
+  Data Type: NUMERIC
+  Sample Data: -6.0, 22.0, -9.0, ...
+  Description: Actual study day of observation/exam expressed in integer days relative to the sponsor-defined RFSTDTC in Demographics.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+
+================================================================================
+Table Name: PC
+Label :Pharmacokinetics Concentrations
+Description :One record per sample characteristic or time-point concentration per reference time point or per analyte per subject
+================================================================================
+Total Columns: 26
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description:  Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded. 
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: PC
+  Description: Domain Abbreviation - Two-character abbreviation for the domain. Null Value here means: Value Not Recorded. 
+
+Column Name: PCSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: PCTESTCD
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: DS8201, PAYLOAD, TOTALAB
+  Description: Pharmacokinetic Test Short Name - Short name of the analyte or specimen characteristic. It can be used as a column name when converting a dataset from a vertical to a horizontal format. Null Value here means: Value Not Recorded. 
+  For Example: 
+  DS8201: Concentration of the investigational drug DS-8201.
+  PAYLOAD: Measurement of the cytotoxic payload component.
+  TOTALAB: Total antibody concentration (includes both conjugated and unconjugated forms).
+
+
+Column Name: PCTEST
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: DS-8201a, MAAA-1181a, Total anti-HER2 Antibody
+  Description: Pharmacokinetic Test Name - Name of the analyte or specimen characteristic. Note any test normally performed by a clinical laboratory is considered a lab test. Null Value here means: Value Not Recorded.
+  
+Column Name: PCSTRESC
+  Data Type: TEXT
+  Sample Data: <400, 123000, 117000, ...
+  Description: Standard Units - Standardized unit used for PCSTRESC and PCSTRESN. Null Value here means: Value Not Recorded.
+
+Column Name: PCSTRESN
+  Data Type: NUMERIC
+  Sample Data: 123000.0, 117000.0, 105000.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: PCSTRESU
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: ng/mL, pg/mL
+  Description: Standardized unit used for PCSTRESC and PCSTRESN.
+
+Column Name: PCSTAT
+  Data Type: NUMERIC
+  Sample Data: No data
+  Description: Used to indicate a result was not obtained. Should be null if a result exists in PCORRES.
+
+Column Name: PCSPEC
+  Data Type: TEXT
+  Sample Data: SERUM
+  Description: Defines the type of specimen used for a measurement.
+
+Column Name: PCSPCCND
+  Data Type: TEXT
+  Sample Data: FROZEN
+  Description: Free or standardized text describing the condition of the specimen.
+
+Column Name: PCMETHOD
+  Data Type: TEXT
+  Sample Data: LC/MS/MS
+  Description: Method of the test or examination. Examples: "HPLC/MS", "ELISA". This should contain sufficient information and granularity to allow differentiation of various methods that might have been used within a study.
+
+Column Name: PCBLFL
+  Data Type: TEXT
+  Sample Data: Y
+  Description: Baseline Flag - Indicator used to identify a baseline value. Should be "Y" or null. Null Value here means: Not at baseline or not flagged as such.
+
+Column Name: PCLLOQ
+  Data Type: NUMERIC
+  Sample Data: 400.0, 10.0
+  Description: Indicates the lower limit of quantitation for an assay. Units should be those used in PCSTRESU.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 101.0, 108.0, 115.0, ...
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 34
+  Sample Data: CYCLE 1 DAY 1, CYCLE 1 DAY 8, CYCLE 1 DAY 15, ...
+  Description: Protocol-defined description of clinical encounter. May be used in addition to VISITNUM and/or VISITDY.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: SCREENING, TREATMENT, FOLLOW-UP, ...
+  Description: Epoch associated with the start date/time of the observation, or the date/time of collection if start date/time is not collected.
+
+Column Name: PCDTC
+  Data Type: DATE
+  Sample Data: 2018-10-13T09:40, 2018-10-13T13:02, 2018-10-13T15:23, ...
+  Description: Date/time of specimen collection represented in ISO 8601 character format. If there is no end time, then this will be the collection time.
+
+Column Name: PCDY
+  Data Type: NUMERIC
+  Sample Data: 1.0, 8.0, 15.0, ...
+  Description: Study day of specimen collection, measured as integer days. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.
+
+Column Name: PCTPT
+  Data Type: TEXT
+  Unique Values: 11
+  Sample Data: Before Infusion, End of Infusion, 4 hrs after dose start, ...
+  Description: Text description of time when specimen should be taken. This may be represented as an elapsed time relative to a fixed reference point, such as time of last dose. See PCTPTNUM and PCTPTREF. 
+
+Column Name: PCTPTNUM
+  Data Type: NUMERIC
+  Sample Data: -1.0, 1.0, 240.0, ...
+  Description: Numerical version of PCTPT to aid in sorting.
+
+Column Name: PCTPTREF
+  Data Type: TEXT
+  Unique Values: 21
+  Sample Data: Cycle 1 Infusion Start, Cycle 1 Infusion End, Cycle 2 Infusion Start, ...
+  Description: Name of the fixed reference point used as a basis for PCTPT, PCTPTNUM, and PCELTM
+
+Column Name: PCRFTDTC
+  Data Type: DATE
+  Sample Data: 2018-10-13T11:23, 2018-10-13T13:02, 2018-11-03T12:25, ...
+  Description: Date/time of the reference time point described by PCTPTREF.
+
+Column Name: PCREFID
+  Data Type: TEXT
+  Sample Data: 291ED3902F, 291ED39030, 291ED39031, ...
+  Description: Internal or external specimen identifier.
+
+Column Name: PCSPID
+  Data Type: TEXT
+  Sample Data: 291ED39007, 291ED39008, 291ED39009, ...
+  Description: Sponsor-defined reference number.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: PE
+Label : Physical Examination
+Description : One record per body system or abnormality per visit per subject
+================================================================================
+Total Columns: 15
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: PE
+  Description: Two-character abbreviation for the domain.
+
+Column Name: PESEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number to ensure uniqueness of records within a dataset for a subject. May be any valid number.
+
+Column Name: PETESTCD
+  Data Type: TEXT
+  Unique Values: 11
+  Sample Data: PEALL, GENERAL, HEMAT, HEENT, GAST, NEURO, RESP, PSYC, MUSC, DERM, OTH
+  Description: Short name of a part of the body examined in a physical examination. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in PETESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., "1TEST" is not valid). PETESTCD cannot contain characters other than letters, numbers, or underscores
+  Examples:
+  PEALL - Overall physical examination summary.
+  GENERAL - General appearance or overall condition.
+  HEMAT - Hematologic system (e.g., lymph nodes, blood-related findings).
+  HEENT - Head, Eyes, Ears, Nose, and Throat examination.
+  GAST - Gastrointestinal system.
+  NEURO - Neurological system.
+  RESP - Respiratory system.
+  PSYC - Psychological or mental status.
+  MUSC - Musculoskeletal system.
+  DERM - Dermatologic (skin) system.
+  OTH - Other systems not covered in the standard categories.
+
+Column Name: PETEST
+  Data Type: TEXT
+  Unique Values: 11
+  Sample Data: PE Data, General Appearance, Hematological, ...
+  Description: PETEST represents the verbatim or long name of the body system or part examined during a Physical Examination (PE). It provides a human-readable description corresponding to the short code defined in PETESTCD.PETEST provides the descriptive, human-friendly label for each physical examination test identified by PETESTCD.
+  
+Column Name: PECAT
+  Data Type: TEXT
+  Sample Data: PHYSICAL EXAM
+  Description: Used to define a category of topic-variable values.
+
+Column Name: PESTRESC
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: NO CLINICALLY SIGNIFICANT FINDINGS, NO CLINICALLY SIGNIFICANT ADVERSE CHANGES SINCE PREVIOUS PHYSICAL EXAMINATION, CLINICALLY SIGNIFICANT ADVERSE CHANGES FROM PREVIOUS PHYSICAL EXAMINATION, CLINICALLY SIGNIFICANT FINDINGS
+  Description: PESTRESC contains the standardized character result of the physical examination for a specific body system or overall assessment. It records whether any clinically significant findings or changes were observed compared to previous examinations. If PEORRES (the original result) is null, then PESTRESC must also be null.
+  NO CLINICALLY SIGNIFICANT FINDINGS - Indicates no abnormalities were detected during the examination.
+  NO CLINICALLY SIGNIFICANT ADVERSE CHANGES SINCE PREVIOUS PHYSICAL EXAMINATION - No worsening or new issues compared to the prior exam.
+  CLINICALLY SIGNIFICANT ADVERSE CHANGES FROM PREVIOUS PHYSICAL EXAMINATION - New or worsened findings of clinical importance were observed.
+  CLINICALLY SIGNIFICANT FINDINGS - Abnormalities detected that may be clinically relevant
+
+Column Name: PESTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Used to indicate exam not done. Must be null if a result exists in PEORRES/PESTRESC.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 0.0, 101.0, 201.0, ...
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 69
+  Sample Data: SCREENING, CYCLE 1 DAY 1, CYCLE 2 DAY 1, ...
+  Description: Protocol-defined description of a clinical encounter. May be used in addition to VISITNUM and/or VISITDY.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: SCREENING, TREATMENT, FOLLOW-UP, ...
+  Description: Epoch associated with the observation date/time of the physical exam finding.
+
+Column Name: PEDTC
+  Data Type: DATE
+  Sample Data: 2018-10-12, 2018-10-10, 2018-10-27, ...
+  Description: Date and time of the physical examination represented in ISO 8601 character format.
+
+Column Name: PEDY
+  Data Type: NUMERIC
+  Sample Data: -5.0, -3.0, 19.0, ...
+  Description: Study day of physical exam, measured as integer days. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.
+
+Column Name: PESPID
+  Data Type: TEXT
+  Unique Values: 10
+  Sample Data: 291F8EA001, 291F8E7000, 291F8E6001, ...
+  Description: Sponsor-defined reference number. Perhaps preprinted on the CRF as an explicit line identifier or defined in the sponsor's operational database.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: PP
+Label : Pharmacokinetics Parameters
+Description :One record per PK parameter per time-concentration profile per modeling method per subject
+================================================================================
+Total Columns: 16
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: PP
+  Description: Two-character abbreviation for the domain.
+
+Column Name: PPSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: PPGRPID
+  Data Type: TEXT
+  Unique Values: 6
+  Sample Data: Part 2a - 5.4 mg/kg, Part 1 - Dose Finding Stage, Part 2b - 5.4 mg/kg, ...
+  Description: Used to tie together a block of related records in a single domain to support relationships within the domain and between domains.
+
+Column Name: PPTESTCD
+  Data Type: TEXT
+  Unique Values: 7
+  Sample Data: AUC021D, AUCLST, CL, CMAX, LAMZHL, TMAX, VSS
+  Description: Short name of the pharmacokinetic parameter. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in PPTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., "1TEST" is not valid). PPTESTCD cannot contain characters other than letters, numbers, or underscores.
+  For Example:
+  AUC021D - Time Curve from time 0 to 21 days.
+  AUCLST - Area Under the Curve up to the last measurable concentration.
+  CL - volume of plasma cleared of drug per unit time.
+  CMAX - Maximum observed plasma concentration.
+  LAMZHL - time taken for the concentration to decrease by half in the terminal phase.
+  TMAX - Time to reach maximum concentration (CMAX).
+  VSS - Steady-state volume of distribution — theoretical volume in which the total amount of drug would need to be uniformly distributed to give the observed blood concentration.
+Column Name: PPTEST
+  Data Type: TEXT
+  Unique Values: 7
+  Sample Data: AUC from 0 to 21 Day, AUC to Last Nonzero Conc, Clearance, ...
+  Description: Name of the pharmacokinetic parameter. The value in PPTEST cannot be longer than 40 characters. 
+  
+Column Name: PPCAT
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: DS8201, PAYLOAD, TOTALAB
+  Description: Used to define a category of related records. For PP, this should be the name of the analyte in PCTEST whose profile the parameter is associated with.
+
+Column Name: PPSTRESC
+  Data Type: NUMERIC
+  Sample Data: 535.098468672209, 555.627923740259, 497.855752505442, ...
+  Description: Contains the result value for all findings, copied or derived from PPORRES in a standard format or standard units. PPSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in PPSTRESN.
+
+Column Name: PPSTRESN
+  Data Type: NUMERIC
+  Sample Data: 535.09846867, 555.62792374, 497.8557525, ...
+  Description: Used for continuous or numeric results or findings in standard format; copied in numeric format from PPSTRESC. PPSTRESN should store all numeric test results or findings.
+
+Column Name: PPSTRESU
+  Data Type: TEXT
+  Unique Values: 8
+  Sample Data: day*ug/mL, day*ng/mL, (mL/day)/kg, ...
+  Description: Standardized unit used for PPSTRESC and PPSTRESN. See PP Assumption 3.
+
+Column Name: PPSPEC
+  Data Type: TEXT
+  Sample Data: SERUM
+  Description: Defines the type of specimen used for a measurement. If multiple specimen types are used for a calculation (e.g., serum and urine for renal clearance), then this field should be left blank.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: CYCLE 1, CYCLE 3
+  Description: Visit Name - Protocol-defined description of clinical encounter. May be used in addition to VISITNUM and/or VISITDY.
+
+Column Name: PPDTC
+  Data Type: NUMERIC
+  Sample Data: No data
+  Description: Nominal date/time of parameter calculations.
+
+Column Name: PPRFTDTC
+  Data Type: DATE
+  Sample Data: 2018-10-13T13:02, 2018-11-26T10:25, 2018-08-08T12:19, ...
+  Description: Date/time of the reference time point from the PC records used to calculate a parameter record. The values in PPRFTDTC should be the same as that in PCRFTDTC for related records.
+
+Column Name: EPOCH
+  Data Type: NUMERIC
+  Sample Data: No data
+  Description: Epoch associated with the start date/time of the observation, or the date/time of collection if start date/time is not collected.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. \n
+
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: PR
+Label : Procedures
+Description :One record per recorded procedure per occurrence per subject
+================================================================================
+Total Columns: 17
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: PR
+  Description: Two-character abbreviation for the domain.
+
+Column Name: PRSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: PRCAT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: PRIOR CANCER SURGERY, PRIOR CANCER RADIATION THERAPY
+  Description: Used to define a category of procedure values.
+
+Column Name: PRSCAT
+  Data Type: TEXT
+  Unique Values: 33
+  Sample Data: GENERAL, OTHER: BOOST OVER 20 FRACTIONS, OTHER: PALLIATIVE, ...
+  Description: Used to define a further categorization of PRCAT values.
+
+Column Name: PRDOSE
+  Data Type: NUMERIC
+  Sample Data: 50.0, 45.0, 40.0, ...
+  Description: Amount of PRTRT administered. Not populated when PRDOSTXT is populated.
+
+Column Name: PRDOSTXT
+  Data Type: TEXT
+  Unique Values: 6
+  Sample Data: 1400/6000, 2,100, 3,900, ...
+  Description: Dosing information collected in text form.  Not populated when PRDOSE is populated.
+
+Column Name: PRDOSU
+  Data Type: TEXT
+  Unique Values: 7
+  Sample Data: Gy, cGy, UNK, ...
+  Description: Units for PRDOSE, PRDOSTOT, or PRDOSTXT.
+
+Column Name: PRLOC
+  Data Type: TEXT
+  Sample Data: RIGHT BREAST, RIGHT SUPRA CLAVICULAR FOSSA, RIGHT AXILLA, ...
+  Description: Anatomical location of a procedure.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 0.0
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Sample Data: SCREENING
+  Description: Protocol-defined description of a clinical encounter.
+
+Column Name: PRSTDTC
+  Data Type: DATE
+  Sample Data: 2009-03-25, 2009-10-05, 2009-10-09, ...
+  Description: Start date/time of the procedure represented in ISO 8601 character format.
+
+Column Name: PRENDTC
+  Data Type: DATE
+  Sample Data: 2009-11-04, 2009-11-05, 2009-11-01, ...
+  Description: End date/time of the procedure represented in ISO 8601 character format.
+
+Column Name: PRSTDY
+  Data Type: NUMERIC
+  Sample Data: -3485.0, -3297.0, -1073.0, ...
+  Description: Study day of start of procedure expressed in integer days relative to the sponsor-defined RFSTDTC in Demographics.
+
+Column Name: PRENDY
+  Data Type: NUMERIC
+  Sample Data: -3259.0, -3262.0, -751.0, ...
+  Description: Study day of end of procedure expressed in integer days relative to the sponsor-defined RFSTDTC in Demographics.
+
+Column Name: PRSPID
+  Data Type: TEXT
+  Sample Data: 291B302001, 291B2E2000, 291B302000, ...
+  Description: Sponsor-defined identifier. Example: preprinted line identifier on a CRF, record identifier defined in the sponsor's operational database.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: RELREC
+Label : Related Records
+Description : One record per related record, group of records or dataset
+================================================================================
+Total Columns: 7
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Study Identifier - Unique identifier for a study. Null Value here means: Value Not Recorded.
+
+Column Name: RDOMAIN
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: AE, FA
+  Description:  Related Domain Abbreviation - Abbreviation for the domain of the parent record(s). Null Value here means: Value Not Recorded.
+
+Column Name: IDVAR
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: AESEQ, FASEQ
+  Description: Identifying Variable - Name of the identifying variable in the general-observation-class dataset that identifies the related record(s). Null Value here means: Value Not Recorded. 
+
+Column Name: IDVARVAL
+  Data Type: INTEGER
+  Sample Data: 17, 1, 10, ...
+  Description: Identifying Variable Value - Value of identifying variable described in IDVAR. If --SEQ is the variable being used to describe this record, then the value of --SEQ would be entered here. Null Value here means: Value Not Recorded.
+
+Column Name: RELTYPE
+  Data Type: NUMERIC
+  Sample Data: No data
+  Description: Identifies the hierarchical level of the records in the relationship. Values should be either "ONE" or "MANY". Used only when identifying a relationship between datasets (as described in Section 8.3, Relating Datasets).
+
+Column Name: RELID
+  Data Type: INTEGER
+  Unique Values: 28
+  Sample Data: 16, 13, 19, ...
+  Description: Unique value within USUBJID that identifies the relationship. All records for the same USUBJID that have the same RELID are considered related/associated. RELID can be any value the sponsor chooses, and is only meaningful within the RELREC dataset to identify the related/associated domain records.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22566049, NP5039-B-G420-22745479, NP5039-B-G420-51932098, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+======================================================================
+Table Name: RS
+Label : Tumor Response Assessment
+Description : One record per response assessment per time point per visit per subject per assessor. ======================================================================
+======================================================================
+Total Columns: 19
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: RS
+  Description: Short domain code identifying the dataset.
+
+Column Name: RSSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Unique sequence number for each disease response record per subject. It distinguishes multiple response assessments for the same subject. Sequentially increases for each new RS record under the same USUBJID.
+
+Column Name: RSTESTCD
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: CBRESP, NEWLPROG, NTRGRESP, OVRLRESP, TRGRESP
+  Description: RSTESTCD is a short test code that identifies the specific type of disease response assessment being performed for a subject. Each code corresponds to a particular response category evaluated during tumor response assessment.
+    For example:
+    CBRESP → represents Confirmed Best Overall Response, which is the best confirmed response achieved by a subject during the study.
+    NEWLPROG → represents New Lesion Progression, indicating whether new lesions have developed since the last assessment.
+    NTRGRESP → represents Non-target Response, showing the response status of lesions that are not classified as target lesions.
+    OVRLRESP → represents Overall Response, which is the combined assessment of both target and non-target lesions.
+    TRGRESP → represents Target Response, reflecting the change in measurable target lesions from baseline.
+
+Column Name: RSTEST
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: Confirmed Best Overall Response, New Lesion Progression, Non-target Response, Overall Response, Target Response
+  Description: RSTEST is the human-readable description or full name of the response test corresponding to RSTESTCD. It describes what was being measured or assessed in plain language.
+  Essentially, RSTEST is the verbal form of RSTESTCD, helping users easily interpret what kind of disease response evaluation the record represents.
+
+Column Name: RSCAT
+  Data Type: TEXT
+  Sample Data: RECIST 1.1
+  Description: Category of the response assessment method or criteria used, such as RECIST 1.1. It defines the evaluation standard followed.
+
+Column Name: RSSTRESC
+  Data Type: TEXT
+  Unique Values: 12
+  Sample Data: PR, N, ND, NON-CR/NON-PD, SD, NE, PD, CR, UNEQUIVOCAL, Y, EQUIVOCAL
+  Description: RSSTRESC shows the standardized result of the disease response test,  RSTEST. describing how the subject’s disease responded to treatment based on RECIST or similar criteria.
+    Common values include:
+      -CR: Complete disappearance of disease
+      -PR: Partial reduction in lesion size
+      -SD: No significant change (stable disease)
+      -PD: Disease progression or new lesions
+      -NE: Not evaluable
+      -ND: No disease detected
+      -NON-CR/NON-PD: Neither fully responding nor progressing
+      -Y: Indicates new lesion progression (for NEWLPROG)
+    The meaning depends on the test type (RSTESTCD):
+      -TRGRESP: Target lesion response (CR/PR/SD/PD/NE)
+      -NTRGRESP: Non-target lesion response (CR/NON-CR-NON-PD/PD/NE/ND)
+      -OVRLRESP or CBRESP: Overall or best confirmed response (CR/PR/SD/PD/NE)
+      -NEWLPROG: “Y” indicates new lesions observed
+      -In short, RSSTRESC tells the subject’s disease response outcome in a concise, coded form.
+
+Column Name: RSSTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Indicates the record’s status — for example, NOT DONE if the assessment was not performed. Works with RSSTRESC to identify whether a result is missing due to non-assessment.
+
+Column Name: RSNAM
+  Data Type: TEXT
+  Sample Data: BIOCLINICA
+  Description: The name or identifier of the vendor that performed the response assessment. This column can be left null when the investigator provides the complete set of data in the domain.
+
+Column Name: RSEVAL
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: INDEPENDENT ASSESSOR, INVESTIGATOR
+  Description: Describes the role or level of the person performing the assessment (e.g., Investigator, Independent Assessor).Used with RSEVALID to identify who made the evaluation.
+
+Column Name: RSEVALID
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: RADIOLOGIST 1, RADIOLOGIST 2
+  Description: Identifier or title of the individual or evaluator who performed the assessment (e.g., Radiologist 1, Radiologist 2). Works with RSEVAL to fully identify the evaluator responsible for the result.
+
+Column Name: RSACPTFL
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: Y, N
+  Description: Acceptance flag indicating if the record or evaluation was accepted for final analysis. Values: Y = Accepted, N = Not Accepted. Used to filter final accepted assessments per subject.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 220.0, 420.0, 620.0, ...
+  Description: Numeric code representing the visit when the response assessment occurred (e.g., 220 = Week 6, 420 = Week 12), used for sorting. Works with VISIT and EPOCH to identify when the test took place.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 22
+  Sample Data: WEEK 6, WEEK 12, WEEK 18, ...
+  Description: Descriptive label for the study visit (e.g., WEEK 6, WEEK 12). Complements VISITNUM to describe the timing of the assessment.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: TREATMENT, FOLLOW-UP, LONG-TERM FOLLOW-UP
+  Description: Describes the phase of the study during which the response was assessed (e.g., TREATMENT, FOLLOW-UP). Useful for grouping assessments by study phase.
+
+Column Name: RSDTC
+  Data Type: DATE
+  Sample Data: 2018-11-30, 2018-11-27, 2018-11-29, ...
+  Description: Actual date when the disease response assessment was performed, in ISO 8601 character format. Used with RSDY to order assessments chronologically.
+
+Column Name: RSDY
+  Data Type: NUMERIC
+  Sample Data: 43.0, 81.0, 129.0, ...
+  Description: Study day of the assessment, measured as integer days. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics. Provides a numeric representation of timing aligned with RSDTC.
+
+Column Name: RSSPID
+  Data Type: TEXT
+  Sample Data: 291F507000, 291F507001, 291F507002, ...
+  Description: Sponsor-defined identifier linking the RS record to the source data or electronic case report form (eCRF).
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: SE
+Label : Subject Elements
+Description : One record per actual Element per subject
+================================================================================
+Total Columns: 12
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: SE
+  Description: Two-character abbreviation for the domain.
+
+Column Name: SESEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. Should be assigned to be consistent chronological order.
+
+Column Name: ETCD
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: PRESCRN, SCRN, TRT, ...
+  Description: 1. ETCD (the companion to ELEMENT) is limited to 8 characters and does not have special character restrictions. These values should be short for ease of use in programming, but it is not expected that ETCD will need to serve as a variable name. \n 2. If an encountered element differs from the planned element to the point that it is considered a new element, then use "UNPLAN" as the value for ETCD to represent this element.
+
+Column Name: ELEMENT
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: Pre-Screening, Screening, Treatment, ...
+  Description: The name of the element. If ETCD has a value of "UNPLAN", then ELEMENT should be null.
+
+Column Name: TAETORD
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Number that gives the planned order of the element within the subject's assigned trial arm.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: PRE-SCREENING, SCREENING, TREATMENT, ...
+  Description: Epoch associated with the element in the planned sequence of elements for the arm to which the subject was assigned.
+
+Column Name: SESTDTC
+  Data Type: TEXT
+  Sample Data: 2018-08-04, 2018-09-16, 2018-10-13T11:23, ...
+  Description: Start date/time for an element for each subject.
+
+Column Name: SEENDTC
+  Data Type: TEXT
+  Sample Data: 2018-09-26, 2018-10-13T11:23, 2019-04-17, ...
+  Description: End date/time for an element for each subject.
+
+Column Name: SESTDY
+  Data Type: NUMERIC
+  Sample Data: -68.0, -24.0, 1.0, ...
+  Description: Study day of start of element relative to the sponsor-defined RFSTDTC.
+
+Column Name: SEENDY
+  Data Type: NUMERIC
+  Sample Data: -24.0, 1.0, 186.0, ...
+  Description: Study day of end of element relative to the sponsor-defined RFSTDTC.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: SS
+Label : Subject Status
+Description : One record per status per visit per subjec
+================================================================================
+Total Columns: 14
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: SS
+  Description: Two-character abbreviation for the domain.
+
+Column Name: SSSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+Column Name: SSTESTCD
+  Data Type: TEXT
+  Sample Data: SURVSTAT
+  Description: Short name of the status assessment described in SSTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in SSTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., "1TEST" is not valid). SSTESTCD cannot contain characters other than letters, numbers, or underscores. 
+
+Column Name: SSTEST
+  Data Type: TEXT
+  Sample Data: Survival Status
+  Description: Verbatim name of the status assessment used to obtain the finding. The value in SSTEST cannot be longer than 40 characters. 
+
+Column Name: SSSTRESC
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: ALIVE, WITHDRAWAL OF CONSENT BY SUBJECT, DEAD, ...
+  Description: Contains the result value for all findings copied or derived from SSORRES, in a standard format.
+
+Column Name: SSSTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Used to indicate a status assessment was not done. Should be null if a result exists in SSORRES.
+
+Column Name: SSEVAL
+  Data Type: TEXT
+  Sample Data: INVESTIGATOR
+  Description: Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). Should be null for records that contain collected or derived data.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 9801.0, 9802.0
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: 40 DAY FOLLOW-UP, Q3 MONTH FOLLOW-UP
+  Description: Protocol-defined description of clinical encounter. May be used in addition to VISITNUM and/or VISITDY.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: FOLLOW-UP, LONG-TERM FOLLOW-UP, TREATMENT
+  Description: Epoch associated with the start date/time of the subject status assessment.
+
+Column Name: SSDTC
+  Data Type: DATE
+  Sample Data: 2019-03-19, 2019-04-13, 2018-11-10, ...
+  Description: Date and time of the subject status assessment represented in ISO 8601 character format.
+
+Column Name: SSDY
+  Data Type: NUMERIC
+  Sample Data: 181.0, 188.0, 80.0, ...
+  Description: Study day of the subject status assessment, measured as integer days. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Unique Values: 102
+  Sample Data: NP5039-B-G420-22403443, NP5039-B-G420-22566049, NP5039-B-G420-22600586, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: SV
+Label : Subject Visits
+Description : One record per actual or planned visit per subject
+================================================================================
+Total Columns: 10
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: SV
+  Description: Two-character abbreviation for the domain most relevant to the observation. The domain abbreviation is also used as a prefix for variables to ensure uniqueness when datasets are merged.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 0.0, 101.0, 108.0, ...
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Sample Data: SCREENING, CYCLE 1 DAY 1, CYCLE 1 DAY 8, ...
+  Description: Protocol-defined description of a clinical encounter.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: PRE-SCREENING, SCREENING, TREATMENT, ...
+  Description: 
+
+Column Name: SVSTDTC
+  Data Type: DATE
+  Sample Data: 2018-08-09, 2018-10-03, 2018-10-26, ...
+  Description: Start date/time of an observation represented in IS0 8601 character format.
+
+Column Name: SVENDTC
+  Data Type: DATE
+  Sample Data: 2018-10-02, 2018-10-12, 2018-10-20, ...
+  Description: End date/time of the observation represented in IS0 8601 character format.
+
+Column Name: SVSTDY
+  Data Type: NUMERIC
+  Sample Data: -68.0, -3.0, 8.0, ...
+  Description: Actual study day of start of observation expressed in integer days relative to the sponsor-defined RFSTDTC in Demographics.
+
+Column Name: SVENDY
+  Data Type: NUMERIC
+  Sample Data: -4.0, 1.0, 8.0, ...
+  Description: Actual study day of end of observation expressed in integer days relative to the sponsor-defined RFSTDTC in Demographics.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: TA
+Label : Trial Arms
+Description : Defines the planned arms of the clinical trial and describes how trial elements (TE) are sequenced within each arm. Each record represents one arm of the study, showing its structure and treatment pathway.
+================================================================================
+Total Columns: 10
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: TA
+  Description: Two-character abbreviation for the domain.
+
+Column Name: ARMCD
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: TRT1, TRT2, TRT3
+  Description: ARMCD is limited to 20 characters and does not have special character restrictions. The maximum length of ARMCD is longer than that for other "short" variables to accommodate the kind of values that are likely to be needed for crossover trials. For example, if ARMCD values for a 7-period crossover were constructed using 2-character abbreviations for each treatment and separating hyphens, the length of ARMCD values would be 20. 
+
+Column Name: ARM
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: 5.4 mg/kg, 6.4 mg/kg, 7.4 mg/kg
+  Description: Name given to an arm or treatment group.
+
+Column Name: TAETORD
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Number that gives the order of the element within the arm.
+
+Column Name: ETCD
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: PRESCRN, SCRN, TRT, ...
+  Description: ETCD (the companion to ELEMENT) is limited to 8 characters and does not have special character restrictions. These values should be short for ease of use in programming, but it is not expected that ETCD will need to serve as a variable name.
+
+Column Name: ELEMENT
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: Pre-Screening, Screening, Treatment, ...
+  Description: The name of the element. The same element may occur more than once within an arm.
+
+Column Name: TABRANCH
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: Randomized to Treatment, Assigned to Treatment
+  Description: Condition subject met, at a "branch" in the trial design at the end of this element, to be included in this arm (e.g., "Randomization to DRUG X").
+
+Column Name: TATRANS
+  Data Type: TEXT
+  Sample Data: If treatment is delayed >4 weeks from the planned date of dosing,the subject will be withdrawn from the study.
+  Description: If the trial design allows a subject to transition to an element other than the next element in sequence, then the conditions for transitioning to those other elements, and the alternative element sequences, are specified in this rule (e.g., "Responders go to washout").
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: PRE-SCREENING, SCREENING, TREATMENT, ...
+  Description: Name of the trial epoch with which this element of the arm is associated.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: TE
+Label : Trial Elements
+Description : Defines the basic building blocks (elements) of the trial, such as specific treatment or observation periods. Each element describes what happens to subjects during a defined time interval (e.g., Screening, Treatment, Follow-up).
+================================================================================
+Total Columns: 7
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: TE
+  Description: Two-character abbreviation for the domain.
+
+Column Name: ETCD
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: PRESCRN, SCRN, TRT, ...
+  Description: ETCD (the companion to ELEMENT) is limited to 8 characters and does not have special character restrictions. These values should be short for ease of use in programming, but it is not expected that ETCD will need to serve as a variable name.
+
+Column Name: ELEMENT
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: Pre-Screening, Screening, Treatment, ...
+  Description: The name of the element.
+
+Column Name: TESTRL
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: Tumor Tissue Consent Date, Informed Consent Date, First Date of Treatment, ...
+  Description: Describes condition for beginning element.
+
+Column Name: TEENRL
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: Informed Consent Date, First Date of Treatment-1, Last Date of Treatment, ...
+  Description: Describes condition for ending element. Either TEENRL or TEDUR must be present for each element.
+
+Column Name: TEDUR
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: P30D, P28D, P12M, ...
+  Description: Planned duration of element in ISO 8601 format. Used when the rule for ending the element is applied after a fixed duration.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: TI
+Label : Trial Inclusion/Exclusion Criteria
+Description : Contains protocol-defined inclusion and exclusion criteria for subject eligibility in the trial. Each record represents one criterion as defined in the study protocol.
+================================================================================
+Total Columns: 6
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: TI
+  Description: Two-character abbreviation for the domain.
+
+Column Name: IETESTCD
+  Data Type: TEXT
+  Unique Values: 46
+  Sample Data: EX01, EX02, EX03, ...
+  Description: Short name IETEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in IETESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., "1TEST" is not valid). IETESTCD cannot contain characters other than letters, numbers, or underscores. The prefix "IE" is used to ensure consistency with the IE domain.
+
+Column Name: IETEST
+  Data Type: TEXT
+  Unique Values: 46
+  Sample Data: Medical history of myocardial infarction within 6 months before registration, symptomatic congestive heart failure (CHF) (New York Heart Association Class II to IV, Section 17.4), Has a corrected QT interval (QTc) prolongation to > 470 msec (females) or >450 msec (males) based on average of the screening triplicate12-lead ECG, Has had clinically significant lung disease requiring systemic corticosteroid treatment within the last 6 months of randomization/registration or who are suspected to have such diseases by screening, ...
+  Description: Full text of the inclusion or exclusion criterion. The prefix "IE" is used to ensure consistency with the IE domain.
+
+Column Name: IECAT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: EXCLUSION, INCLUSION
+  Description: Used for categorization of the inclusion or exclusion criteria.
+
+Column Name: TIVERS
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: V1.0, 15 MAY 2017, V2.0, 19 OCT 2017, V3.0, 22 JAN 2018, ...
+  Description: The number of this version of the Inclusion/Exclusion criteria. May be omitted if there is only 1 version.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: TR
+Label : Tumor Response
+Description : Contains records of tumor lesion evaluations performed for each subject at each assessment time point. It includes information about target and non-target lesion responses, measurements, and evaluation results based on tumor assessment criteria (e.g., RECIST).
+================================================================================
+Total Columns: 23
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: TR
+  Description: Two-character abbreviation for the domain.
+
+Column Name: TRSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness within a dataset for a subject. May be any valid number. 
+
+Column Name: TRGRPID
+  Data Type: TEXT
+  Unique Values: 26
+  Sample Data: NT01, T01, TARGET, NON-TARGET, NEW, ...
+  Description: TRGRPID identifies the tumor/lesion group or individual lesion within a subject’s tumor assessment records.
+    It combines a group type prefix with a number sequence to show both category and lesion number:
+    T01–T06 → Target Lesions (e.g., T01 = first target lesion, T02 = second target lesion)
+    NT01–NT10 → Non-Target Lesions (e.g., NT01 = first non-target lesion, NT02 = second non-target lesion)
+    NEW01–NEW08 → New Lesions identified after baseline
+    TARGET / NON-TARGET / NEW → summary-level groups linking all lesions of that category
+
+Column Name: TRLNKID
+  Data Type: TEXT
+  Unique Values: 24
+  Sample Data: T01, NT01, NEW01, ...
+  Description: TRLNKID is the unique lesion ID that connects this record to its definition in the TU (Tumor Identification) domain.
+    Each value corresponds to a specific lesion, where:
+      Txx refers to a Target Lesion
+      NTxx refers to a Non-Target Lesion
+      NEWxx refers to a New Lesion detected later
+
+
+Column Name: TRLNKGRP
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: NON-TARGET, TARGET, NEW
+  Description: TRLNKGRP classifies each lesion or group of lesions by their category of assessment in the tumor response evaluation:
+    TARGET → measurable lesions that are quantitatively tracked
+    NON-TARGET → non-measurable but clinically relevant lesions
+    NEW → new lesions appearing during or after treatment
+    This variable is used to link all measurement and assessment records that contribute to the subject’s overall response result in the RS (Response) domain.
+
+Column Name: TRTESTCD
+  Data Type: TEXT
+  Unique Values: 9
+  Sample Data: PCBSD, PCNSD, SUMDIAM, TUMSTATE, DIAM, LDIAM, PCHGBL, PCHGNAD, SAXIS
+  Description: TRTESTCD is a short, standardized code used to represent the type of tumor assessment or measurement being performed. It acts as an abbreviated variable name for the tumor evaluation test captured in TRTEST.
+  Example:
+      PCBSD:	Percent Change Baseline in Sum of Diam
+      PCNSD:	Percent Change Nadir in Sum of Diam
+      SUMDIAM:	Sum of Diameter
+      TUMSTATE:	Tumor State
+      DIAM:	Reference Diameter
+      LDIAM:	Longest Diameter
+      PCHGBL:	Percent Change From Baseline
+      PCHGNAD:	Percent Change From Nadir
+      SAXIS:	Short Axis
+
+
+Column Name: TRTEST
+  Data Type: TEXT
+  Unique Values: 9
+  Sample Data: Percent Change Baseline in Sum of Diam, Percent Change Nadir in Sum of Diam, Sum of Diameter, ...
+  Description: TRTEST provides the full descriptive name of the tumor test or measurement, corresponding to the coded value in TRTESTCD.
+    
+
+Column Name: TRSTRESC
+  Data Type: TEXT
+  Sample Data: -37, -31, -48, PRESENT, ABSENT, ...
+  Description: Contains the result value for all findings copied or derived from TRORRES, in a standard format or standard units. TRSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in TRSTRESN.
+
+Column Name: TRSTRESN
+  Data Type: NUMERIC
+  Sample Data: -37.0, -31.0, -48.0,  ...
+  Description: Used for continuous or numeric results or findings in standard format; copied in numeric format from TRSTRESC. TRSTRESN should store all numeric test results or findings.
+
+Column Name: TRSTRESU
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: %, mm
+  Description: Standardized unit used for TRSTRESN.
+
+Column Name: TRSTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Used to indicate a scan/image/physical exam was not performed or a tumor/lesion measurement was not taken. Should be null if a result exists in TRORRES.
+
+Column Name: TRNAM
+  Data Type: TEXT
+  Sample Data: BIOCLINICA
+  Description: The name or identifier of the vendor that performed the tumor/lesion measurement or assessment. This column can be left null when the investigator provides the complete set of data in the domain.
+
+Column Name: TRMETHOD
+  Data Type: TEXT
+  Unique Values: 6
+  Sample Data: CT SCAN, BONE SCAN, MRI, OTHER, NM, PET SCAN
+  Description: Method used to measure the tumor/lesion/location of interest.
+
+Column Name: TREVAL
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: INDEPENDENT ASSESSOR, INVESTIGATOR
+  Description: Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group).
+
+Column Name: TREVALID
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: RADIOLOGIST 1, RADIOLOGIST 2
+  Description: Used to distinguish multiple evaluators with the same role recorded in TREVAL.
+
+Column Name: TRACPTFL
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: Y, N
+  Description: Indicates whether this tumor assessment is the officially accepted evaluation among multiple independent readings (e.g., by different radiologists). Y = Accepted as final; N = Not accepted.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 220.0, 420.0, 620.0, ...
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 23
+  Sample Data: WEEK 6, WEEK 12, WEEK 18, ...
+  Description: Protocol-defined description of a clinical encounter.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 5
+  Sample Data: FOLLOW-UP, TREATMENT, SCREENING, PRE-SCREENING,LONG-TERM FOLLOW-UP,  ...
+  Description: Epoch associated with the element in the planned sequence of elements for the arm to which the subject was assigned.
+
+Column Name: TRDTC
+  Data Type: DATE
+  Sample Data: 2018-11-29, 2018-11-19, 2019-01-02, ...
+  Description: The date of the scan/image/physical exam. TRDTC does not represent the date that the image was read to identify tumors/lesions. TRDTC also does not represent the VISIT date.
+
+Column Name: TRDY
+  Data Type: NUMERIC
+  Sample Data: 43.0, 81.0, 129.0, ...
+  Description: Study day of the scan/image/physical exam, measured as integer days. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087, NP5039-B-G420-22190080, ...
+  Description: Unique Subject Identifier - Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product. Null Value here means: The Subject ID is missing
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+
+================================================================================
+Table Name: TS
+Label : Trial Summary
+Description : Contains trial-level metadata describing key characteristics of the clinical study (e.g., study phase, type, indication, randomization, blinding, population). One record per trial parameter.
+================================================================================
+Total Columns: 11
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: TS
+  Description: Two-character abbreviation for the domain.
+
+Column Name: TSSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness within a parameter. Allows inclusion of multiple records for the same TSPARMCD.
+
+Column Name: TSGRPID
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Used to tie together a group of related records.
+
+Column Name: TSPARMCD
+  Data Type: TEXT
+  Unique Values: 41
+  Sample Data: ACTSUB, ADAPT, ADDON, ...
+  Description: TSPARMCD (the companion to TSPARM) is limited to 8 characters and does not have special character restrictions. These values should be short for ease of use in programming, but it is not expected that TSPARMCD will need to serve as variable names. Examples: "AGEMIN", "AGEMAX".
+
+Column Name: TSPARM
+  Data Type: TEXT
+  Unique Values: 41
+  Sample Data: Actual Number of Subjects, Adaptive Design, Added on to Existing Treatments, ...
+  Description: Term for the trial summary parameter. The value in TSPARM cannot be longer than 40 characters. Examples: "Planned Minimum Age of Subjects", "Planned Maximum Age of Subjects".
+
+Column Name: TSVAL
+  Data Type: TEXT
+  Unique Values: 47
+  Sample Data: 253, N, P18Y, ...
+  Description: Value of TSPARM. Example: "ASTHMA" when TSPARM value is "Trial Indication". TSVAL can only be null when TSVALNF is populated. Text over 200 characters can be added to additional columns TSVAL1-TSVALn. See Assumption 8.
+
+Column Name: TSVALNF
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: PINF, NAV
+  Description: Null flavor for the value of TSPARM, to be populated only if TSVAL is null.
+
+Column Name: TSVALCD
+  Data Type: TEXT
+  Unique Values: 28
+  Sample Data: C49487, C64535, C67401, ...
+  Description: This is the code of the term in TSVAL. For example, "6CW7F3G59X" is the code for gabapentin; "C49488" is the code for Y. The length of this variable can be longer than 8 to accommodate the length of the external terminology.
+
+Column Name: TSVCDREF
+  Data Type: TEXT
+  Unique Values: 8
+  Sample Data: CDISC, ISO 21090, ISO 8601, ...
+  Description: The name of the reference terminology from which TSVALCD is taken. For example; CDISC CT, SNOMED, ISO 8601.
+
+Column Name: TSVCDVER
+  Data Type: DATE
+  Unique Values: 12
+  Sample Data: 2018-07-23, 2018-07-17, 2018-07-22, ...
+  Description: The version number of the reference terminology, if applicable.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: TV
+Label: Trial Visits
+Description: The TV (Trial Visits) domain describes planned visits for a clinical trial as defined in the protocol or the trial design. It provides metadata about scheduled visits, such as visit name, order, and timing, which help link collected subject-level data (e.g., from VS, LB, AE domains) to the trial’s planned visit structure.
+================================================================================
+Total Columns: 7
+
+Column Name: STUDYID
+  Data Type: TEXT
+  Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: TV
+  Description: Two-character abbreviation for the domain.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 0.0, 101.0, 102.0, ...
+  Description: Clinical encounter number. Numeric version of VISIT, used for sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 67
+  Sample Data: SCREENING, CYCLE 1 DAY 1, CYCLE 1 DAY 2, ...
+  Description: Description of clinical encounter. This is often defined in the protocol. Used in addition to VISITNUM and/or VISITDY as a text description of the clinical encounter.
+
+Column Name: ARMCD
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: TRT1, TRT2, TRT3
+  Description: 1. ARMCD is limited to 20 characters and does not have special character restrictions. The maximum length of ARMCD is longer than for other "short" variables to accommodate the kind of values that are likely to be needed for crossover trials. For example, if ARMCD values for a 7-period crossover were constructed using 2-character abbreviations for each treatment and separating hyphens, the length of ARMCD values would be 20. \n 2. If the timing of visits for a trial does not depend on which arm a subject is in, then ARMCD should be null.
+
+Column Name: ARM
+  Data Type: TEXT
+  Unique Values: 3
+  Sample Data: 5.4 mg/kg, 6.4 mg/kg, 7.4 mg/kg
+  Description: 1. Name given to an arm or treatment group. \n 2. If the timing of visits for a trial does not depend on which arm a subject is in, then Arm should be left blank.
+
+Column Name: TVSTRL
+  Data Type: TEXT
+  Sample Data: Visits are fixed by protocol
+  Description: Rule describing when the visit starts, in relation to the sequence of elements.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.
+
+================================================================================
+Table Name: VS
+Label : Vital Signs
+Description : One record per vital sign measurement per time point per visit per subject
+================================================================================
+Total Columns: 20
+
+Column Name: STUDYID
+  Data Type: TEXT
+ Sample Data: DS8201-A-U201
+  Description: Unique identifier for a study.
+
+Column Name: DOMAIN
+  Data Type: TEXT
+  Sample Data: VS
+  Description: Two-character abbreviation for the domain.
+
+Column Name: VSSEQ
+  Data Type: NUMERIC
+  Sample Data: 1.0, 2.0, 3.0, ...
+  Description: Sequence number given to ensure uniqueness of subject records within a domain. May be any valid number.
+
+
+Column Name: VSTESTCD
+  Data Type: TEXT
+  Unique Values: 8
+  Sample Data: DIABP, HEIGHT, OXYSAT, PULSE, RESP, SYSBP, TEMP, WEIGHT
+  Description: VSTESTCD is the short test code used in the Vital Signs (VS) domain to identify the specific vital sign measurement collected for a subject. Each code corresponds to a physiological parameter measured during a study visit.
+  For example:
+  DIABP-   represents Diastolic Blood Pressure
+  SYSBP-   represents Systolic Blood Pressure.
+  PULSE- represents Pulse Rate
+  RESP- represents Respiratory Rate
+  TEMP- represents Body Temperature
+  OXYSAT: represents Oxygen Saturation
+  HEIGHT: represents the subject’s height
+  WEIGHT: represents the subject’s weight
+  
+Column Name: VSTEST
+  Data Type: TEXT
+  Unique Values: 8
+  Sample Data: Diastolic Blood Pressure, Height, Oxygen Saturation, ...
+  Description: VSTEST is the verbatim name of the vital sign test or examination used to obtain the measurement or finding for a subject. It provides a human-readable label corresponding to the short test code stored in VSTESTCD.
+  
+
+Column Name: VSSTRESC
+  Data Type: NUMERIC
+  Sample Data: 76.0, 88.0, 79.0, ...
+  Description: Contains the result value for all findings, copied or derived from VSORRES in a standard format or standard units. VSSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in VSSTRESN. For example, if a test has results "NONE", "NEG", and "NEGATIVE" in VSORRES, and these results effectively have the same meaning, they could be represented in standard format in VSSTRESC as "NEGATIVE".
+
+Column Name: VSSTRESN
+  Data Type: NUMERIC
+  Sample Data: 76.0, 88.0, 79.0, ...
+  Description: Used for continuous or numeric results or findings in standard format; copied in numeric format from VSSTRESC. VSSTRESN should store all numeric test results or findings.
+
+Column Name: VSSTRESU
+  Data Type: TEXT
+  Unique Values: 7
+  Sample Data: mmHg, cm, %, ...
+  Description: VSSTRESU represents the standardized unit of measurement associated with the standardized results recorded in VSSTRESC (character result) and VSSTRESN (numeric result).This variable ensures that all vital sign measurements are expressed in consistent and comparable units across subjects and visits.
+  For example:
+  mmHg — unit for Systolic and Diastolic Blood Pressure
+  cm — unit for Height
+  % — unit for Oxygen Saturation
+  beats/min — unit for Pulse Rate
+  breaths/min — unit for Respiratory Rate
+  °C — unit for Body Temperature
+  kg — unit for Weight
+
+
+Column Name: VSSTAT
+  Data Type: TEXT
+  Sample Data: NOT DONE
+  Description: Used to indicate that a vital sign measurement was not done. Should be null if a result exists in VSORRES.
+
+Column Name: VSBLFL
+  Data Type: TEXT
+  Sample Data: Y  
+  Description: Indicator used to identify a baseline value. Should be "Y" or null. Note that VSBLFL is retained for backward compatibility. The authoritative baseline for statistical analysis is in an ADaM dataset.
+
+Column Name: VISITNUM
+  Data Type: NUMERIC
+  Sample Data: 0.0, 101.0, 108.0, ...
+  Description: Numerical version of VSTPT to aid in sorting.
+
+Column Name: VISIT
+  Data Type: TEXT
+  Unique Values: 86
+  Sample Data: SCREENING, CYCLE 1 DAY 1, CYCLE 1 DAY 8, ...
+  Description: Protocol-defined description of clinical encounter. May be used in addition to VISITNUM and/or VISITDY.
+
+Column Name: EPOCH
+  Data Type: TEXT
+  Unique Values: 4
+  Sample Data: SCREENING, TREATMENT, FOLLOW-UP, ...
+  Description: Epoch associated with the start date/time at which the assessment was made.
+
+Column Name: VSDTC
+  Data Type: DATE
+  Sample Data: 2018-10-13, 2018-10-17, 2018-10-04, ...
+  Description: Date and time of the vital signs assessment represented in ISO 8601 character format.
+
+Column Name: VSDY
+  Data Type: NUMERIC
+  Sample Data: -5.0, -3.0, 8.0, ...
+  Description: Study day of vital signs measurements, measured as integer days. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.
+
+Column Name: VSTPT
+  Data Type: TEXT
+  Unique Values: 2
+  Sample Data: Before Infusion, End of Infusion
+  Description: Text description of time when measurement should be taken. This may be represented as an elapsed time relative to a fixed reference point (e.g., time of last dose). See VSTPTNUM and VSTPTREF.
+
+Column Name: VSTPTNUM
+  Data Type: NUMERIC
+  Sample Data: -1.0, 10.0
+  Description: Numerical version of VSTPT to aid in sorting.
+
+Column Name: VSTPTREF
+  Data Type: TEXT
+  Sample Data: CURRENT VISIT INFUSION
+  Description: Name of the fixed reference point referred to by VSELTM, VSTPTNUM, and VSTPT. 
+
+Column Name: VSSPID
+  Data Type: TEXT
+  Sample Data: 291EED2009, 291EED200A, 291EED200B, ...
+  Description: Sponsor-defined reference number. May be preprinted on the CRF as an explicit line identifier or defined in the sponsor's operational database.
+
+Column Name: USUBJID
+  Data Type: TEXT
+  Sample Data: NP5039-B-G420-22024449, NP5039-B-G420-22157087,      NP5039-B-G420-22190080, ...
+  Description: Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+
+Column Name: created_at
+Data Type: TIMESTAMP
+Sample Data: 2017-03-15 14:23:45, 2019-08-22 09:15:30, 2021-11-05 16:42:18, ...
+Description: Record Creation Timestamp - Date and time when the record was initially created in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). Used for data tracking and audit trail purposes.
+
+Column Name: modified_at
+Data Type: TIMESTAMP
+Sample Data: 2018-05-20 11:30:22, 2020-02-14 13:48:55, 2023-07-18 10:25:40, ...
+Description: Record Modification Timestamp - Date and time when the record was last modified or updated in the database system. Represented in ISO 8601 format (YYYY-MM-DD HH:MM:SS). This timestamp is updated whenever any field in the record is changed. Used for data tracking, version control, and audit trail purposes.

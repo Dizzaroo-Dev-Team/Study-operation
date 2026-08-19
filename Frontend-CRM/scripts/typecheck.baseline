@@ -1,0 +1,103 @@
+src/components/Sidebar.tsx|TS2322|Type '{ size: number; className: string; }' is not assignable to type 'IntrinsicAttributes & { size?: number | undefined; }'.
+src/components/Sidebar.tsx|TS2322|Type '{ size: number; className: string; }' is not assignable to type 'IntrinsicAttributes & { size?: number | undefined; }'.
+src/components/Sidebar.tsx|TS2322|Type '{ size: number; className: string; }' is not assignable to type 'IntrinsicAttributes & { size?: number | undefined; }'.
+src/components/Sidebar.tsx|TS2322|Type '{ size: number; className: string; }' is not assignable to type 'IntrinsicAttributes & { size?: number | undefined; }'.
+src/components/Sidebar.tsx|TS6133|'Trash2' is declared but its value is never read.
+src/components/Sidebar.tsx|TS6133|'conversations' is declared but its value is never read.
+src/components/Sidebar.tsx|TS6133|'formatRelativeTime' is declared but its value is never read.
+src/components/Sidebar.tsx|TS6133|'handleDeleteConversation' is declared but its value is never read.
+src/components/Sidebar.tsx|TS6133|'handleDeleteThread' is declared but its value is never read.
+src/components/Sidebar.tsx|TS6133|'loadingConversations' is declared but its value is never read.
+src/components/Sidebar.tsx|TS6133|'loadingThreads' is declared but its value is never read.
+src/components/Sidebar.tsx|TS6133|'threads' is declared but its value is never read.
+src/components/Sidebar.tsx|TS6133|'user' is declared but its value is never read.
+src/components/StudyTemplateLibrary.tsx|TS6133|'apiBase' is declared but its value is never read.
+src/components/TemplateDocxViewer.tsx|TS2345|Argument of type 'null' is not assignable to parameter of type 'HTMLElement | undefined'.
+src/components/Toaster.tsx|TS2559|Type '{ children: any; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<any>'.
+src/components/Toaster.tsx|TS2559|Type '{ children: any; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<any>'.
+src/components/mon/components/ui/index.tsx|TS1117|An object literal cannot have multiple properties with the same name.
+src/components/mon/components/views/visit-detail/DocxPreviewModal.tsx|TS2345|Argument of type 'null' is not assignable to parameter of type 'HTMLElement | undefined'.
+src/components/mon/components/views/visit-detail/VisitReportTab.tsx|TS6133|'RegRow' is declared but its value is never read.
+src/components/mon/components/views/visit-detail/VisitReportTab.tsx|TS6133|'actionAdd' is declared but its value is never read.
+src/components/mon/components/views/visit-detail/VisitReportTab.tsx|TS6133|'actionChange' is declared but its value is never read.
+src/components/mon/components/views/visit-detail/VisitReportTab.tsx|TS6133|'actionRemove' is declared but its value is never read.
+src/components/mon/components/views/visit-detail/VisitReportTab.tsx|TS6133|'docAdd' is declared but its value is never read.
+src/components/mon/components/views/visit-detail/VisitReportTab.tsx|TS6133|'docChange' is declared but its value is never read.
+src/components/mon/components/views/visit-detail/VisitReportTab.tsx|TS6133|'docRemove' is declared but its value is never read.
+src/components/mon/legacyStaticMvrTemplateSchema.ts|TS18049|'template' is possibly 'null' or 'undefined'.
+src/features/agreements/components/AgreementCommentPanel.tsx|TS6133|'apiBase' is declared but its value is never read.
+src/features/agreements/extensions/LockedMark.ts|TS6133|'text' is declared but its value is never read.
+src/features/agreements/extensions/LockedMark.ts|TS6133|'to' is declared but its value is never read.
+src/features/communications/components/CreateThreadFromConversation.tsx|TS6133|'apiBase' is declared but its value is never read.
+src/features/communications/components/ThreadDetail.tsx|TS6133|'token' is declared but its value is never read.
+src/features/communications/components/UnifiedInbox.tsx|TS6133|'siteTabLabel' is declared but its value is never read.
+src/features/communications/hooks/useMessageTemplates.ts|TS6133|'setTemplates' is declared but its value is never read.
+src/features/monitoring/components/MvrLegacyInsertedFieldsReview.tsx|TS6133|'React' is declared but its value is never read.
+src/features/monitoring/components/VisitConfirmationPage.tsx|TS6133|'formatUtcDateTime' is declared but its value is never read.
+src/features/site-budgeting/site-creation/FacilityDetailSheet.tsx|TS2322|Type '{ children: Element; value: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<any>'.
+src/features/site-budgeting/site-creation/FacilityDetailSheet.tsx|TS2322|Type '{ children: Element; value: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<any>'.
+src/features/site-budgeting/site-creation/FacilityDetailSheet.tsx|TS2322|Type '{ children: Element[]; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<any>'.
+src/features/site-budgeting/site-creation/FacilityDetailSheet.tsx|TS2322|Type '{ children: Element[]; value: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<any>'.
+src/features/site-budgeting/site-creation/FacilityDetailSheet.tsx|TS2322|Type '{ children: Element[]; value: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<any>'.
+src/features/site-budgeting/site-creation/FacilityDetailSheet.tsx|TS2322|Type '{ children: string; value: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<any>'.
+src/features/site-budgeting/site-creation/FacilityDetailSheet.tsx|TS2322|Type '{ children: string; value: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<any>'.
+src/features/site-budgeting/site-creation/FacilityDetailSheet.tsx|TS2322|Type '{ children: string; value: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<any>'.
+src/features/site-budgeting/site-creation/FacilityDetailSheet.tsx|TS2322|Type '{ children: string; value: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<any>'.
+src/features/sites/components/ControlTowerGraphs.tsx|TS6133|'Cell' is declared but its value is never read.
+src/features/sites/components/ControlTowerGraphs.tsx|TS6133|'ControlStage' is declared but its value is never read.
+src/features/sites/components/ControlTowerGraphs.tsx|TS6133|'Pie' is declared but its value is never read.
+src/features/sites/components/ControlTowerGraphs.tsx|TS6133|'PieChart' is declared but its value is never read.
+src/features/sites/components/ControlTowerGraphs.tsx|TS6133|'getAllStagesInOrder' is declared but its value is never read.
+src/features/sites/components/ControlTowerGraphs.tsx|TS6133|'getStageConfig' is declared but its value is never read.
+src/features/sites/components/ControlTowerGraphs.tsx|TS6133|'progress' is declared but its value is never read.
+src/features/sites/components/ControlTowerGraphs.tsx|TS6133|'showPortfolio' is declared but its value is never read.
+src/features/sites/components/ControlTowerGraphs.tsx|TS6133|'stages' is declared but its value is never read.
+src/features/sites/components/ControlTowerGraphs.tsx|TS6133|'summary' is declared but its value is never read.
+src/features/sites/components/ControlTowerMilestones.tsx|TS2322|Type 'string | undefined' is not assignable to type 'string'.
+src/features/sites/components/ControlTowerMilestones.tsx|TS6133|'ControlStage' is declared but its value is never read.
+src/features/sites/components/ControlTowerMilestones.tsx|TS6133|'enabled' is declared but its value is never read.
+src/features/sites/components/ControlTowerMilestones.tsx|TS6133|'isReadinessBlocked' is declared but its value is never read.
+src/features/sites/components/ControlTowerMilestones.tsx|TS6133|'onUpdate' is declared but its value is never read.
+src/features/sites/components/ControlTowerSidebar.tsx|TS6133|'stages' is declared but its value is never read.
+src/features/sites/components/LogisticsTab.tsx|TS6133|'SiteSelectionPrompt' is declared but its value is never read.
+src/features/sites/components/SiteControlTower.tsx|TS2339|Property 'replace' does not exist on type 'never'.
+src/features/sites/components/SiteControlTower.tsx|TS6133|'DEFAULT_PRIMARY_STATUS' is declared but its value is never read.
+src/features/sites/components/SiteControlTower.tsx|TS6133|'SiteStatus' is declared but its value is never read.
+src/features/sites/components/SiteControlTower.tsx|TS6133|'getBaseStage' is declared but its value is never read.
+src/features/sites/components/SiteControlTower.tsx|TS6133|'getStagesInOrder' is declared but its value is never read.
+src/features/sites/components/SiteControlTower.tsx|TS6133|'siteStatus' is declared but its value is never read.
+src/features/sites/components/SiteHeaderBanner.tsx|TS2339|Property 'replace' does not exist on type 'never'.
+src/features/sites/components/SiteHeaderBanner.tsx|TS6133|'siteStaffUsers' is declared but its value is never read.
+src/features/sites/config/controlTowerConfig.ts|TS6133|'ReadinessRule' is declared but its value is never read.
+src/features/sites/config/controlTowerConfig.ts|TS6133|'m' is declared but its value is never read.
+src/features/sites/config/controlTowerConfig.ts|TS6133|'m' is declared but its value is never read.
+src/features/sites/config/controlTowerConfig.ts|TS6133|'m' is declared but its value is never read.
+src/features/sites/config/controlTowerConfig.ts|TS6133|'m' is declared but its value is never read.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'm' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'workflowSteps' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'workflowSteps' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'workflowSteps' implicitly has an 'any' type.
+src/features/sites/config/controlTowerConfig.ts|TS7006|Parameter 'workflowSteps' implicitly has an 'any' type.
+src/features/sites/utils/irbCatalog.ts|TS6133|'name' is declared but its value is never read.
+src/features/sites/utils/irbCatalog.ts|TS6133|'uniqueCode' is declared but its value is never read.
+src/features/under-consideration/components/UnderConsiderationWorkflow.tsx|TS6133|'handleSendQuestionnaire' is declared but its value is never read.
+src/hooks/useWorkspaceContext.ts|TS6133|'loading' is declared but its value is never read.
+src/modules/site-packages/SitePackagesPage.tsx|TS2322|Type 'string | null' is not assignable to type 'null | undefined'.

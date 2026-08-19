@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTRLM Module 5 — CTMS Dashboard Mockups</title>
+<style>
+:root {
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f4ee;
+  --color-background-tertiary: #ebe9e0;
+  --color-background-info: #E6F1FB;
+  --color-background-success: #E1F5EE;
+  --color-background-warning: #FAEEDA;
+  --color-background-danger: #FCEBEB;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #5f5e5a;
+  --color-text-tertiary: #888780;
+  --color-text-info: #185FA5;
+  --color-text-success: #0F6E56;
+  --color-text-warning: #854F0B;
+  --color-text-danger: #A32D2D;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --color-border-secondary: rgba(0,0,0,0.2);
+  --color-border-primary: rgba(0,0,0,0.3);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --page-bg: #faf9f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary: #1f1f1d;
+    --color-background-secondary: #2a2a27;
+    --color-background-tertiary: #363632;
+    --color-background-info: #0C447C;
+    --color-background-success: #085041;
+    --color-background-warning: #633806;
+    --color-background-danger: #791F1F;
+    --color-text-primary: #ebebe8;
+    --color-text-secondary: #aaa9a3;
+    --color-text-tertiary: #82817b;
+    --color-text-info: #B5D4F4;
+    --color-text-success: #9FE1CB;
+    --color-text-warning: #FAC775;
+    --color-text-danger: #F7C1C1;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+    --color-border-secondary: rgba(255,255,255,0.22);
+    --color-border-primary: rgba(255,255,255,0.32);
+    --page-bg: #18181a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 32px 20px;
+  background: var(--page-bg);
+  color: var(--color-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.page-header h1 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.page-header p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.page-footer {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 0.5px solid var(--color-border-tertiary);
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  text-align: center;
+}
+
+/* Action bar */
+.ab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 10px;
+  font-size: 13px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ab .l { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.ab .study { font-weight: 500; font-size: 14px; }
+.ab .meta { color: var(--color-text-secondary); font-size: 12px; }
+.ab .pt { display: flex; gap: 3px; background: var(--color-background-primary); padding: 3px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); }
+.ab .pt button {
+  font-family: inherit;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+}
+.ab .pt button.on { background: var(--color-background-secondary); color: var(--color-text-primary); font-weight: 500; }
+
+/* Dashboard nav */
+.dn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 20px;
+  padding: 8px;
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+}
+.dn a {
+  font-size: 11px;
+  padding: 4px 9px;
+  border-radius: 6px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+}
+.dn a:hover { color: var(--color-text-primary); border-color: var(--color-border-secondary); }
+
+/* Section card */
+.sec {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 16px;
+  margin-bottom: 14px;
+  scroll-margin-top: 10px;
+}
+.sec h3 { margin: 0; font-size: 15px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+.sec h3 .num { font-size: 11px; color: var(--color-text-secondary); background: var(--color-background-secondary); padding: 2px 7px; border-radius: 6px; font-weight: 500; }
+.sec .sub { font-size: 12px; color: var(--color-text-secondary); margin: 3px 0 14px; }
+
+/* KPI tiles */
+.kg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.kpi {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 12px;
+}
+.kl { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; }
+.kv { font-size: 20px; font-weight: 500; line-height: 1.1; }
+.kd { font-size: 11px; color: var(--color-text-secondary); margin-top: 3px; }
+.kd.up { color: var(--color-text-success); }
+.kd.dn { color: var(--color-text-danger); }
+
+/* Column layouts */
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+@media (max-width: 640px) {
+  .row2, .row3 { grid-template-columns: 1fr; }
+}
+
+/* Card content */
+.cc {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 12px;
+}
+.ct {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Tables */
+table.d { width: 100%; font-size: 12px; border-collapse: collapse; }
+table.d th { text-align: left; font-weight: 500; color: var(--color-text-secondary); padding: 6px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 11px; }
+table.d td { padding: 7px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+table.d tr:last-child td { border-bottom: 0; }
+table.d th.r, table.d td.r { text-align: right; }
+
+/* Status pills */
+.p {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.pg { background: var(--color-background-success); color: var(--color-text-success); }
+.pa { background: var(--color-background-warning); color: var(--color-text-warning); }
+.pr { background: var(--color-background-danger); color: var(--color-text-danger); }
+.pi { background: var(--color-background-info); color: var(--color-text-info); }
+.px { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+
+/* Legend */
+.lg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+.lg span { display: flex; align-items: center; gap: 5px; }
+.lg .sw { width: 10px; height: 10px; border-radius: 2px; }
+
+.fz11 { font-size: 11px; }
+.muted { color: var(--color-text-secondary); }
+.svgwrap { width: 100%; display: block; }
+
+/* Status bar (used in disposition) */
+.bar-hb {
+  display: flex;
+  height: 32px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--color-background-tertiary);
+  margin-bottom: 6px;
+}
+.bar-hb .seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: 0;
+}
+
+/* Patient visit matrix specific */
+.pvm-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.pvm-toolbar .ctrls { display: flex; gap: 6px; align-items: center; font-size: 12px; color: var(--color-text-secondary); flex-wrap: wrap; }
+.pvm-toolbar select {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 5px;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+}
+.mt {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-size: 11px;
+  table-layout: fixed;
+}
+.mt th {
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: var(--color-background-secondary);
+  border-radius: 4px;
+}
+.mt th.sub { text-align: left; padding-left: 8px; width: 14%; }
+.mt td { padding: 0; height: 36px; text-align: center; border-radius: 4px; }
+.mt td.sub { text-align: left; padding-left: 8px; font-weight: 500; font-size: 12px; background: transparent; }
+.mt td .cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  border-radius: 4px;
+  line-height: 1.15;
+  padding: 2px;
+}
+.mt td .cell .d { font-size: 11px; font-weight: 500; }
+.mt td .cell .s { font-size: 9px; opacity: 0.85; }
+.ok { background: var(--color-background-success); color: var(--color-text-success); }
+.warn { background: var(--color-background-warning); color: var(--color-text-warning); }
+.bad { background: var(--color-background-danger); color: var(--color-text-danger); }
+.due { background: var(--color-background-info); color: var(--color-text-info); }
+.up { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+.na { background: transparent; color: var(--color-text-tertiary); }
+.dot-act { background: #185FA5; }
+.dot-com { background: #0F6E56; }
+.dot-dis { background: #A32D2D; }
+.dot-scf { background: #854F0B; }
+.foot {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 0.5px solid var(--color-border-tertiary);
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<header class="page-header">
+  <h1>CTRLM Module 5 — CTMS Operational Dashboards</h1>
+  <p>Visual mockup · Phase 3 NSCLC trial (ONCOTRIA-301) demo data · Companion to <code>ctrlm_ctms_dashboards_spec.md</code></p>
+</header>
+
+<!-- ============ ACTION BAR ============ -->
+<div class="ab">
+  <div class="l">
+    <span class="study">ONCOTRIA-301</span>
+    <span class="meta">Phase 3 · NSCLC · 12 countries · 38 sites</span>
+  </div>
+  <div class="l">
+    <div class="pt" role="tablist" aria-label="Persona view">
+      <button class="on" type="button">Study manager</button>
+      <button type="button">CRA</button>
+      <button type="button">Exec</button>
+    </div>
+    <span class="meta">Refreshed 3 min ago</span>
+  </div>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="dn" aria-label="Dashboard navigation">
+  <a href="#d1">1 · Enrollment</a>
+  <a href="#d2">2 · Country &amp; site</a>
+  <a href="#d3">3 · Disposition</a>
+  <a href="#d4">4 · Site activation</a>
+  <a href="#d5">5 · Visit compliance</a>
+  <a href="#d5b">5b · Patient × visit</a>
+  <a href="#d6">6 · Queries</a>
+  <a href="#d7">7 · Deviations</a>
+  <a href="#d8">8 · Milestones</a>
+  <a href="#d9">9 · Portfolio</a>
+</nav>
+
+<!-- ============ 1. ENROLLMENT OVERVIEW ============ -->
+<section class="sec" id="d1">
+  <h3><span class="num">1</span> Enrollment overview</h3>
+  <p class="sub">Funnel, S-curve actual vs plan, projected completion · Refresh: hot (15 min)</p>
+
+  <div class="kg">
+    <div class="kpi"><div class="kl">Target</div><div class="kv">450</div><div class="kd">subjects</div></div>
+    <div class="kpi"><div class="kl">Enrolled</div><div class="kv">287</div><div class="kd up">64% of target</div></div>
+    <div class="kpi"><div class="kl">Rate (28d)</div><div class="kv">14.2</div><div class="kd">subj / month</div></div>
+    <div class="kpi"><div class="kl">Projected LPI</div><div class="kv">Jul 2026</div><div class="kd dn">+98 d vs plan</div></div>
+  </div>
+
+  <div class="row2">
+    <div class="cc">
+      <div class="ct">Funnel</div>
+      <svg viewBox="0 0 280 200" class="svgwrap" role="img" aria-label="Enrollment funnel">
+        <g font-size="11">
+          <rect x="10" y="6" width="260" height="22" rx="3" fill="var(--color-background-info)"/>
+          <text x="20" y="21" fill="var(--color-text-info)" font-weight="500">Pre-screened</text>
+          <text x="260" y="21" fill="var(--color-text-info)" text-anchor="end" font-weight="500">487</text>
+
+          <rect x="22" y="34" width="236" height="22" rx="3" fill="var(--color-background-info)" opacity="0.85"/>
+          <text x="32" y="49" fill="var(--color-text-info)">Screened</text>
+          <text x="248" y="49" fill="var(--color-text-info)" text-anchor="end">376</text>
+
+          <rect x="60" y="62" width="160" height="22" rx="3" fill="var(--color-background-danger)" opacity="0.85"/>
+          <text x="70" y="77" fill="var(--color-text-danger)">Screen-failed</text>
+          <text x="210" y="77" fill="var(--color-text-danger)" text-anchor="end">89</text>
+
+          <rect x="42" y="90" width="196" height="22" rx="3" fill="var(--color-background-info)" opacity="0.7"/>
+          <text x="52" y="105" fill="var(--color-text-info)" font-weight="500">Enrolled</text>
+          <text x="228" y="105" fill="var(--color-text-info)" text-anchor="end" font-weight="500">287</text>
+
+          <rect x="56" y="118" width="168" height="22" rx="3" fill="var(--color-background-info)" opacity="0.55"/>
+          <text x="66" y="133" fill="var(--color-text-info)">Randomized</text>
+          <text x="214" y="133" fill="var(--color-text-info)" text-anchor="end">261</text>
+
+          <rect x="100" y="146" width="80" height="22" rx="3" fill="var(--color-background-success)"/>
+          <text x="110" y="161" fill="var(--color-text-success)">Completed</text>
+          <text x="170" y="161" fill="var(--color-text-success)" text-anchor="end">42</text>
+
+          <rect x="105" y="174" width="68" height="22" rx="3" fill="var(--color-background-warning)"/>
+          <text x="115" y="189" fill="var(--color-text-warning)">Discontinued</text>
+          <text x="163" y="189" fill="var(--color-text-warning)" text-anchor="end">30</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="cc">
+      <div class="ct">Cumulative enrollment</div>
+      <div class="lg">
+        <span><span class="sw" style="background:#378ADD"></span>Actual</span>
+        <span><span class="sw" style="background:#B4B2A9"></span>Plan</span>
+        <span><span class="sw" style="background:#378ADD;opacity:0.4"></span>Projected</span>
+      </div>
+      <svg viewBox="0 0 280 170" class="svgwrap" role="img" aria-label="S-curve actual vs plan">
+        <g font-size="9" fill="var(--color-text-tertiary)">
+          <line x1="30" y1="10" x2="30" y2="140" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <line x1="30" y1="140" x2="275" y2="140" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <text x="26" y="14" text-anchor="end">450</text>
+          <text x="26" y="51" text-anchor="end">300</text>
+          <text x="26" y="88" text-anchor="end">150</text>
+          <text x="26" y="143" text-anchor="end">0</text>
+          <text x="30" y="155">Mar 24</text>
+          <text x="100" y="155">Sep 24</text>
+          <text x="170" y="155">Mar 25</text>
+          <text x="240" y="155">Sep 25</text>
+          <text x="275" y="155" text-anchor="end">Jul 26</text>
+        </g>
+        <line x1="30" y1="13" x2="30" y2="140" stroke="#888780" stroke-width="0.5" stroke-dasharray="2 2"/>
+        <text x="33" y="20" font-size="9" fill="#888780">Target</text>
+        <path d="M30 140 Q 80 138, 110 110 T 200 30 L 240 14 L 275 12" fill="none" stroke="#B4B2A9" stroke-width="2"/>
+        <path d="M30 140 Q 80 138, 115 122 T 210 70" fill="none" stroke="#378ADD" stroke-width="2.5"/>
+        <path d="M210 70 Q 240 50, 270 30" fill="none" stroke="#378ADD" stroke-width="2" stroke-dasharray="3 3" opacity="0.7"/>
+        <circle cx="210" cy="70" r="3.5" fill="#378ADD"/>
+        <text x="216" y="68" font-size="9" font-weight="500" fill="#378ADD">287 (today)</text>
+        <text x="216" y="80" font-size="9" fill="var(--color-text-secondary)">Plan: 348</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. COUNTRY & SITE ============ -->
+<section class="sec" id="d2">
+  <h3><span class="num">2</span> Country &amp; site enrollment</h3>
+  <p class="sub">Geographic distribution vs plan, site ranking, idle-site flags · Refresh: warm (hourly)</p>
+
+  <div class="cc" style="margin-bottom:10px">
+    <div class="ct">Enrollment by country (actual / target)</div>
+    <svg viewBox="0 0 600 200" class="svgwrap" role="img" aria-label="Country enrollment bars">
+      <g font-size="10">
+        <g transform="translate(0,8)">
+          <text x="0" y="9" fill="var(--color-text-primary)">USA</text>
+          <rect x="60" y="0" width="240" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="190" height="12" fill="#378ADD" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">95 / 120 · 79%</text>
+        </g>
+        <g transform="translate(0,26)">
+          <text x="0" y="9" fill="var(--color-text-primary)">Germany</text>
+          <rect x="60" y="0" width="110" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="84" height="12" fill="#378ADD" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">42 / 55 · 76%</text>
+        </g>
+        <g transform="translate(0,44)">
+          <text x="0" y="9" fill="var(--color-text-primary)">Japan</text>
+          <rect x="60" y="0" width="100" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="76" height="12" fill="#378ADD" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">38 / 50 · 76%</text>
+        </g>
+        <g transform="translate(0,62)">
+          <text x="0" y="9" fill="var(--color-text-primary)">UK</text>
+          <rect x="60" y="0" width="80" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="56" height="12" fill="#378ADD" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">28 / 40 · 70%</text>
+        </g>
+        <g transform="translate(0,80)">
+          <text x="0" y="9" fill="var(--color-text-primary)">France</text>
+          <rect x="60" y="0" width="70" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="44" height="12" fill="#378ADD" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">22 / 35 · 63%</text>
+        </g>
+        <g transform="translate(0,98)">
+          <text x="0" y="9" fill="var(--color-text-primary)">Spain</text>
+          <rect x="60" y="0" width="60" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="36" height="12" fill="#EF9F27" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">18 / 30 · 60%</text>
+        </g>
+        <g transform="translate(0,116)">
+          <text x="0" y="9" fill="var(--color-text-primary)">Italy</text>
+          <rect x="60" y="0" width="60" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="32" height="12" fill="#EF9F27" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">16 / 30 · 53%</text>
+        </g>
+        <g transform="translate(0,134)">
+          <text x="0" y="9" fill="var(--color-text-primary)">Canada</text>
+          <rect x="60" y="0" width="50" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="24" height="12" fill="#EF9F27" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">12 / 25 · 48%</text>
+        </g>
+        <g transform="translate(0,152)">
+          <text x="0" y="9" fill="var(--color-text-primary)">Brazil</text>
+          <rect x="60" y="0" width="40" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="10" height="12" fill="#E24B4A" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">5 / 20 · 25%</text>
+        </g>
+        <g transform="translate(0,170)">
+          <text x="0" y="9" fill="var(--color-text-primary)">Poland</text>
+          <rect x="60" y="0" width="30" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="4" height="12" fill="#E24B4A" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">2 / 15 · 13%</text>
+        </g>
+        <g transform="translate(0,188)">
+          <text x="0" y="9" fill="var(--color-text-primary)">S. Korea</text>
+          <rect x="60" y="0" width="20" height="12" fill="var(--color-background-tertiary)" rx="2"/>
+          <rect x="60" y="0" width="2" height="12" fill="#E24B4A" rx="2"/>
+          <text x="310" y="9" fill="var(--color-text-secondary)">1 / 10 · 10%</text>
+        </g>
+        <line x1="60" y1="0" x2="60" y2="200" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="cc">
+    <div class="ct">Top sites by enrollment</div>
+    <table class="d">
+      <thead><tr><th>Site</th><th>Country</th><th class="r">Enrolled</th><th class="r">Target</th><th class="r">Rate / mo</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>102 · MD Anderson</td><td>USA</td><td class="r">22</td><td class="r">25</td><td class="r">3.0</td><td><span class="p pg">On track</span></td></tr>
+        <tr><td>101 · Stanford</td><td>USA</td><td class="r">18</td><td class="r">20</td><td class="r">2.1</td><td><span class="p pg">On track</span></td></tr>
+        <tr><td>205 · Berlin Charité</td><td>Germany</td><td class="r">15</td><td class="r">18</td><td class="r">1.8</td><td><span class="p pg">On track</span></td></tr>
+        <tr><td>308 · Tokyo NCC</td><td>Japan</td><td class="r">14</td><td class="r">15</td><td class="r">1.5</td><td><span class="p pg">On track</span></td></tr>
+        <tr><td>215 · Munich LMU</td><td>Germany</td><td class="r">9</td><td class="r">15</td><td class="r">0.9</td><td><span class="p pa">Below plan</span></td></tr>
+        <tr><td>825 · Toronto PMH</td><td>Canada</td><td class="r">4</td><td class="r">10</td><td class="r">0.0</td><td><span class="p pr">Idle 45d</span></td></tr>
+        <tr><td>911 · Warsaw OC</td><td>Poland</td><td class="r">0</td><td class="r">8</td><td class="r">0.0</td><td><span class="p pr">Idle 72d</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 3. SUBJECT DISPOSITION ============ -->
+<section class="sec" id="d3">
+  <h3><span class="num">3</span> Subject disposition</h3>
+  <p class="sub">Status breakdown, discontinuation reasons, time-to-event medians · Refresh: warm</p>
+
+  <div class="kg">
+    <div class="kpi"><div class="kl">Median TT screen-fail</div><div class="kv">8 d</div></div>
+    <div class="kpi"><div class="kl">Median time on study</div><div class="kv">312 d</div><div class="kd">completers</div></div>
+    <div class="kpi"><div class="kl">Median TT withdrawal</div><div class="kv">94 d</div></div>
+    <div class="kpi"><div class="kl">Discontinuation rate</div><div class="kv">10.5%</div><div class="kd">of enrolled</div></div>
+  </div>
+
+  <div class="cc" style="margin-bottom:10px">
+    <div class="ct">Subject status</div>
+    <div class="lg">
+      <span><span class="sw" style="background:#378ADD"></span>Active 215</span>
+      <span><span class="sw" style="background:#1D9E75"></span>Completed 42</span>
+      <span><span class="sw" style="background:#BA7517"></span>Screen-failed 89</span>
+      <span><span class="sw" style="background:#E24B4A"></span>Discontinued 30</span>
+    </div>
+    <div class="bar-hb" role="img" aria-label="Status bar">
+      <div class="seg" style="background:#378ADD;width:56.3%">215</div>
+      <div class="seg" style="background:#1D9E75;width:11%">42</div>
+      <div class="seg" style="background:#BA7517;width:23.3%">89</div>
+      <div class="seg" style="background:#E24B4A;width:7.8%">30</div>
+    </div>
+    <div class="fz11 muted">Out of 376 screened</div>
+  </div>
+
+  <div class="row2">
+    <div class="cc">
+      <div class="ct">Discontinuation reasons (n=30)</div>
+      <svg viewBox="0 0 280 160" class="svgwrap" role="img" aria-label="Discontinuation donut">
+        <g transform="translate(80,80)">
+          <circle r="55" fill="none" stroke="var(--color-background-tertiary)" stroke-width="22"/>
+          <circle r="55" fill="none" stroke="#E24B4A" stroke-width="22" stroke-dasharray="138.2 207.3" transform="rotate(-90)"/>
+          <circle r="55" fill="none" stroke="#EF9F27" stroke-width="22" stroke-dasharray="92.2 207.3" stroke-dashoffset="-138.2" transform="rotate(-90)"/>
+          <circle r="55" fill="none" stroke="#BA7517" stroke-width="22" stroke-dasharray="69.1 207.3" stroke-dashoffset="-230.4" transform="rotate(-90)"/>
+          <circle r="55" fill="none" stroke="#5F5E5A" stroke-width="22" stroke-dasharray="46.1 207.3" stroke-dashoffset="-299.5" transform="rotate(-90)"/>
+          <text y="-2" text-anchor="middle" font-size="20" font-weight="500" fill="var(--color-text-primary)">30</text>
+          <text y="14" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)">total</text>
+        </g>
+        <g font-size="11" transform="translate(170,30)" fill="var(--color-text-primary)">
+          <circle cx="0" cy="0" r="4" fill="#E24B4A"/><text x="10" y="4">Adverse event · 12</text>
+          <circle cx="0" cy="22" r="4" fill="#EF9F27"/><text x="10" y="26">Withdrew consent · 8</text>
+          <circle cx="0" cy="44" r="4" fill="#BA7517"/><text x="10" y="48">Lost to follow-up · 6</text>
+          <circle cx="0" cy="66" r="4" fill="#5F5E5A"/><text x="10" y="70">Death · 4</text>
+        </g>
+      </svg>
+    </div>
+    <div class="cc">
+      <div class="ct">Screen failure reasons (n=89)</div>
+      <table class="d">
+        <tr><td>Eligibility — biomarker</td><td class="r">31</td><td class="r muted">35%</td></tr>
+        <tr><td>Eligibility — labs out of range</td><td class="r">24</td><td class="r muted">27%</td></tr>
+        <tr><td>Withdrew consent pre-enroll</td><td class="r">14</td><td class="r muted">16%</td></tr>
+        <tr><td>Eligibility — prior therapy</td><td class="r">11</td><td class="r muted">12%</td></tr>
+        <tr><td>Other / not specified</td><td class="r">9</td><td class="r muted">10%</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. SITE ACTIVATION ============ -->
+<section class="sec" id="d4">
+  <h3><span class="num">4</span> Site status &amp; activation</h3>
+  <p class="sub">Activation pipeline, planned vs actual Gantt, slippage list · Refresh: warm</p>
+
+  <div class="cc" style="margin-bottom:10px">
+    <div class="ct">Activation pipeline</div>
+    <svg viewBox="0 0 600 70" class="svgwrap" role="img" aria-label="Activation pipeline">
+      <defs>
+        <marker id="arr4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0 L 10 5 L 0 10 Z" fill="var(--color-border-secondary)"/>
+        </marker>
+      </defs>
+      <g font-size="11">
+        <g transform="translate(0,10)">
+          <rect width="106" height="50" rx="5" fill="#F1EFE8"/>
+          <text x="53" y="20" text-anchor="middle" fill="#2C2C2A" font-weight="500">Identified</text>
+          <text x="53" y="40" text-anchor="middle" fill="#5F5E5A" font-size="16" font-weight="500">42</text>
+        </g>
+        <path d="M108 35 L 122 35" stroke="var(--color-border-secondary)" stroke-width="1" marker-end="url(#arr4)"/>
+        <g transform="translate(124,10)">
+          <rect width="106" height="50" rx="5" fill="#F1EFE8"/>
+          <text x="53" y="20" text-anchor="middle" fill="#2C2C2A" font-weight="500">Selected</text>
+          <text x="53" y="40" text-anchor="middle" fill="#5F5E5A" font-size="16" font-weight="500">38</text>
+        </g>
+        <path d="M232 35 L 246 35" stroke="var(--color-border-secondary)" stroke-width="1" marker-end="url(#arr4)"/>
+        <g transform="translate(248,10)">
+          <rect width="106" height="50" rx="5" fill="#E6F1FB"/>
+          <text x="53" y="20" text-anchor="middle" fill="#0C447C" font-weight="500">Initiated</text>
+          <text x="53" y="40" text-anchor="middle" fill="#185FA5" font-size="16" font-weight="500">36</text>
+        </g>
+        <path d="M356 35 L 370 35" stroke="var(--color-border-secondary)" stroke-width="1" marker-end="url(#arr4)"/>
+        <g transform="translate(372,10)">
+          <rect width="106" height="50" rx="5" fill="#E1F5EE"/>
+          <text x="53" y="20" text-anchor="middle" fill="#085041" font-weight="500">Active</text>
+          <text x="53" y="40" text-anchor="middle" fill="#0F6E56" font-size="16" font-weight="500">31</text>
+        </g>
+        <path d="M480 35 L 494 35" stroke="var(--color-border-secondary)" stroke-width="1" marker-end="url(#arr4)"/>
+        <g transform="translate(496,10)">
+          <rect width="100" height="50" rx="5" fill="#F1EFE8"/>
+          <text x="50" y="20" text-anchor="middle" fill="#2C2C2A" font-weight="500">Closed</text>
+          <text x="50" y="40" text-anchor="middle" fill="#5F5E5A" font-size="16" font-weight="500">5</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="cc">
+    <div class="ct">Activation timeline · planned vs actual (sample sites)</div>
+    <div class="lg">
+      <span><span class="sw" style="background:#B4B2A9"></span>Planned</span>
+      <span><span class="sw" style="background:#1D9E75"></span>Actual on-time</span>
+      <span><span class="sw" style="background:#EF9F27"></span>Slipped</span>
+      <span><span class="sw" style="background:#E24B4A"></span>Pending</span>
+    </div>
+    <svg viewBox="0 0 600 180" class="svgwrap" role="img" aria-label="Activation Gantt">
+      <g font-size="10" fill="var(--color-text-primary)">
+        <g fill="var(--color-text-tertiary)" font-size="9">
+          <text x="100" y="14">Jan 24</text><text x="200" y="14">May 24</text><text x="300" y="14">Sep 24</text><text x="400" y="14">Jan 25</text><text x="500" y="14">May 25</text>
+        </g>
+        <line x1="100" y1="20" x2="100" y2="175" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+        <line x1="200" y1="20" x2="200" y2="175" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+        <line x1="300" y1="20" x2="300" y2="175" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+        <line x1="400" y1="20" x2="400" y2="175" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+        <line x1="500" y1="20" x2="500" y2="175" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+
+        <g transform="translate(0,30)"><text x="0" y="9">102 · MD Anderson</text><rect x="100" y="2" width="16" height="10" fill="#B4B2A9" rx="2"/><rect x="110" y="2" width="16" height="10" fill="#1D9E75" rx="2"/><text x="540" y="9" fill="var(--color-text-success)">+5d</text></g>
+        <g transform="translate(0,50)"><text x="0" y="9">101 · Stanford</text><rect x="115" y="2" width="16" height="10" fill="#B4B2A9" rx="2"/><rect x="120" y="2" width="16" height="10" fill="#1D9E75" rx="2"/><text x="540" y="9" fill="var(--color-text-success)">+3d</text></g>
+        <g transform="translate(0,70)"><text x="0" y="9">205 · Berlin</text><rect x="135" y="2" width="16" height="10" fill="#B4B2A9" rx="2"/><rect x="148" y="2" width="16" height="10" fill="#1D9E75" rx="2"/><text x="540" y="9" fill="var(--color-text-success)">+7d</text></g>
+        <g transform="translate(0,90)"><text x="0" y="9">308 · Tokyo</text><rect x="155" y="2" width="16" height="10" fill="#B4B2A9" rx="2"/><rect x="195" y="2" width="16" height="10" fill="#EF9F27" rx="2"/><text x="540" y="9" fill="var(--color-text-warning)">+38d</text></g>
+        <g transform="translate(0,110)"><text x="0" y="9">619 · Madrid</text><rect x="220" y="2" width="16" height="10" fill="#B4B2A9" rx="2"/><rect x="280" y="2" width="16" height="10" fill="#EF9F27" rx="2"/><text x="540" y="9" fill="var(--color-text-warning)">+56d</text></g>
+        <g transform="translate(0,130)"><text x="0" y="9">825 · Toronto</text><rect x="280" y="2" width="16" height="10" fill="#B4B2A9" rx="2"/><rect x="395" y="2" width="16" height="10" fill="#EF9F27" rx="2"/><text x="540" y="9" fill="var(--color-text-warning)">+110d</text></g>
+        <g transform="translate(0,150)"><text x="0" y="9">911 · Warsaw</text><rect x="340" y="2" width="16" height="10" fill="#B4B2A9" rx="2"/><rect x="455" y="2" width="16" height="10" fill="#E24B4A" rx="2" stroke="#A32D2D" stroke-width="0.5" stroke-dasharray="2 2"/><text x="540" y="9" fill="var(--color-text-danger)">Pending</text></g>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 5. VISIT COMPLIANCE ============ -->
+<section class="sec" id="d5">
+  <h3><span class="num">5</span> Visit compliance &amp; schedule adherence</h3>
+  <p class="sub">Overdue queue, on-window vs out-of-window rates, missed visits · Refresh: hot</p>
+
+  <div class="kg">
+    <div class="kpi"><div class="kl">Overdue visits</div><div class="kv" style="color:var(--color-text-danger)">23</div></div>
+    <div class="kpi"><div class="kl">Due this week</div><div class="kv">47</div></div>
+    <div class="kpi"><div class="kl">On-window rate</div><div class="kv">87%</div><div class="kd up">+2% vs last 30d</div></div>
+    <div class="kpi"><div class="kl">Sites &lt; 80%</div><div class="kv">6</div></div>
+  </div>
+
+  <div class="row2">
+    <div class="cc">
+      <div class="ct">Overdue queue (CRA view)</div>
+      <table class="d">
+        <tr><td>S-00142</td><td>Site 825</td><td class="r"><span class="p pr">14d</span></td></tr>
+        <tr><td>S-00098</td><td>Site 619</td><td class="r"><span class="p pr">11d</span></td></tr>
+        <tr><td>S-00211</td><td>Site 308</td><td class="r"><span class="p pa">8d</span></td></tr>
+        <tr><td>S-00074</td><td>Site 825</td><td class="r"><span class="p pa">6d</span></td></tr>
+        <tr><td>S-00153</td><td>Site 215</td><td class="r"><span class="p pa">5d</span></td></tr>
+        <tr><td>S-00187</td><td>Site 720</td><td class="r"><span class="p pa">4d</span></td></tr>
+        <tr><td colspan="3" class="muted fz11" style="text-align:center;padding-top:8px">+ 17 more</td></tr>
+      </table>
+    </div>
+
+    <div class="cc">
+      <div class="ct">Visit status by SoA visit</div>
+      <svg viewBox="0 0 280 200" class="svgwrap" role="img" aria-label="Visit status heatmap">
+        <g font-size="9" fill="var(--color-text-primary)">
+          <text x="38" y="10" fill="var(--color-text-secondary)">On-win</text>
+          <text x="92" y="10" fill="var(--color-text-secondary)">Out-win</text>
+          <text x="146" y="10" fill="var(--color-text-secondary)">Missed</text>
+          <text x="200" y="10" fill="var(--color-text-secondary)">Upcom.</text>
+
+          <g transform="translate(0,18)">
+            <text x="0" y="14">Screen</text>
+            <rect x="38" y="2" width="40" height="18" fill="#1D9E75" rx="2"/><text x="58" y="15" text-anchor="middle" fill="#fff" font-weight="500">365</text>
+            <rect x="92" y="2" width="40" height="18" fill="#1D9E75" opacity="0.3" rx="2"/><text x="112" y="15" text-anchor="middle">11</text>
+            <rect x="146" y="2" width="40" height="18" fill="#1D9E75" opacity="0.1" rx="2"/><text x="166" y="15" text-anchor="middle">0</text>
+            <rect x="200" y="2" width="40" height="18" fill="var(--color-background-tertiary)" rx="2"/><text x="220" y="15" text-anchor="middle">0</text>
+          </g>
+          <g transform="translate(0,40)">
+            <text x="0" y="14">V1 D1</text>
+            <rect x="38" y="2" width="40" height="18" fill="#1D9E75" rx="2"/><text x="58" y="15" text-anchor="middle" fill="#fff" font-weight="500">261</text>
+            <rect x="92" y="2" width="40" height="18" fill="#EF9F27" opacity="0.4" rx="2"/><text x="112" y="15" text-anchor="middle">8</text>
+            <rect x="146" y="2" width="40" height="18" fill="#1D9E75" opacity="0.1" rx="2"/><text x="166" y="15" text-anchor="middle">0</text>
+            <rect x="200" y="2" width="40" height="18" fill="var(--color-background-tertiary)" rx="2"/><text x="220" y="15" text-anchor="middle">0</text>
+          </g>
+          <g transform="translate(0,62)">
+            <text x="0" y="14">V2 W2</text>
+            <rect x="38" y="2" width="40" height="18" fill="#1D9E75" rx="2"/><text x="58" y="15" text-anchor="middle" fill="#fff" font-weight="500">248</text>
+            <rect x="92" y="2" width="40" height="18" fill="#EF9F27" opacity="0.4" rx="2"/><text x="112" y="15" text-anchor="middle">7</text>
+            <rect x="146" y="2" width="40" height="18" fill="#E24B4A" opacity="0.4" rx="2"/><text x="166" y="15" text-anchor="middle">2</text>
+            <rect x="200" y="2" width="40" height="18" fill="var(--color-background-tertiary)" rx="2"/><text x="220" y="15" text-anchor="middle">4</text>
+          </g>
+          <g transform="translate(0,84)">
+            <text x="0" y="14">V3 W4</text>
+            <rect x="38" y="2" width="40" height="18" fill="#1D9E75" rx="2"/><text x="58" y="15" text-anchor="middle" fill="#fff" font-weight="500">221</text>
+            <rect x="92" y="2" width="40" height="18" fill="#EF9F27" opacity="0.6" rx="2"/><text x="112" y="15" text-anchor="middle">12</text>
+            <rect x="146" y="2" width="40" height="18" fill="#E24B4A" opacity="0.4" rx="2"/><text x="166" y="15" text-anchor="middle">3</text>
+            <rect x="200" y="2" width="40" height="18" fill="var(--color-background-tertiary)" rx="2"/><text x="220" y="15" text-anchor="middle">7</text>
+          </g>
+          <g transform="translate(0,106)">
+            <text x="0" y="14">V4 W8</text>
+            <rect x="38" y="2" width="40" height="18" fill="#1D9E75" rx="2"/><text x="58" y="15" text-anchor="middle" fill="#fff" font-weight="500">186</text>
+            <rect x="92" y="2" width="40" height="18" fill="#EF9F27" opacity="0.5" rx="2"/><text x="112" y="15" text-anchor="middle">9</text>
+            <rect x="146" y="2" width="40" height="18" fill="#E24B4A" opacity="0.5" rx="2"/><text x="166" y="15" text-anchor="middle">5</text>
+            <rect x="200" y="2" width="40" height="18" fill="var(--color-background-tertiary)" rx="2"/><text x="220" y="15" text-anchor="middle">14</text>
+          </g>
+          <g transform="translate(0,128)">
+            <text x="0" y="14">V5 W12</text>
+            <rect x="38" y="2" width="40" height="18" fill="#1D9E75" rx="2"/><text x="58" y="15" text-anchor="middle" fill="#fff" font-weight="500">142</text>
+            <rect x="92" y="2" width="40" height="18" fill="#EF9F27" opacity="0.6" rx="2"/><text x="112" y="15" text-anchor="middle">14</text>
+            <rect x="146" y="2" width="40" height="18" fill="#E24B4A" opacity="0.6" rx="2"/><text x="166" y="15" text-anchor="middle">8</text>
+            <rect x="200" y="2" width="40" height="18" fill="var(--color-background-tertiary)" opacity="0.7" rx="2"/><text x="220" y="15" text-anchor="middle">28</text>
+          </g>
+          <g transform="translate(0,150)">
+            <text x="0" y="14">V6 W24</text>
+            <rect x="38" y="2" width="40" height="18" fill="#1D9E75" opacity="0.85" rx="2"/><text x="58" y="15" text-anchor="middle" fill="#fff" font-weight="500">97</text>
+            <rect x="92" y="2" width="40" height="18" fill="#EF9F27" opacity="0.7" rx="2"/><text x="112" y="15" text-anchor="middle">11</text>
+            <rect x="146" y="2" width="40" height="18" fill="#E24B4A" opacity="0.4" rx="2"/><text x="166" y="15" text-anchor="middle">4</text>
+            <rect x="200" y="2" width="40" height="18" fill="var(--color-background-tertiary)" rx="2"/><text x="220" y="15" text-anchor="middle">52</text>
+          </g>
+          <g transform="translate(0,172)">
+            <text x="0" y="14">EOT</text>
+            <rect x="38" y="2" width="40" height="18" fill="#1D9E75" opacity="0.6" rx="2"/><text x="58" y="15" text-anchor="middle" fill="#fff">42</text>
+            <rect x="92" y="2" width="40" height="18" fill="#EF9F27" opacity="0.2" rx="2"/><text x="112" y="15" text-anchor="middle">2</text>
+            <rect x="146" y="2" width="40" height="18" fill="#1D9E75" opacity="0.1" rx="2"/><text x="166" y="15" text-anchor="middle">0</text>
+            <rect x="200" y="2" width="40" height="18" fill="var(--color-background-tertiary)" opacity="0.6" rx="2"/><text x="220" y="15" text-anchor="middle">175</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5b. PATIENT VISIT MATRIX ============ -->
+<section class="sec" id="d5b">
+  <h3><span class="num">5b</span> Patient × visit matrix</h3>
+  <p class="sub">Drill-down from Dashboard 5 · One row per subject, one column per protocol visit, cells show actual or scheduled date · Refresh: hot</p>
+
+  <div class="pvm-toolbar">
+    <div class="ctrls">
+      <label>Site</label>
+      <select><option>102 · MD Anderson (22 subjects)</option></select>
+      <label style="margin-left:4px">Status</label>
+      <select><option>All</option></select>
+      <label style="margin-left:4px">Arm</label>
+      <select><option>All arms</option></select>
+    </div>
+    <span style="font-size:11px;color:var(--color-text-secondary)">Showing 12 of 22</span>
+  </div>
+
+  <div class="lg" role="group" aria-label="Visit status legend">
+    <span><span class="sw" style="background:var(--color-background-success)"></span>On-window</span>
+    <span><span class="sw" style="background:var(--color-background-warning)"></span>Out-of-window</span>
+    <span><span class="sw" style="background:var(--color-background-danger)"></span>Missed / overdue</span>
+    <span><span class="sw" style="background:var(--color-background-info)"></span>Due now</span>
+    <span><span class="sw" style="background:var(--color-background-secondary)"></span>Upcoming</span>
+    <span><span class="dot dot-act"></span>Active</span>
+    <span><span class="dot dot-com"></span>Completed</span>
+    <span><span class="dot dot-dis"></span>Discontinued</span>
+    <span><span class="dot dot-scf"></span>Screen-failed</span>
+  </div>
+
+  <table class="mt" role="table" aria-label="Patient visit matrix">
+    <thead>
+      <tr>
+        <th class="sub">Subject</th>
+        <th>Screen</th>
+        <th>V1 D1</th>
+        <th>V2 W2</th>
+        <th>V3 W4</th>
+        <th>V4 W8</th>
+        <th>V5 W12</th>
+        <th>V6 W24</th>
+        <th>EOT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sub"><span class="dot dot-com"></span>S-00074</td>
+        <td><div class="cell ok"><span class="d">02 Mar 25</span><span class="s">screen</span></div></td>
+        <td><div class="cell ok"><span class="d">10 Mar 25</span></div></td>
+        <td><div class="cell ok"><span class="d">24 Mar 25</span></div></td>
+        <td><div class="cell ok"><span class="d">08 Apr 25</span></div></td>
+        <td><div class="cell ok"><span class="d">06 May 25</span></div></td>
+        <td><div class="cell ok"><span class="d">03 Jun 25</span></div></td>
+        <td><div class="cell ok"><span class="d">26 Aug 25</span></div></td>
+        <td><div class="cell ok"><span class="d">14 Apr 26</span><span class="s">complete</span></div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-act"></span>S-00098</td>
+        <td><div class="cell ok"><span class="d">15 Jun 25</span></div></td>
+        <td><div class="cell ok"><span class="d">23 Jun 25</span></div></td>
+        <td><div class="cell ok"><span class="d">07 Jul 25</span></div></td>
+        <td><div class="cell warn"><span class="d">28 Jul 25</span><span class="s">+5d win</span></div></td>
+        <td><div class="cell ok"><span class="d">19 Aug 25</span></div></td>
+        <td><div class="cell ok"><span class="d">16 Sep 25</span></div></td>
+        <td><div class="cell bad"><span class="d">overdue</span><span class="s">+11d</span></div></td>
+        <td><div class="cell na">—</div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-act"></span>S-00112</td>
+        <td><div class="cell ok"><span class="d">04 Aug 25</span></div></td>
+        <td><div class="cell ok"><span class="d">12 Aug 25</span></div></td>
+        <td><div class="cell ok"><span class="d">26 Aug 25</span></div></td>
+        <td><div class="cell ok"><span class="d">09 Sep 25</span></div></td>
+        <td><div class="cell ok"><span class="d">07 Oct 25</span></div></td>
+        <td><div class="cell ok"><span class="d">04 Nov 25</span></div></td>
+        <td><div class="cell ok"><span class="d">27 Jan 26</span></div></td>
+        <td><div class="cell up"><span class="d">14 Sep 26</span><span class="s">scheduled</span></div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-act"></span>S-00127</td>
+        <td><div class="cell ok"><span class="d">22 Sep 25</span></div></td>
+        <td><div class="cell ok"><span class="d">29 Sep 25</span></div></td>
+        <td><div class="cell ok"><span class="d">13 Oct 25</span></div></td>
+        <td><div class="cell ok"><span class="d">27 Oct 25</span></div></td>
+        <td><div class="cell ok"><span class="d">24 Nov 25</span></div></td>
+        <td><div class="cell ok"><span class="d">22 Dec 25</span></div></td>
+        <td><div class="cell ok"><span class="d">16 Mar 26</span></div></td>
+        <td><div class="cell up"><span class="d">02 Nov 26</span><span class="s">scheduled</span></div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-dis"></span>S-00134</td>
+        <td><div class="cell ok"><span class="d">10 Oct 25</span></div></td>
+        <td><div class="cell ok"><span class="d">17 Oct 25</span></div></td>
+        <td><div class="cell ok"><span class="d">31 Oct 25</span><span class="s">disc AE</span></div></td>
+        <td><div class="cell na">— disc —</div></td>
+        <td><div class="cell na">—</div></td>
+        <td><div class="cell na">—</div></td>
+        <td><div class="cell na">—</div></td>
+        <td><div class="cell ok"><span class="d">31 Oct 25</span><span class="s">early</span></div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-act"></span>S-00142</td>
+        <td><div class="cell ok"><span class="d">28 Oct 25</span></div></td>
+        <td><div class="cell ok"><span class="d">04 Nov 25</span></div></td>
+        <td><div class="cell warn"><span class="d">21 Nov 25</span><span class="s">+3d win</span></div></td>
+        <td><div class="cell ok"><span class="d">02 Dec 25</span></div></td>
+        <td><div class="cell warn"><span class="d">06 Jan 26</span><span class="s">+7d win</span></div></td>
+        <td><div class="cell bad"><span class="d">overdue</span><span class="s">+14d</span></div></td>
+        <td><div class="cell up"><span class="d">22 Apr 26</span></div></td>
+        <td><div class="cell up"><span class="d">28 Oct 26</span></div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-act"></span>S-00153</td>
+        <td><div class="cell ok"><span class="d">14 Nov 25</span></div></td>
+        <td><div class="cell ok"><span class="d">22 Nov 25</span></div></td>
+        <td><div class="cell ok"><span class="d">06 Dec 25</span></div></td>
+        <td><div class="cell bad"><span class="d">missed</span><span class="s">no-show</span></div></td>
+        <td><div class="cell ok"><span class="d">18 Jan 26</span></div></td>
+        <td><div class="cell ok"><span class="d">15 Feb 26</span></div></td>
+        <td><div class="cell up"><span class="d">10 May 26</span><span class="s">due 5d</span></div></td>
+        <td><div class="cell up"><span class="d">15 Nov 26</span></div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-scf"></span>S-00161</td>
+        <td><div class="cell bad"><span class="d">22 Nov 25</span><span class="s">SF labs</span></div></td>
+        <td><div class="cell na">—</div></td>
+        <td><div class="cell na">—</div></td>
+        <td><div class="cell na">—</div></td>
+        <td><div class="cell na">—</div></td>
+        <td><div class="cell na">—</div></td>
+        <td><div class="cell na">—</div></td>
+        <td><div class="cell na">—</div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-act"></span>S-00174</td>
+        <td><div class="cell ok"><span class="d">08 Dec 25</span></div></td>
+        <td><div class="cell ok"><span class="d">16 Dec 25</span></div></td>
+        <td><div class="cell ok"><span class="d">30 Dec 25</span></div></td>
+        <td><div class="cell ok"><span class="d">13 Jan 26</span></div></td>
+        <td><div class="cell ok"><span class="d">10 Feb 26</span></div></td>
+        <td><div class="cell ok"><span class="d">10 Mar 26</span></div></td>
+        <td><div class="cell due"><span class="d">due</span><span class="s">window now</span></div></td>
+        <td><div class="cell up"><span class="d">08 Dec 26</span></div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-act"></span>S-00187</td>
+        <td><div class="cell ok"><span class="d">04 Jan 26</span></div></td>
+        <td><div class="cell ok"><span class="d">12 Jan 26</span></div></td>
+        <td><div class="cell ok"><span class="d">26 Jan 26</span></div></td>
+        <td><div class="cell ok"><span class="d">09 Feb 26</span></div></td>
+        <td><div class="cell ok"><span class="d">09 Mar 26</span></div></td>
+        <td><div class="cell due"><span class="d">due 06 May</span><span class="s">in window</span></div></td>
+        <td><div class="cell up"><span class="d">29 Jun 26</span></div></td>
+        <td><div class="cell up"><span class="d">04 Jan 27</span></div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-act"></span>S-00198</td>
+        <td><div class="cell ok"><span class="d">28 Jan 26</span></div></td>
+        <td><div class="cell ok"><span class="d">05 Feb 26</span></div></td>
+        <td><div class="cell ok"><span class="d">19 Feb 26</span></div></td>
+        <td><div class="cell ok"><span class="d">05 Mar 26</span></div></td>
+        <td><div class="cell ok"><span class="d">02 Apr 26</span></div></td>
+        <td><div class="cell up"><span class="d">30 Apr 26</span><span class="s">+10d</span></div></td>
+        <td><div class="cell up"><span class="d">23 Jul 26</span></div></td>
+        <td><div class="cell up"><span class="d">28 Jan 27</span></div></td>
+      </tr>
+      <tr>
+        <td class="sub"><span class="dot dot-act"></span>S-00211</td>
+        <td><div class="cell ok"><span class="d">18 Feb 26</span></div></td>
+        <td><div class="cell ok"><span class="d">26 Feb 26</span></div></td>
+        <td><div class="cell ok"><span class="d">12 Mar 26</span></div></td>
+        <td><div class="cell warn"><span class="d">02 Apr 26</span><span class="s">+5d win</span></div></td>
+        <td><div class="cell bad"><span class="d">overdue</span><span class="s">+8d</span></div></td>
+        <td><div class="cell up"><span class="d">20 May 26</span></div></td>
+        <td><div class="cell up"><span class="d">12 Aug 26</span></div></td>
+        <td><div class="cell up"><span class="d">18 Feb 27</span></div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="foot">
+    Cells show actual visit date when completed, expected window for upcoming, or status label when missed/overdue. Window deviation shown as <em>+Nd win</em> below the date. Drill into any cell to view visit detail, eCRF status, and monitoring notes.
+  </div>
+</section>
+
+<!-- ============ 6. QUERIES ============ -->
+<section class="sec" id="d6">
+  <h3><span class="num">6</span> Query &amp; data entry health</h3>
+  <p class="sub">Operational view — counts, aging, entry lag · NOT a quality risk signal · Refresh: hot</p>
+
+  <div class="kg">
+    <div class="kpi"><div class="kl">Open queries</div><div class="kv">142</div><div class="kd dn">+12 this week</div></div>
+    <div class="kpi"><div class="kl">Closed (cumulative)</div><div class="kv">1,238</div></div>
+    <div class="kpi"><div class="kl">Median age</div><div class="kv">9 d</div></div>
+    <div class="kpi"><div class="kl">Median entry lag</div><div class="kv">3.2 d</div><div class="kd">visit → eCRF</div></div>
+  </div>
+
+  <div class="row2">
+    <div class="cc">
+      <div class="ct">Open queries by age bucket</div>
+      <svg viewBox="0 0 280 160" class="svgwrap" role="img" aria-label="Query aging">
+        <g font-size="10" fill="var(--color-text-primary)">
+          <line x1="30" y1="120" x2="270" y2="120" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <rect x="50" y="44" width="40" height="76" fill="#1D9E75" rx="3"/>
+          <text x="70" y="38" text-anchor="middle" font-weight="500">62</text>
+          <text x="70" y="135" text-anchor="middle" fill="var(--color-text-secondary)">0–7 d</text>
+
+          <rect x="105" y="68" width="40" height="52" fill="#EF9F27" opacity="0.85" rx="3"/>
+          <text x="125" y="62" text-anchor="middle" font-weight="500">43</text>
+          <text x="125" y="135" text-anchor="middle" fill="var(--color-text-secondary)">8–14 d</text>
+
+          <rect x="160" y="88" width="40" height="32" fill="#BA7517" rx="3"/>
+          <text x="180" y="82" text-anchor="middle" font-weight="500">27</text>
+          <text x="180" y="135" text-anchor="middle" fill="var(--color-text-secondary)">15–30 d</text>
+
+          <rect x="215" y="108" width="40" height="12" fill="#E24B4A" rx="3"/>
+          <text x="235" y="102" text-anchor="middle" font-weight="500">10</text>
+          <text x="235" y="135" text-anchor="middle" fill="var(--color-text-secondary)">30+ d</text>
+
+          <text x="30" y="124" font-size="9" fill="var(--color-text-tertiary)">0</text>
+          <text x="30" y="74" font-size="9" fill="var(--color-text-tertiary)">30</text>
+          <text x="30" y="44" font-size="9" fill="var(--color-text-tertiary)">60</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="cc">
+      <div class="ct">Data entry lag (days, all visits last 90d)</div>
+      <svg viewBox="0 0 280 160" class="svgwrap" role="img" aria-label="Entry lag histogram">
+        <g font-size="9">
+          <line x1="20" y1="125" x2="270" y2="125" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <rect x="22" y="20" width="22" height="105" fill="#378ADD" rx="2"/>
+          <rect x="46" y="35" width="22" height="90" fill="#378ADD" rx="2"/>
+          <rect x="70" y="60" width="22" height="65" fill="#378ADD" rx="2"/>
+          <rect x="94" y="85" width="22" height="40" fill="#378ADD" rx="2"/>
+          <rect x="118" y="100" width="22" height="25" fill="#378ADD" rx="2"/>
+          <rect x="142" y="108" width="22" height="17" fill="#378ADD" rx="2"/>
+          <rect x="166" y="112" width="22" height="13" fill="#378ADD" opacity="0.8" rx="2"/>
+          <rect x="190" y="116" width="22" height="9" fill="#EF9F27" rx="2"/>
+          <rect x="214" y="118" width="22" height="7" fill="#EF9F27" rx="2"/>
+          <rect x="238" y="120" width="22" height="5" fill="#E24B4A" rx="2"/>
+          <g fill="var(--color-text-tertiary)">
+            <text x="33" y="140" text-anchor="middle">0–2</text>
+            <text x="57" y="140" text-anchor="middle">3–4</text>
+            <text x="81" y="140" text-anchor="middle">5–6</text>
+            <text x="105" y="140" text-anchor="middle">7–8</text>
+            <text x="129" y="140" text-anchor="middle">9–10</text>
+            <text x="153" y="140" text-anchor="middle">11–14</text>
+            <text x="177" y="140" text-anchor="middle">15–20</text>
+            <text x="201" y="140" text-anchor="middle">21–30</text>
+            <text x="225" y="140" text-anchor="middle">31–45</text>
+            <text x="249" y="140" text-anchor="middle">46+</text>
+          </g>
+          <line x1="60" y1="20" x2="60" y2="125" stroke="#5F5E5A" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <text x="64" y="20" fill="#5F5E5A" font-weight="500">Median 3.2d</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. DEVIATIONS ============ -->
+<section class="sec" id="d7">
+  <h3><span class="num">7</span> Protocol deviations</h3>
+  <p class="sub">Severity mix, weekly trend, top categories · Refresh: warm</p>
+
+  <div class="kg">
+    <div class="kpi"><div class="kl">Total PDs</div><div class="kv">54</div></div>
+    <div class="kpi"><div class="kl">Critical</div><div class="kv" style="color:var(--color-text-danger)">2</div></div>
+    <div class="kpi"><div class="kl">Major</div><div class="kv">14</div></div>
+    <div class="kpi"><div class="kl">PD rate / subject</div><div class="kv">0.19</div></div>
+  </div>
+
+  <div class="row2">
+    <div class="cc">
+      <div class="ct">Weekly PD volume (last 12 weeks)</div>
+      <svg viewBox="0 0 280 140" class="svgwrap" role="img" aria-label="Weekly PD trend">
+        <g font-size="9">
+          <line x1="20" y1="110" x2="270" y2="110" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <g fill="#378ADD">
+            <rect x="22" y="78" width="16" height="32" rx="2"/>
+            <rect x="42" y="86" width="16" height="24" rx="2"/>
+            <rect x="62" y="70" width="16" height="40" rx="2"/>
+            <rect x="82" y="82" width="16" height="28" rx="2"/>
+            <rect x="102" y="62" width="16" height="48" rx="2"/>
+            <rect x="122" y="54" width="16" height="56" rx="2"/>
+            <rect x="142" y="66" width="16" height="44" rx="2"/>
+            <rect x="162" y="50" width="16" height="60" rx="2"/>
+            <rect x="182" y="42" width="16" height="68" rx="2"/>
+            <rect x="202" y="58" width="16" height="52" rx="2"/>
+            <rect x="222" y="34" width="16" height="76" rx="2"/>
+            <rect x="242" y="26" width="16" height="84" rx="2"/>
+          </g>
+          <g fill="var(--color-text-tertiary)">
+            <text x="30" y="123" text-anchor="middle">W1</text>
+            <text x="130" y="123" text-anchor="middle">W6</text>
+            <text x="250" y="123" text-anchor="middle">W12</text>
+          </g>
+          <text x="262" y="22" font-size="9" font-weight="500" fill="#E24B4A">↑ trend</text>
+        </g>
+      </svg>
+    </div>
+    <div class="cc">
+      <div class="ct">Top categories</div>
+      <table class="d">
+        <tr><td>Visit window</td><td class="r">12</td><td><span class="p px">Site 825</span></td></tr>
+        <tr><td>Eligibility</td><td class="r">8</td><td><span class="p px">Site 619</span></td></tr>
+        <tr><td>Consent process</td><td class="r">6</td><td><span class="p px">Site 911</span></td></tr>
+        <tr><td>IP handling</td><td class="r">5</td><td><span class="p px">Site 215</span></td></tr>
+        <tr><td>Wrong dose</td><td class="r">4</td><td><span class="p pr">Site 825</span></td></tr>
+        <tr><td>SAE reporting timing</td><td class="r">3</td><td><span class="p px">Multiple</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. MILESTONES ============ -->
+<section class="sec" id="d8">
+  <h3><span class="num">8</span> Study milestone tracker</h3>
+  <p class="sub">Macro milestones, planned vs actual / projected, status banding · Refresh: cold (nightly)</p>
+
+  <div class="cc" style="margin-bottom:10px">
+    <div class="ct">Milestone timeline</div>
+    <svg viewBox="0 0 600 130" class="svgwrap" role="img" aria-label="Milestone timeline">
+      <g font-size="9" fill="var(--color-text-primary)">
+        <line x1="20" y1="65" x2="580" y2="65" stroke="var(--color-border-secondary)" stroke-width="1.5"/>
+
+        <g transform="translate(30,65)">
+          <circle r="6" fill="#1D9E75"/>
+          <text y="-12" text-anchor="middle" fill="var(--color-text-secondary)" font-size="9">Jan 24</text>
+          <text y="22" text-anchor="middle" font-weight="500" font-size="10">Activation</text>
+          <text y="34" text-anchor="middle" fill="var(--color-text-success)" font-size="9">on plan</text>
+        </g>
+        <g transform="translate(90,65)">
+          <circle r="6" fill="#1D9E75"/>
+          <text y="-12" text-anchor="middle" fill="var(--color-text-secondary)" font-size="9">Feb 24</text>
+          <text y="22" text-anchor="middle" font-weight="500" font-size="10">FSI</text>
+          <text y="34" text-anchor="middle" fill="var(--color-text-success)" font-size="9">on plan</text>
+        </g>
+        <g transform="translate(140,65)">
+          <circle r="6" fill="#1D9E75"/>
+          <text y="-12" text-anchor="middle" fill="var(--color-text-secondary)" font-size="9">Mar 24</text>
+          <text y="22" text-anchor="middle" font-weight="500" font-size="10">FPI</text>
+          <text y="34" text-anchor="middle" fill="var(--color-text-success)" font-size="9">+8d</text>
+        </g>
+        <g transform="translate(220,65)">
+          <circle r="6" fill="#EF9F27"/>
+          <text y="-12" text-anchor="middle" fill="var(--color-text-secondary)" font-size="9">Oct 24</text>
+          <text y="22" text-anchor="middle" font-weight="500" font-size="10">25% enr</text>
+          <text y="34" text-anchor="middle" fill="var(--color-text-warning)" font-size="9">+42d</text>
+        </g>
+        <g transform="translate(310,65)">
+          <circle r="6" fill="#EF9F27"/>
+          <text y="-12" text-anchor="middle" fill="var(--color-text-secondary)" font-size="9">May 25</text>
+          <text y="22" text-anchor="middle" font-weight="500" font-size="10">50% enr</text>
+          <text y="34" text-anchor="middle" fill="var(--color-text-warning)" font-size="9">+54d</text>
+        </g>
+        <g transform="translate(390,65)">
+          <circle r="6" fill="#E24B4A" stroke="#A32D2D" stroke-width="0.5"/>
+          <text y="-12" text-anchor="middle" fill="var(--color-text-secondary)" font-size="9">Dec 25</text>
+          <text y="22" text-anchor="middle" font-weight="500" font-size="10">75% enr</text>
+          <text y="34" text-anchor="middle" fill="var(--color-text-danger)" font-size="9">+90d proj</text>
+        </g>
+        <g transform="translate(465,65)">
+          <circle r="6" fill="var(--color-background-tertiary)" stroke="var(--color-border-secondary)" stroke-width="1"/>
+          <text y="-12" text-anchor="middle" fill="var(--color-text-secondary)" font-size="9">Jul 26</text>
+          <text y="22" text-anchor="middle" font-weight="500" font-size="10">LPI</text>
+          <text y="34" text-anchor="middle" fill="var(--color-text-secondary)" font-size="9">projected</text>
+        </g>
+        <g transform="translate(525,65)">
+          <circle r="6" fill="var(--color-background-tertiary)" stroke="var(--color-border-secondary)" stroke-width="1"/>
+          <text y="-12" text-anchor="middle" fill="var(--color-text-secondary)" font-size="9">Sep 26</text>
+          <text y="22" text-anchor="middle" font-weight="500" font-size="10">LPO</text>
+        </g>
+        <g transform="translate(575,65)">
+          <circle r="6" fill="var(--color-background-tertiary)" stroke="var(--color-border-secondary)" stroke-width="1"/>
+          <text y="-12" text-anchor="middle" fill="var(--color-text-secondary)" font-size="9">Dec 26</text>
+          <text y="22" text-anchor="middle" font-weight="500" font-size="10">DB lock</text>
+        </g>
+
+        <line x1="445" y1="20" x2="445" y2="110" stroke="#185FA5" stroke-width="1" stroke-dasharray="3 2"/>
+        <text x="445" y="14" text-anchor="middle" fill="#185FA5" font-weight="500" font-size="9">Today</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="cc">
+    <div class="ct">Variance summary</div>
+    <table class="d">
+      <thead><tr><th>Milestone</th><th>Planned</th><th>Actual / projected</th><th class="r">Δ</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>25% enrolled</td><td>30 Aug 2024</td><td>12 Oct 2024</td><td class="r">+42d</td><td><span class="p pa">Amber</span></td></tr>
+        <tr><td>50% enrolled</td><td>10 Mar 2025</td><td>03 May 2025</td><td class="r">+54d</td><td><span class="p pa">Amber</span></td></tr>
+        <tr><td>75% enrolled</td><td>15 Sep 2025</td><td>14 Dec 2025 (proj.)</td><td class="r">+90d</td><td><span class="p pr">Red</span></td></tr>
+        <tr><td>LPI</td><td>30 Mar 2026</td><td>06 Jul 2026 (proj.)</td><td class="r">+98d</td><td><span class="p pr">Red</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 9. PORTFOLIO ============ -->
+<section class="sec" id="d9">
+  <h3><span class="num">9</span> Portfolio status <span class="p pi" style="margin-left:8px">Exec view</span></h3>
+  <p class="sub">All studies × KPIs matrix, portfolio trend, at-risk ranking · Refresh: cold</p>
+
+  <div class="cc" style="margin-bottom:10px">
+    <div class="ct">Studies × KPIs</div>
+    <table class="d">
+      <thead><tr><th>Study</th><th>Phase</th><th class="r">Enrolled</th><th class="r">Sites</th><th>Milestone</th><th class="r">Crit. PDs</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>ONCOTRIA-301 · NSCLC</td><td>3</td><td class="r">287 / 450 (64%)</td><td class="r">31 / 38</td><td><span class="p pr">75% enr +90d</span></td><td class="r">2</td><td><span class="p pa">At risk</span></td></tr>
+        <tr><td>DERMACURE-201 · Psoriasis</td><td>2</td><td class="r">142 / 180 (79%)</td><td class="r">22 / 25</td><td><span class="p pg">On plan</span></td><td class="r">0</td><td><span class="p pg">Healthy</span></td></tr>
+        <tr><td>NEUROFLOW-302 · Alzheimer</td><td>3</td><td class="r">89 / 300 (30%)</td><td class="r">18 / 35</td><td><span class="p pr">50% enr +120d</span></td><td class="r">4</td><td><span class="p pr">At risk</span></td></tr>
+        <tr><td>IMMUNOFRX-101 · Solid tumors</td><td>1</td><td class="r">24 / 40 (60%)</td><td class="r">6 / 8</td><td><span class="p pg">On plan</span></td><td class="r">0</td><td><span class="p pg">Healthy</span></td></tr>
+        <tr><td>CARDIODYN-203 · Heart failure</td><td>2</td><td class="r">156 / 200 (78%)</td><td class="r">19 / 22</td><td><span class="p pg">On plan</span></td><td class="r">1</td><td><span class="p pg">Healthy</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row2">
+    <div class="cc">
+      <div class="ct">Portfolio enrollment (last 12 mo)</div>
+      <svg viewBox="0 0 280 140" class="svgwrap" role="img" aria-label="Portfolio cumulative enrollment">
+        <g font-size="9">
+          <line x1="30" y1="110" x2="270" y2="110" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <line x1="30" y1="10" x2="30" y2="110" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <path d="M30 105 L 50 102 L 70 95 L 90 88 L 110 78 L 130 68 L 150 60 L 170 50 L 190 42 L 210 32 L 230 24 L 250 18 L 270 14" fill="none" stroke="#378ADD" stroke-width="2.5"/>
+          <path d="M30 105 L 50 102 L 70 95 L 90 88 L 110 78 L 130 68 L 150 60 L 170 50 L 190 42 L 210 32 L 230 24 L 250 18 L 270 14 L 270 110 L 30 110 Z" fill="#378ADD" opacity="0.1"/>
+          <circle cx="270" cy="14" r="3.5" fill="#378ADD"/>
+          <g fill="var(--color-text-tertiary)">
+            <text x="26" y="14" text-anchor="end">700</text>
+            <text x="26" y="62" text-anchor="end">450</text>
+            <text x="26" y="113" text-anchor="end">200</text>
+            <text x="30" y="124">Jun 25</text>
+            <text x="150" y="124" text-anchor="middle">Nov 25</text>
+            <text x="270" y="124" text-anchor="end">May 26</text>
+          </g>
+          <text x="265" y="11" font-size="9" font-weight="500" fill="#378ADD" text-anchor="end">698</text>
+        </g>
+      </svg>
+    </div>
+    <div class="cc">
+      <div class="ct">At-risk ranking (composite score)</div>
+      <table class="d">
+        <tr><td><span class="p pr">1</span> NEUROFLOW-302</td><td class="r"><span class="muted">82</span></td></tr>
+        <tr><td><span class="p pa">2</span> ONCOTRIA-301</td><td class="r"><span class="muted">61</span></td></tr>
+        <tr><td><span class="p px">3</span> CARDIODYN-203</td><td class="r"><span class="muted">28</span></td></tr>
+        <tr><td><span class="p px">4</span> IMMUNOFRX-101</td><td class="r"><span class="muted">19</span></td></tr>
+        <tr><td><span class="p px">5</span> DERMACURE-201</td><td class="r"><span class="muted">12</span></td></tr>
+      </table>
+      <div class="fz11 muted" style="margin-top:8px">Operational composite. Quality-risk score lives in M3.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="page-footer">
+  <p>CTRLM Module 5 · CTMS Operational Dashboards · Mockup for engineering reference · Demo data, not real subject information</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.ab .pt button');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.classList.remove('on'); });
+      t.classList.add('on');
+    });
+  });
+  document.querySelectorAll('.dn a').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

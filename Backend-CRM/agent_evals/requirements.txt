@@ -1,0 +1,7 @@
+# Eval-toolkit dependencies — kept SEPARATE from the app's requirements.txt so
+# the grading stack never ships in the production image.
+deepeval>=3.0
+pyyaml>=6.0
+pytest>=8.0
+# Judge model SDK (already present in the backend image; listed for standalone use)
+google-genai>=1.66
